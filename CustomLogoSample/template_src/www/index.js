@@ -34,7 +34,7 @@ document.addEventListener('deviceready', () => {
   symbologySettings.activeSymbolCounts = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
   // Create new barcode capture mode with the settings from above.
-  window.barcodeCapture = Scandit.BarcodeCapture.forContext(context, settings);
+  const barcodeCapture = Scandit.BarcodeCapture.forContext(context, settings);
 
   // Register a listener to get informed whenever a new barcode got recognized.
   barcodeCapture.addListener({
@@ -46,8 +46,10 @@ document.addEventListener('deviceready', () => {
       // until the alert dialog is dismissed, we're showing the alert through a timeout and disabling the barcode
       // capture mode until the dialog is dismissed, as you should not block the BarcodeCaptureListener callbacks for
       // longer periods of time. See the documentation to learn more about this.
-
-      window.showResult(`Scanned: ${barcode.data} (${symbology.readableName})`);
+      setTimeout(() => {
+        alert(`Scanned: ${barcode.data} (${symbology.readableName})`);
+        barcodeCapture.isEnabled = true;
+      }, 100);
       barcodeCapture.isEnabled = false;
     }
   });
@@ -69,16 +71,3 @@ document.addEventListener('deviceready', () => {
   camera.switchToDesiredState(Scandit.FrameSourceState.On);
   barcodeCapture.isEnabled = true;
 }, false);
-
-window.showResult = result => {
-  const resultElement = document.createElement('div');
-  resultElement.id = "result";
-  resultElement.classList = "result";
-  resultElement.innerHTML = `<p>${result}</p><button onclick="continueScanning()">OK</button>`;
-  document.querySelector('#data-capture-view').appendChild(resultElement)
-}
-
-window.continueScanning = () => {
-  document.querySelector('#result').parentElement.removeChild(document.querySelector('#result'))
-  window.barcodeCapture.isEnabled = true;
-}

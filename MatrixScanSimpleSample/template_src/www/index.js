@@ -1,4 +1,4 @@
-window.results = {};
+resetResults();
 
 document.addEventListener('deviceready', () => {
   // Create data capture context using your license key.
@@ -66,6 +66,12 @@ function updateResults() {
     .join('');
 };
 
+function resetResults() {
+  window.results = {};
+  document.getElementById('scanning').hidden = false;
+  document.getElementById('results').hidden = true;
+}
+
 function done() {
   updateResults();
   document.getElementById('scanning').hidden = true;
@@ -73,7 +79,5 @@ function done() {
 };
 
 function scanAgain() {
-  window.results = {};
-  document.getElementById('scanning').hidden = false;
-  document.getElementById('results').hidden = true;
+  resetResults();
 };
