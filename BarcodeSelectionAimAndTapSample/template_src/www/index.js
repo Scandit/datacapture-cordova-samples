@@ -83,7 +83,7 @@ document.addEventListener('deviceready', () => {
 
       // Update visualizations
       Object.values(session.trackedBarcodes).forEach(trackedBarcode =>
-        window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.barcode.location)
+        window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.predictedLocation)
           .then(location => {
             if (overlapsCenter(center, location)) {
               targetedBarcode = trackedBarcode;

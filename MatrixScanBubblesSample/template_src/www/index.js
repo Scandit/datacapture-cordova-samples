@@ -57,7 +57,7 @@ document.addEventListener('deviceready', () => {
 
       // Update AR views
       Object.values(session.trackedBarcodes).forEach(trackedBarcode =>
-        window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.barcode.location)
+        window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.predictedLocation)
           .then(location => updateView(trackedBarcode, location, isViewShowingAlternateContent[trackedBarcode.identifier])));
 
       session.addedTrackedBarcodes.forEach(trackedBarcode => {
@@ -92,7 +92,7 @@ document.addEventListener('deviceready', () => {
   window.advancedOverlay = Scandit.BarcodeTrackingAdvancedOverlay.withBarcodeTrackingForView(barcodeTracking, window.view);
   window.advancedOverlay.listener = {
     didTapViewForTrackedBarcode: (overlay, trackedBarcode) => {
-      window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.barcode.location)
+      window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.predictedLocation)
         .then(location => updateView(trackedBarcode, location, !isViewShowingAlternateContent[trackedBarcode.identifier]));
     },
   }
@@ -132,13 +132,12 @@ const updateView = (trackedBarcode, viewLocation, isShowingAlternateContent = fa
 
   // If the barcode is wider than the desired percent of the data capture view's width, show it to the user.
   const shouldBeShown = viewLocation.width() > (screen.width * 0.1);
+  var viewContent = null;
   if (shouldBeShown) {
     // Get the information you want to show from your back end system/database.
     viewContent = isShowingAlternateContent
       ? { title: trackedBarcode.barcode.data }
       : { title: "Report stock count", text: "Shelf: 4 Back Room: 8" };
-  } else {
-    viewContent = null;
   }
 
   // The AR view associated with the tracked barcode should only be set again if it was changed,
