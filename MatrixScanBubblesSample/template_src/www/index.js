@@ -22,14 +22,14 @@ document.addEventListener('deviceready', () => {
 
   // Use the recommended camera settings for the BarcodeTracking mode as default settings.
   // The preferred resolution is automatically chosen, which currently defaults to HD on all devices.
-  // Setting the preferred resolution to full HD helps to get a better decode range.
+  // Setting the preferred resolution to 4K helps to get a better decode range.
   const cameraSettings = Scandit.BarcodeTracking.recommendedCameraSettings;
-  cameraSettings.preferredResolution = Scandit.VideoResolution.FullHD;
+  cameraSettings.preferredResolution = Scandit.VideoResolution.UHD4K;
   window.camera.applySettings(cameraSettings).catch(console.warn);
 
   // The barcode tracking process is configured through barcode tracking settings
   // and are then applied to the barcode tracking instance that manages barcode tracking.
-  const settings = new Scandit.BarcodeTrackingSettings();
+  const settings = Scandit.BarcodeTrackingSettings.forScenario(Scandit.BarcodeTrackingScenario.A);
 
   // The settings instance initially has all types of barcodes (symbologies) disabled. For the purpose of this
   // sample we enable a very generous set of symbologies. In your own app ensure that you only enable the
@@ -57,7 +57,7 @@ document.addEventListener('deviceready', () => {
 
       // Update AR views
       Object.values(session.trackedBarcodes).forEach(trackedBarcode =>
-        window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.predictedLocation)
+        window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.location)
           .then(location => updateView(trackedBarcode, location, isViewShowingAlternateContent[trackedBarcode.identifier])));
 
       session.addedTrackedBarcodes.forEach(trackedBarcode => {
@@ -92,7 +92,7 @@ document.addEventListener('deviceready', () => {
   window.advancedOverlay = Scandit.BarcodeTrackingAdvancedOverlay.withBarcodeTrackingForView(barcodeTracking, window.view);
   window.advancedOverlay.listener = {
     didTapViewForTrackedBarcode: (overlay, trackedBarcode) => {
-      window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.predictedLocation)
+      window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.location)
         .then(location => updateView(trackedBarcode, location, !isViewShowingAlternateContent[trackedBarcode.identifier]));
     },
   }
