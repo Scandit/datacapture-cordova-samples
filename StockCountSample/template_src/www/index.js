@@ -12,7 +12,7 @@ document.addEventListener('deviceready', () => {
   // Setting the preferred resolution to full HD helps to get a better decode range.
   const cameraSettings = Scandit.BarcodeTracking.recommendedCameraSettings;
   cameraSettings.preferredResolution = Scandit.VideoResolution.FullHD;
-  window.camera.applySettings(cameraSettings).catch(console.warn);
+  camera.applySettings(cameraSettings).catch(console.warn);
 
   // The barcode tracking process is configured through barcode tracking settings
   // and are then applied to the barcode tracking instance that manages barcode recognition.
