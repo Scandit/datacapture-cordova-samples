@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+        <title>MatrixScanRejectSample</title>
+
+        <style>
+            body {
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+                position: absolute;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            button {
+                width: 90vw;
+                height: 8vh;
+                background: #2EC1CE;
+                border: none;
+                color: white;
+                font-size: 1em;
+                font-weight: bold;
+                border-radius: 6px;
+            }
+
+            #data-capture-view {
+                z-index: -1;
+            }
+
+            .top {
+                position: relative;
+                top: 0;
+
+                width: 100vw;
+                height: 100vh;
+            }
+
+            .bottom {
+                position: fixed;
+                bottom: 5vh;
+
+                width: 100vw;
+                height: 12vh;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            #list {
+                width: 100vw;
+                height: calc(88vh - env(safe-area-inset-top, 20px));
+                padding-top: env(safe-area-inset-top, 20px);
+                overflow: scroll;
+            }
+
+            .result {
+                margin: 10px;
+                padding: 10px;
+                border-bottom: 1px solid lightgrey;
+            }
+
+            .result p {
+                margin: 0;
+            }
+
+            .symbology {
+                color: #2EC1CE;
+                font-size: 0.9em;
+            }
+        </style>
+    </head>
+    <body style="margin: 0; padding: 0;">
+        <div id="scanning">
+            <div id="data-capture-view" class="top"></div>
+            <div class="bottom">
+                <button onclick="done()">DONE</button>
+            </div>
+        </div>
+        <div id="results">
+            <div id="list" class="top"></div>
+            <div class="bottom">
+                <button onclick="scanAgain()">SCAN AGAIN</button>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>
