@@ -36,11 +36,6 @@ document.addEventListener('deviceready', () => {
         return;
       }
 
-      // If the code is recognized, we want to make sure to use the default brush to highlight
-      // the code.
-      window.overlay.brush = Scandit.BarcodeCaptureOverlay.defaultBrush;
-      window.overlay.viewfinder = new Scandit.RectangularViewfinder();
-
       // We also want to emit a feedback (vibration and, if enabled, sound).
       Scandit.Feedback.defaultFeedback.emit();
 
@@ -50,10 +45,6 @@ document.addEventListener('deviceready', () => {
 
       window.showResult(`Scanned: ${barcode.data} (${symbology.readableName})`);
       barcodeCapture.isEnabled = false;
-
-      // We temporarily change the brush, used to highlight recognized barcodes, to a
-      // transparent brush.
-      window.overlay.brush = Scandit.Brush.transparent;
     }
   });
 
