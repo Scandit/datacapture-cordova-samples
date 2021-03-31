@@ -34,8 +34,8 @@ document.addEventListener('deviceready', () => {
   barcodeTracking.addListener({
     didUpdateSession: (barcodeTracking, session) => {
       Object.values(session.trackedBarcodes).forEach(trackedBarcode => {
-          // If the code scanned starts with '08:' we will ignore it and mark with red brush
-          if (trackedBarcode.barcode.data.startsWith('08:')) {
+          // If the code scanned starts with '7' we will ignore it and mark with red brush
+          if (trackedBarcode.barcode.data.startsWith('7')) {
             window.overlay.setBrushForTrackedBarcode(rejectBrush, trackedBarcode);
           } else {
             window.results[trackedBarcode.barcode.data] = trackedBarcode;

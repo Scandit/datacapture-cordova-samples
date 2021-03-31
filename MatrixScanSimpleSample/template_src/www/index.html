@@ -18,7 +18,7 @@
 
             button {
                 width: 90vw;
-                height: 8vh;
+                height: 60px;
                 background: #2EC1CE;
                 border: none;
                 color: white;
@@ -40,10 +40,9 @@
 
             .bottom {
                 position: fixed;
-                bottom: 5vh;
+                bottom: calc(env(safe-area-inset-bottom, 0px) + 40px);
 
                 width: 100vw;
-                height: 12vh;
 
                 display: flex;
                 justify-content: center;
@@ -52,7 +51,7 @@
 
             #list {
                 width: 100vw;
-                height: calc(88vh - env(safe-area-inset-top, 20px));
+                height: calc(100vh - env(safe-area-inset-top, 20px) - calc(env(safe-area-inset-bottom, 0px) + 40px) - 20px - 60px);
                 padding-top: env(safe-area-inset-top, 20px);
                 overflow: scroll;
             }
