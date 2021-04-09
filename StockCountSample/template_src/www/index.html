@@ -6,7 +6,7 @@
         content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, user-scalable=no" />
     <title>StockCountSample</title>
 
     <style>
@@ -14,24 +14,18 @@
             font-family: 'Helvetica', 'Arial';
             margin: 0;
             padding: 0;
-
-            --inset-left: max(env(safe-area-inset-left, 10px), 10px);
-            --inset-right: max(env(safe-area-inset-right, 10px), 10px);
-            --list-height: max(20vh, 100px);
         }
 
         #data-capture-view {
             width: 100vw;
-            height: calc(100vh - var(--list-height));
+            height: 80vh;
         }
 
         #content {
-            width: calc(100vw - var(--inset-left) - var(--inset-right));
-            min-height: var(--list-height);
+            width: calc(100vw - 2 * 10px);
+            min-height: 20vh;
             position: relative;
             padding: 10px;
-            padding-left: var(--inset-left);
-            padding-right: var(--inset-right);
         }
 
         #content,

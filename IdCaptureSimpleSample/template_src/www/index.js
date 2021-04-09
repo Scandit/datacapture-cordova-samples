@@ -60,8 +60,6 @@ document.addEventListener('deviceready', () => {
   });
 
   window.idCapture.isEnabled = true;
-
-  window.idCaptureOverlay = Scandit.IdCaptureOverlay.withIdCaptureForView(window.idCapture, view);
 }, false);
 
 window.showResult = result => {
@@ -189,7 +187,7 @@ window.descriptionForCapturedId = (result) => {
   Last Name: ${result.lastName || "empty"}<br>
   Full Name: ${result.fullName}<br>
   Sex: ${result.sex || "empty"}<br>
-  Date of Birth: ${JSON.stringify(result.dateOfBirth && result.dateOfBirth.date) || "empty"}<br>
+  Date of Birth: ${JSON.stringify(result.dateOfBirth.date) || "empty"}<br>
   Nationality: ${result.nationality || "empty"}<br>
   Address: ${result.address || "empty"}<br>
   Document Type: ${result.documentType}<br>
@@ -197,7 +195,7 @@ window.descriptionForCapturedId = (result) => {
   Issuing Country: ${result.issuingCountry || "empty"}<br>
   Issuing Country ISO: ${result.issuingCountryISO || "empty"}<br>
   Document Number: ${result.documentNumber || "empty"}<br>
-  Date of Expiry: ${JSON.stringify(result.dateOfExpiry && result.dateOfExpiry.date) || "empty"}<br>
-  Date of Issue: ${JSON.stringify(result.dateOfIssue && result.dateOfIssue.date) || "empty"}<br>
+  Date of Expiry: ${JSON.stringify(result.dateOfExpiry.date) || "empty"}<br>
+  Date of Issue: ${JSON.stringify(result.dateOfIssue.date) || "empty"}<br>
   `
 }
