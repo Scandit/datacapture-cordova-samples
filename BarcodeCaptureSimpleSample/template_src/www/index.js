@@ -7,7 +7,7 @@ document.addEventListener('deviceready', () => {
   const camera = Scandit.Camera.default;
   context.setFrameSource(camera);
 
-  // The barcode capturing process is configured through barcode capture settings  
+  // The barcode capturing process is configured through barcode capture settings
   // and are then applied to the barcode capture instance that manages barcode recognition.
   const settings = new Scandit.BarcodeCaptureSettings();
 
@@ -15,14 +15,14 @@ document.addEventListener('deviceready', () => {
   // sample we enable a very generous set of symbologies. In your own app ensure that you only enable the
   // symbologies that your app requires as every additional enabled symbology has an impact on processing times.
   settings.enableSymbologies([
-    Scandit.Symbology.EAN13UPCA,
-    Scandit.Symbology.EAN8,
-    Scandit.Symbology.UPCE,
-    Scandit.Symbology.QR,
-    Scandit.Symbology.DataMatrix,
-    Scandit.Symbology.Code39,
-    Scandit.Symbology.Code128,
-    Scandit.Symbology.InterleavedTwoOfFive,
+      Scandit.Symbology.EAN13UPCA,
+      Scandit.Symbology.EAN8,
+      Scandit.Symbology.UPCE,
+      Scandit.Symbology.QR,
+      Scandit.Symbology.DataMatrix,
+      Scandit.Symbology.Code39,
+      Scandit.Symbology.Code128,
+      Scandit.Symbology.InterleavedTwoOfFive,
   ]);
 
   // Some linear/1d barcode symbologies allow you to encode variable-length data. By default, the Scandit
@@ -62,7 +62,10 @@ document.addEventListener('deviceready', () => {
   // Add a barcode capture overlay to the data capture view to render the location of captured barcodes on top of
   // the video preview. This is optional, but recommended for better visual feedback.
   const overlay = Scandit.BarcodeCaptureOverlay.withBarcodeCaptureForView(barcodeCapture, view);
-  overlay.viewfinder = new Scandit.RectangularViewfinder();
+  overlay.viewfinder = new Scandit.RectangularViewfinder(
+      Scandit.RectangularViewfinderStyle.Square,
+      Scandit.RectangularViewfinderLineStyle.Light,
+  );
 
   // Switch camera on to start streaming frames and enable the barcode capture mode.
   // The camera is started asynchronously and will take some time to completely turn on.

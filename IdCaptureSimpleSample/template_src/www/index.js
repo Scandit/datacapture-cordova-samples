@@ -62,6 +62,8 @@ document.addEventListener('deviceready', () => {
   window.idCapture.isEnabled = true;
 
   window.idCaptureOverlay = Scandit.IdCaptureOverlay.withIdCaptureForView(window.idCapture, view);
+
+  window.idCaptureOverlay.idLayoutStyle = Scandit.IdLayoutStyle.Square;
 }, false);
 
 window.showResult = result => {
