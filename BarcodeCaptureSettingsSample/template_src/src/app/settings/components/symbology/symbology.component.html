@@ -1,0 +1,68 @@
+<div>
+
+  <ion-card>
+    <ion-list>
+      <ion-item [lines]="lines" (click)="onEnabledClick($event)">
+        <ion-label>Enabled</ion-label>
+        <ion-toggle [ngModel]="form.value.enabled"></ion-toggle>
+      </ion-item>
+
+      <ion-item [lines]="lines" (click)="onColorInvertedClick($event)" *ngIf="description.isColorInvertible">
+        <ion-label>Color Inverted</ion-label>
+        <ion-toggle [ngModel]="form.value.colorInverted"></ion-toggle>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card *ngIf="description.activeSymbolCountRange?.minimum || description.activeSymbolCountRange?.maximum">
+    <div class="app-card-header">Range</div>
+
+    <ion-list>
+      <ion-item [lines]="lines">
+        <ion-label>Minimum</ion-label>
+        <ion-select [ngModel]="form.value.minimum" (ngModelChange)="onMinimumValueChange($event)" interface="popover">
+          <ion-select-option
+            *ngFor="let option of minOptions"
+            [value]="option"
+          >
+            {{ option }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item [lines]="lines">
+        <ion-label>Maximum</ion-label>
+        <ion-select [ngModel]="form.value.maximum" (ngModelChange)="onMaximumValueChange($event)" interface="popover">
+          <ion-select-option
+            *ngFor="let option of maxOptions"
+            [value]="option"
+          >
+            {{ option }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+  </ion-card>
+
+
+  <ion-card *ngIf="description.supportedExtensions?.length">
+    <div class="app-card-header">Extensions</div>
+
+    <ion-list>
+      <ion-radio-group
+        *ngFor="let extension of description.supportedExtensions"
+        [ngModel]="enabledExtensions[extension]"
+        (ngModelChange)="onExtensionsToggle(extension)"
+        [allowEmptySelection]="true"
+      >
+        <ion-item [lines]="lines">
+          <ion-label>{{ extension }}</ion-label>
+          <ion-radio slot="end" [value]="extension"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+  </ion-card>
+
+</div>

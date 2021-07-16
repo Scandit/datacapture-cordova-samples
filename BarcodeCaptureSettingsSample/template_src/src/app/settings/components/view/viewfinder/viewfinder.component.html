@@ -1,0 +1,101 @@
+<form [formGroup]="form">
+
+  <ion-card>
+    <div class="app-card-header">{{ viewfinderType.label }}</div>
+    <app-flat-select [formControlName]="fieldName.VIEWFINDER_TYPE"></app-flat-select>
+  </ion-card>
+
+  <div *ngIf="type === 'laserline'" class="app-card-header">Laserline</div>
+  <div *ngIf="type === 'rectangular'" class="app-card-header">Rectangular</div>
+  <div *ngIf="type === 'aimer'" class="app-card-header">Aimer</div>
+
+  <ion-card *ngIf="type === 'aimer'">
+    <ion-list>
+      <app-select [formControlName]="fieldName.VIEWFINDER_AIMER_FRAME_COLOR"></app-select>
+      <app-select [formControlName]="fieldName.VIEWFINDER_AIMER_DOT_COLOR"></app-select>
+    </ion-list>
+  </ion-card>
+
+  <ion-card *ngIf="type === 'laserline'">
+    <ion-list>
+      <app-select [formControlName]="fieldName.VIEWFINDER_LASERLINE_STYLE"></app-select>
+      <app-unit-number-item
+        [currentValue]="form.value[fieldName.VIEWFINDER_LASERLINE_WIDTH]"
+        [field]="fields[fieldName.VIEWFINDER_LASERLINE_WIDTH]"
+      ></app-unit-number-item>
+      <app-select [formControlName]="fieldName.VIEWFINDER_ENABLED_COLOR"></app-select>
+      <app-select [formControlName]="fieldName.VIEWFINDER_DISABLED_COLOR"></app-select>
+    </ion-list>
+  </ion-card>
+
+  <div *ngIf="type === 'rectangular'">
+    <ion-card>
+      <ion-list>
+        <app-select [formControlName]="fieldName.VIEWFINDER_STYLE"></app-select>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <ion-list>
+        <app-select [formControlName]="fieldName.VIEWFINDER_LINE_STYLE"></app-select>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <ion-list>
+        <app-number-input [formControlName]="fieldName.VIEWFINDER_DIMMING"></app-number-input>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <ion-list>
+        <app-select [formControlName]="fieldName.VIEWFINDER_COLOR"></app-select>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <ion-list>
+        <app-select [formControlName]="fieldName.VIEWFINDER_SIZE_SPECIFICATION"></app-select>
+      </ion-list>
+    </ion-card>
+
+    <ion-card>
+      <ion-list>
+
+        <app-unit-number-item
+          *ngIf="sizeSpecification === 'widthAndHeight' || sizeSpecification === 'widthAndHeightAspect'"
+          [currentValue]="form.value[fieldName.VIEWFINDER_WIDTH]"
+          [field]="fields[fieldName.VIEWFINDER_WIDTH]"
+        ></app-unit-number-item>
+
+        <app-unit-number-item
+          *ngIf="sizeSpecification === 'widthAndHeight' || sizeSpecification === 'heightAndWidthAspect'"
+          [currentValue]="form.value[fieldName.VIEWFINDER_HEIGHT]"
+          [field]="fields[fieldName.VIEWFINDER_HEIGHT]"
+        ></app-unit-number-item>
+
+        <app-number-input
+          *ngIf="sizeSpecification === 'widthAndHeightAspect'"
+          [formControlName]="fieldName.VIEWFINDER_HEIGHT_ASPECT"
+        ></app-number-input>
+
+        <app-number-input
+          *ngIf="sizeSpecification === 'heightAndWidthAspect'"
+          [formControlName]="fieldName.VIEWFINDER_WIDTH_ASPECT"
+        ></app-number-input>
+
+        <app-number-input
+          *ngIf="sizeSpecification === 'shorterDimensionAndAspectRatio'"
+          [formControlName]="fieldName.VIEWFINDER_SHORTER_DIM"
+        ></app-number-input>
+
+        <app-number-input
+          *ngIf="sizeSpecification === 'shorterDimensionAndAspectRatio'"
+          [formControlName]="fieldName.VIEWFINDER_ASPECT_RATIO"
+        ></app-number-input>
+
+      </ion-list>
+    </ion-card>
+  </div>
+
+</form>

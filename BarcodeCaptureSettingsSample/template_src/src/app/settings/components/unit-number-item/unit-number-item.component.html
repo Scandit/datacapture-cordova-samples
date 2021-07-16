@@ -1,0 +1,8 @@
+<ion-item
+  [routerLink]="field.path"
+  [lines]="lines"
+  [detail]="isIos"
+>
+  <ion-label>{{ field.label }}</ion-label>
+  <ion-label class="unit-number-item__value" slot="end">{{ currentValue?.value }} ({{ currentValue?.unit }})</ion-label>
+</ion-item>

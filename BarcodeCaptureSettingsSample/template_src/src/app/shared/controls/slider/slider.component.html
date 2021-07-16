@@ -1,0 +1,16 @@
+<ion-item [lines]="lines">
+  <ion-grid class="app-slider-grid">
+    <ion-row class="ion-justify-content-between">
+      <ion-label>{{ field.label }}</ion-label>
+      <span class="app-slider-value">{{ value }}</span>
+    </ion-row>
+    <ion-row>
+      <ion-range
+        [min]="field.min"
+        [max]="field.max"
+        [ngModel]="value"
+        (ngModelChange)="onValueChange($event)"
+      ></ion-range>
+    </ion-row>
+  </ion-grid>
+</ion-item>

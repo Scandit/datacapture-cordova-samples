@@ -1,0 +1,50 @@
+<form [formGroup]="form">
+
+  <ion-card>
+    <div class="app-card-header">{{ locationSelectionType.label }}</div>
+    <app-flat-select [formControlName]="fieldName.LOCATION_SELECTION_TYPE"></app-flat-select>
+  </ion-card>
+
+  <div *ngIf="type === 'radius'" class="app-card-header">Radius</div>
+  <div *ngIf="type === 'rectangular'" class="app-card-header">Rectangular</div>
+
+  <ion-card *ngIf="type === 'radius'">
+    <ion-list>
+      <app-unit-number-item
+        [currentValue]="form.value[fieldName.LOCATION_SELECTION_SIZE]"
+        [field]="fields[fieldName.LOCATION_SELECTION_SIZE]"
+      ></app-unit-number-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-card *ngIf="type === 'rectangular'">
+    <ion-list>
+
+      <app-select [formControlName]="fieldName.LOCATION_SELECTION_SIZE_SPECIFICATION"></app-select>
+
+      <app-unit-number-item
+        *ngIf="sizeSpecification === 'widthAndHeight' || sizeSpecification === 'widthAndHeightAspect'"
+        [currentValue]="form.value[fieldName.LOCATION_SELECTION_WIDTH]"
+        [field]="fields[fieldName.LOCATION_SELECTION_WIDTH]"
+      ></app-unit-number-item>
+
+      <app-unit-number-item
+        *ngIf="sizeSpecification === 'widthAndHeight' || sizeSpecification === 'heightAndWidthAspect'"
+        [currentValue]="form.value[fieldName.LOCATION_SELECTION_HEIGHT]"
+        [field]="fields[fieldName.LOCATION_SELECTION_HEIGHT]"
+      ></app-unit-number-item>
+
+      <app-number-input
+        *ngIf="sizeSpecification === 'widthAndHeightAspect'"
+        [formControlName]="fieldName.LOCATION_SELECTION_HEIGHT_ASPECT"
+      ></app-number-input>
+
+      <app-number-input
+        *ngIf="sizeSpecification === 'heightAndWidthAspect'"
+        [formControlName]="fieldName.LOCATION_SELECTION_WIDTH_ASPECT"
+      ></app-number-input>
+
+    </ion-list>
+  </ion-card>
+
+</form>

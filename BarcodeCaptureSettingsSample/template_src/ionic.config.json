@@ -1,0 +1,7 @@
+{
+  "name": "cordova-settings-sample",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

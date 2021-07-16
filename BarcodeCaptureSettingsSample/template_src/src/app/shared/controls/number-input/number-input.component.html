@@ -1,0 +1,13 @@
+<ion-item [lines]="lines">
+  <ion-label>{{ field.label }}</ion-label>
+  <ion-input
+    class="app-number-input"
+    slot="end"
+    [min]="field.min"
+    [max]="field.max"
+    type="number"
+    inputmode="numeric"
+    [ngModel]="value"
+    (ngModelChange)="onValueChange($event)"
+  ></ion-input>
+</ion-item>
