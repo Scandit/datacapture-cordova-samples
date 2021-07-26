@@ -17,8 +17,10 @@ document.addEventListener('deviceready', () => {
   window.textCapture = Scandit.TextCapture.forContext(context);
 
   // Create a new parser instance that manages parsing when in GS1 mode.
-  window.parser = Scandit.Parser.forContextAndFormat(context, Scandit.ParserDataFormat.GS1AI);
-  window.parser.setOptions({ allowHumanReadableCodes: true });
+  Scandit.Parser.forContextAndFormat(context, Scandit.ParserDataFormat.GS1AI).then(parser => {
+    window.parser = parser;
+    window.parser.setOptions({ allowHumanReadableCodes: true });
+  });
 
   // Register a listener to get informed whenever new text got recognized.
   window.textCapture.addListener({
@@ -30,7 +32,7 @@ document.addEventListener('deviceready', () => {
         window.parser.parseString(text.value)
           .then(parsedData => window.showResult(parsedData.fields
             .map(field => `${field.name}: ${JSON.stringify(field.parsed)}`).join('<br>')))
-          .catch(error => window.showResult(`Error while parsing "${text.value}": ${error.message}`));
+          .catch(error => window.textCapture.isEnabled = true);
       } else {
         window.showResult(text.value);
       }
@@ -71,7 +73,7 @@ window.setupMode = mode => {
     return viewfinder;
   })()
   const gs1Settings = (() => {
-    const settings = Scandit.TextCaptureSettings.fromJSON({ regex: "((\\\(\\\d+\\\)[\\\dA-Za-z]+)+)" })
+    const settings = Scandit.TextCaptureSettings.fromJSON({ regex: "((\\\(\\\d+\\\)[\\\dA-Z]+)+)" })
     settings.locationSelection = Scandit.RectangularLocationSelection
       .withWidthAndAspectRatio(new Scandit.NumberWithUnit(0.9, Scandit.MeasureUnit.Fraction), 0.2);
     return settings;

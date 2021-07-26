@@ -62,7 +62,10 @@ document.addEventListener('deviceready', () => {
       Scandit.RectangularViewfinderStyle.Square,
       Scandit.RectangularViewfinderLineStyle.Light,
   );
-  window.overlay.brush = Scandit.Brush.transparent;
+
+  // Adjust the overlay's barcode highlighting to match the new viewfinder styles and improve the visibility of
+  // feedback. With 6.10 we will introduce this visual treatment as a new style for the overlay.
+  window.overlay.brush = new Scandit.Brush(Scandit.Color.fromRGBA(0, 0, 0, 0), Scandit.Color.fromHex('FFFF'), 3);
 
   // Switch camera on to start streaming frames and enable the barcode capture mode.
   // The camera is started asynchronously and will take some time to completely turn on.

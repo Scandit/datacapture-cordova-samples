@@ -59,11 +59,10 @@ document.addEventListener('deviceready', () => {
     }
   });
 
-  window.idCapture.isEnabled = true;
-
   window.idCaptureOverlay = Scandit.IdCaptureOverlay.withIdCaptureForView(window.idCapture, view);
-
   window.idCaptureOverlay.idLayoutStyle = Scandit.IdLayoutStyle.Square;
+
+  window.idCapture.isEnabled = true;
 }, false);
 
 window.showResult = result => {

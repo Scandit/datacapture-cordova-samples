@@ -37,6 +37,7 @@ export class ScanComponent implements AfterViewInit {
       const symbology = new Scandit.SymbologyDescription(barcode.symbology);
 
       if (!this.settingsService.resultForm.value.CONTINUOUS_SCANNING) {
+        this.captureView.nativeElement.style.zIndex = '-1';
         barcodeCapture.isEnabled = false;
       }
 
@@ -102,7 +103,7 @@ export class ScanComponent implements AfterViewInit {
     if (this.settingsService.resultForm.value.CONTINUOUS_SCANNING) {
       return;
     }
-
+    this.captureView.nativeElement.style.zIndex = '1';
     this.barcodeCapture.isEnabled = true;
   }
 
@@ -184,11 +185,7 @@ export class ScanComponent implements AfterViewInit {
     const { COMPOSITE_TYPES } = this.settingsService.compositeTypes.value;
 
     const barcodeCaptureSettings = this.getBarcodeCaptureSettings();
-
-    // Disable all symbologies first.
-    barcodeCaptureSettings.enabledSymbologies
-        .forEach(item => barcodeCaptureSettings.enableSymbology(item, false));
-
+    
     // Then enable the selected composite types, which in turn enable the corresponding symbologies.
     barcodeCaptureSettings.enabledCompositeTypes = COMPOSITE_TYPES;
     barcodeCaptureSettings.enableSymbologiesForCompositeTypes(COMPOSITE_TYPES);
@@ -234,7 +231,7 @@ export class ScanComponent implements AfterViewInit {
   public applyViewSettings() {
     const { SCAN_AREA_GUIDES } = this.settingsService.scanAreaForm.value;
 
-    this.captureView.nativeElement.style.zIndex = '-1';
+    this.captureView.nativeElement.style.zIndex = '1';
     const view = Scandit.DataCaptureView.forContext(this.context);
 
     this.applyPointOfInterestSettings(view);
