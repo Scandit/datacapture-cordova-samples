@@ -11,6 +11,8 @@ import {
 
 declare var Scandit;
 
+const control = new Scandit.TorchSwitchControl();
+
 @Component({
   selector: 'app-scan',
   templateUrl: 'scan.component.html',
@@ -46,6 +48,45 @@ export class ScanComponent implements AfterViewInit {
 
       modal.subHeader = `${symbology.readableName}: ${barcode.data}`;
       modal.message = `Symbol count: ${barcode.symbolCount}`;
+
+      // Show data scanned for Composite Codes.
+      if (barcode.compositeFlag && barcode.compositeFlag !== Scandit.CompositeFlag.Unknown) {
+        let compositeCodeType = '';
+
+        switch (barcode.compositeFlag) {
+          case Scandit.CompositeFlag.GS1TypeA:
+            compositeCodeType = 'CC Type A';
+            break;
+          case Scandit.CompositeFlag.GS1TypeB:
+            compositeCodeType = 'CC Type B';
+            break;
+          case Scandit.CompositeFlag.GS1TypeC:
+            compositeCodeType = 'CC Type C';
+            break;
+          default:
+            break;
+        }
+
+        modal.subHeader = '';
+        modal.message = `
+            ${compositeCodeType}<br/>
+            ${symbology.readableName}<br/>
+            ${barcode.data}<br/>
+            ${barcode.compositeData}<br/>
+            Symbol count: ${barcode.symbolCount}<br/>
+        `;
+      }
+
+      // Show data scanned for Add-on Codes.
+      if (barcode.addOnData) {
+        modal.subHeader = '';
+        modal.message = `
+          ${symbology.readableName}:<br/>
+          ${barcode.data}<br/>
+          ${barcode.addOnData}<br/>
+          Symbol count: ${barcode.symbolCount}<br/>
+        `;
+      }
 
       modal.onDidDismiss().then(() => {
         if (this.isPageActive) {
@@ -91,6 +132,7 @@ export class ScanComponent implements AfterViewInit {
   public ionViewWillLeave() {
     this.isPageActive = false;
     this.barcodeCapture.isEnabled = false;
+    this.context.frameSource.switchToDesiredState(Scandit.FrameSourceState.Off);
   }
 
   public ngAfterViewInit() {
@@ -238,6 +280,7 @@ export class ScanComponent implements AfterViewInit {
     this.applyScanAreaSettings(view);
     this.applyLogoSettings(view);
     this.applyGesturesSettings(view);
+    this.applyControlsSettings(view);
 
     view.connectToElement(this.captureView.nativeElement);
 
@@ -316,11 +359,23 @@ export class ScanComponent implements AfterViewInit {
     view.swipeGesture = SWIPE_TO_ZOOM ? new Scandit.SwipeToZoom() : null;
   }
 
+  private applyControlsSettings(view) {
+    const { TORCH_BUTTON } = this.settingsService.controlsForm.value;
+
+    if (TORCH_BUTTON === true) {
+      view.addControl(control);
+    } else {
+      view.removeControl(control);
+    }
+  }
+
   private applyViewfinderSettings(overlay) {
     const {
       VIEWFINDER_STYLE,
       VIEWFINDER_LINE_STYLE,
       VIEWFINDER_DIMMING,
+      VIEWFINDER_ANIMATED,
+      VIEWFINDER_LOOPING,
       VIEWFINDER_COLOR,
       VIEWFINDER_ENABLED_COLOR,
       VIEWFINDER_DISABLED_COLOR,
@@ -360,6 +415,10 @@ export class ScanComponent implements AfterViewInit {
       viewfinder.dimming = VIEWFINDER_DIMMING;
       const width = this.getNumberWithUnit(VIEWFINDER_WIDTH);
       const height = this.getNumberWithUnit(VIEWFINDER_HEIGHT);
+
+      if (VIEWFINDER_ANIMATED) {
+        viewfinder.animation = new Scandit.RectangularViewfinderAnimation(VIEWFINDER_LOOPING);
+      }
 
       if (VIEWFINDER_SIZE_SPECIFICATION === SizeSpecification.WidthAndHeight) {
         const size = new Scandit.SizeWithUnit(width, height);

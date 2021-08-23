@@ -41,7 +41,8 @@
 
             .bottom {
                 position: fixed;
-                bottom: 5vh;
+                bottom: calc(constant(safe-area-inset-bottom) + 30px);
+                bottom: calc(env(safe-area-inset-bottom) + 30px);
 
                 width: 100vw;
                 height: 12vh;

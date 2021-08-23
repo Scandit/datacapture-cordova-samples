@@ -47,6 +47,13 @@
       </ion-list>
     </ion-card>
 
+    <ion-card *ngIf="rectangularStyle !== 'legacy'">
+      <ion-list>
+        <app-toggle [formControlName]="fieldName.VIEWFINDER_ANIMATED"></app-toggle>
+        <app-toggle [formControlName]="fieldName.VIEWFINDER_LOOPING"></app-toggle>
+      </ion-list>
+    </ion-card>
+
     <ion-card>
       <ion-list>
         <app-select [formControlName]="fieldName.VIEWFINDER_COLOR"></app-select>

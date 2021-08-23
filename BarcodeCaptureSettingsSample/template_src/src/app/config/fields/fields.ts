@@ -331,6 +331,18 @@ export const settingsFields = (Scandit): SettingsFields => ({
     key: SettingsFieldName.VIEWFINDER_DIMMING,
     defaultValue: 0,
   } as SettingsField<number>,
+  [SettingsFieldName.VIEWFINDER_ANIMATED]: {
+    label: 'Animated',
+    type: SettingsFieldType.TOGGLE,
+    key: SettingsFieldName.VIEWFINDER_ANIMATED,
+    defaultValue: true,
+  } as SettingsField<boolean>,
+  [SettingsFieldName.VIEWFINDER_LOOPING]: {
+    label: 'Looping',
+    type: SettingsFieldType.TOGGLE,
+    key: SettingsFieldName.VIEWFINDER_LOOPING,
+    defaultValue: true,
+  } as SettingsField<boolean>,
   [SettingsFieldName.VIEWFINDER_COLOR]: {
     label: 'Color',
     type: SettingsFieldType.SELECT,
@@ -346,9 +358,9 @@ export const settingsFields = (Scandit): SettingsFields => ({
     label: 'Enabled Color',
     type: SettingsFieldType.SELECT,
     key: SettingsFieldName.VIEWFINDER_ENABLED_COLOR,
-    defaultValue: ViewfinderColor.Blue,
+    defaultValue: ViewfinderColor.White,
     options: [
-      { label: 'Default', value: ViewfinderColor.Blue },
+      { label: 'Default', value: ViewfinderColor.White },
       { label: 'Red', value: ViewfinderColor.Red },
       { label: 'White', value: ViewfinderColor.White },
     ],

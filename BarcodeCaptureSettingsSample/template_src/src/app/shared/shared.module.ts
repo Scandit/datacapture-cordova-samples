@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SettingsHeaderComponent } from './settings-header/settings-header.component';
 import {
   FlatSelectComponent,
+  MultipleFlatSelectComponent,
   SelectComponent,
   SliderComponent,
   ToggleComponent,
@@ -19,6 +20,7 @@ const components = [
   SettingsHeaderComponent,
 
   FlatSelectComponent,
+  MultipleFlatSelectComponent,
   SelectComponent,
   SliderComponent,
   ToggleComponent,

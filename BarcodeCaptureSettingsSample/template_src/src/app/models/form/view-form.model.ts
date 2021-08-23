@@ -32,6 +32,8 @@ export interface ViewViewfinderFormValue {
   [SettingsFieldName.VIEWFINDER_STYLE]: string;
   [SettingsFieldName.VIEWFINDER_LINE_STYLE]: string;
   [SettingsFieldName.VIEWFINDER_DIMMING]: string;
+  [SettingsFieldName.VIEWFINDER_ANIMATED]: boolean;
+  [SettingsFieldName.VIEWFINDER_LOOPING]: boolean;
   [SettingsFieldName.VIEWFINDER_COLOR]: ViewfinderColor;
   [SettingsFieldName.VIEWFINDER_LASERLINE_WIDTH]: UnitNumber;
   [SettingsFieldName.VIEWFINDER_LASERLINE_STYLE]: string;

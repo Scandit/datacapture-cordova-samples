@@ -1,13 +1,13 @@
 export enum BrushColor {
-  Default = 'rgba(0,0,255,0.2)',
+  Default = 'rgba(255,255,255,0.2)',
   Red = 'rgba(255,0,0,0.2)',
   Green = 'rgba(0,255,0,0.2)',
 }
 
 export enum ViewfinderColor {
-  White = 'rgba(0,0,0)',
+  Black = 'rgba(0,0,0)',
   Red = 'rgba(255,0,0)',
-  Black = 'rgba(255,255,255)',
+  White = 'rgba(255,255,255)',
   Blue = 'rgba(0,0,255)',
 }
 

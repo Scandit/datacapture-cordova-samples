@@ -39,6 +39,10 @@ export class ViewfinderComponent extends SettingsBase implements OnInit {
     return this.form.value.VIEWFINDER_TYPE;
   }
 
+  public get rectangularStyle() {
+    return this.form.value.VIEWFINDER_STYLE;
+  }
+
   public get sizeSpecification() {
     return this.form.value.VIEWFINDER_SIZE_SPECIFICATION;
   }
