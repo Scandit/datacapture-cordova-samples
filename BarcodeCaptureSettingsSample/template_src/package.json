@@ -29,8 +29,8 @@
         "cordova-plugin-wkwebview-engine": "^1.1.4",
         "nan": "^2.14.2",
         "rxjs": "~6.5.1",
-        "scandit-cordova-datacapture-barcode": "6.9.1",
-        "scandit-cordova-datacapture-core": "6.9.1",
+        "scandit-cordova-datacapture-barcode": "6.9.2",
+        "scandit-cordova-datacapture-core": "6.9.2",
         "tslib": "^1.10.0",
         "zone.js": "~0.10.2"
     },
