@@ -38,6 +38,7 @@ export const fieldsStructure = Scandit => ({
       SettingsFieldName.POINT_OF_INTEREST_Y,
     ],
     overlay: [
+      SettingsFieldName.OVERLAY_STYLE,
       SettingsFieldName.BRUSH,
     ],
     viewfinder: [
@@ -69,6 +70,7 @@ export const fieldsStructure = Scandit => ({
     ],
     controls: [
       SettingsFieldName.TORCH_BUTTON,
+      SettingsFieldName.ZOOM_BUTTON,
     ],
     gestures: [
       SettingsFieldName.TAP_TO_FOCUS,

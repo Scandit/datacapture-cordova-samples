@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+        <title>BSSimpleSample</title>
+
+        <style>
+            #data-capture-view {
+                width: 100vw;
+                height: calc(100vh - env(safe-area-inset-bottom, 0px) - 0.8em - (2*1em));
+                z-index: 1;
+            }
+
+            #buttons {
+                width: 100vw;
+                height: calc(env(safe-area-inset-bottom, 0px) + 0.8em);
+                padding: 1em 0;
+                background-color: black;
+
+                position: fixed;
+                bottom: 0;
+                left: 0;
+
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+
+            #buttons button {
+                border: none;
+                color: white;
+                font-size: 0.8em;
+            }
+
+            #buttons button.selected {
+                font-weight: bold;
+            }
+
+            div.result {
+                position: absolute;
+                bottom: 50%;
+                left: 50%;
+                transform: translate(-50%, 50%);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 70%;
+                background: #FFFE;
+                border-radius: 8px;
+            }
+
+            .result p {
+                text-align: center;
+                font-family: Helvetica;
+            }
+
+            .result button {
+                color: #2EC1CE;
+                background: transparent;
+                border: none;
+                padding: 10px;
+                font-size: 1em;
+            }
+        </style>
+    </head>
+    <body style="margin: 0; padding: 0; height: 100vh;">
+        <div id="data-capture-view"></div>
+        <div id="buttons">
+            <button id="tapToSelect" onclick="toggleBarcodeSelectionType()">Tap to Select</button>
+            <button id="aimToSelect" onclick="toggleBarcodeSelectionType()">Aim to Select</button>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>

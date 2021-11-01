@@ -33,8 +33,11 @@ document.addEventListener('deviceready', () => {
       // If the code scanned doesn't start with '09:', we will just ignore it and continue
       // scanning.
       if (!barcode.data || !barcode.data.startsWith('09:')) {
+        window.overlay.brush = Scandit.Brush.transparent;
         return;
       }
+
+      window.overlay.brush = new Scandit.Brush(Scandit.Color.fromHex('FFF0'), Scandit.Color.fromHex('FFFF'), 3);
 
       // We also want to emit a feedback (vibration and, if enabled, sound).
       Scandit.Feedback.defaultFeedback.emit();
@@ -57,15 +60,12 @@ document.addEventListener('deviceready', () => {
 
   // Add a barcode capture overlay to the data capture view to render the location of captured barcodes on top of
   // the video preview. This is optional, but recommended for better visual feedback.
-  window.overlay = Scandit.BarcodeCaptureOverlay.withBarcodeCaptureForView(barcodeCapture, view);
+  window.overlay = Scandit.BarcodeCaptureOverlay
+    .withBarcodeCaptureForViewWithStyle(barcodeCapture, view, Scandit.BarcodeCaptureOverlayStyle.Frame);
   window.overlay.viewfinder = new Scandit.RectangularViewfinder(
       Scandit.RectangularViewfinderStyle.Square,
       Scandit.RectangularViewfinderLineStyle.Light,
   );
-
-  // Adjust the overlay's barcode highlighting to match the new viewfinder styles and improve the visibility of
-  // feedback. With 6.10 we will introduce this visual treatment as a new style for the overlay.
-  window.overlay.brush = new Scandit.Brush(Scandit.Color.fromRGBA(0, 0, 0, 0), Scandit.Color.fromHex('FFFF'), 3);
 
   // Switch camera on to start streaming frames and enable the barcode capture mode.
   // The camera is started asynchronously and will take some time to completely turn on.

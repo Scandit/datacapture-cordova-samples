@@ -3,6 +3,7 @@ import { SettingsFieldType } from './fields-type';
 import { SettingsFieldName } from './fields-name';
 import {
   BrushColor,
+  BarcodeCaptureOverlayStyle,
   ViewfinderType,
   ViewfinderColor,
   ViewfinderStyle,
@@ -266,6 +267,17 @@ export const settingsFields = (Scandit): SettingsFields => ({
   } as SettingsField<UnitNumber>,
 
   // view - overlay
+  [SettingsFieldName.OVERLAY_STYLE]: {
+    label: 'Overlay Style',
+    type: SettingsFieldType.FLAT_SELECT,
+    key: SettingsFieldName.OVERLAY_STYLE,
+    defaultValue: BarcodeCaptureOverlayStyle.Frame,
+    options: [
+      { label: 'Frame', value: BarcodeCaptureOverlayStyle.Frame },
+      { label: 'Legacy', value: BarcodeCaptureOverlayStyle.Legacy },
+    ],
+  } as SettingsField<string>,
+
   [SettingsFieldName.BRUSH]: {
     label: 'Brush',
     type: SettingsFieldType.SELECT,
@@ -492,6 +504,12 @@ export const settingsFields = (Scandit): SettingsFields => ({
     label: 'Torch Button',
     type: SettingsFieldType.TOGGLE,
     key: SettingsFieldName.TORCH_BUTTON,
+    defaultValue: false,
+  } as SettingsField<boolean>,
+  [SettingsFieldName.ZOOM_BUTTON]: {
+    label: 'Zoom Switch Button',
+    type: SettingsFieldType.TOGGLE,
+    key: SettingsFieldName.ZOOM_BUTTON,
     defaultValue: false,
   } as SettingsField<boolean>,
 

@@ -84,8 +84,8 @@ document.addEventListener('deviceready', () => {
   // Add a barcode tracking overlay to the data capture view to render the tracked barcodes on top of the video
   // preview. This is optional, but recommended for better visual feedback. The overlay is automatically added
   // to the view.
-  const basicOverlay = Scandit.BarcodeTrackingBasicOverlay.withBarcodeTrackingForView(barcodeTracking, window.view);
-  basicOverlay.defaultBrush = new Scandit.Brush(Scandit.Color.fromHex('FFF0'), Scandit.Color.fromHex('FFFF'), 2)
+  const basicOverlay = Scandit.BarcodeTrackingBasicOverlay
+    .withBarcodeTrackingForViewWithStyle(barcodeTracking, window.view, Scandit.BarcodeTrackingBasicOverlayStyle.Dot);
 
   // Add an advanced barcode tracking overlay to the data capture view to render AR visualization on top of
   // the camera preview.

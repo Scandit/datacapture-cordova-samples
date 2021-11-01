@@ -1,0 +1,9 @@
+{
+  "name": "barcodeselectionsimplesample",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova:template"
+  ]
+}

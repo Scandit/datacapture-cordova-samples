@@ -1,7 +1,7 @@
 import { SettingsFieldName } from '../../config';
 import { TypedFormGroup } from '../utils.model';
 import { UnitNumber } from '../unit-number.model';
-import { BrushColor, ViewfinderColor, ViewfinderType, SizeSpecification } from '../sdk.model';
+import { BrushColor, ViewfinderColor, ViewfinderType, SizeSpecification, BarcodeCaptureOverlayStyle } from '../sdk.model';
 
 export interface ViewScanAreaFormValue {
   [SettingsFieldName.SCAN_AREA_MARGIN_TOP]: UnitNumber;
@@ -17,6 +17,7 @@ export interface ViewPointOfInterestFormValue {
 }
 
 export interface ViewOverlayFormValue {
+  [SettingsFieldName.OVERLAY_STYLE]: BarcodeCaptureOverlayStyle;
   [SettingsFieldName.BRUSH]: BrushColor;
 }
 
@@ -51,6 +52,7 @@ export interface ViewLogoFormValue {
 
 export interface ViewControlsFormValue {
   [SettingsFieldName.TORCH_BUTTON]: boolean;
+  [SettingsFieldName.ZOOM_BUTTON]: boolean;
 }
 
 export interface ViewGesturesFormValue {

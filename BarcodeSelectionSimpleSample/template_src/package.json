@@ -1,8 +1,8 @@
 {
-    "name": "barcodecapturerejectsample",
-    "displayName": "BarcodeCaptureRejectSample",
+    "name": "barcodeselectionsimplesample",
+    "displayName": "BarcodeSelectionSimpleSample",
     "version": "1.0.0",
-    "description": "BarcodeCaptureRejectSample for the Scandit Cordova plugin",
+    "description": "BarcodeSelectionSimpleSample for the Scandit Cordova plugin",
     "main": "index.js",
     "keywords": [
         "ecosystem:cordova"

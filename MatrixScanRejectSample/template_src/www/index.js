@@ -53,7 +53,8 @@ document.addEventListener('deviceready', () => {
 
   // Add a barcode tracking overlay to the data capture view to render the location of captured barcodes on top of
   // the video preview. This is optional, but recommended for better visual feedback.
-  window.overlay = Scandit.BarcodeTrackingBasicOverlay.withBarcodeTrackingForView(barcodeTracking, view);
+  window.overlay = Scandit.BarcodeTrackingBasicOverlay
+    .withBarcodeTrackingForViewWithStyle(barcodeTracking, view, Scandit.BarcodeTrackingBasicOverlayStyle.Frame);
 
   // Switch camera on to start streaming frames and enable the barcode tracking mode.
   // The camera is started asynchronously and will take some time to completely turn on.

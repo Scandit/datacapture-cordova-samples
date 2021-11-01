@@ -11,21 +11,24 @@ import {
 
 declare var Scandit;
 
-const control = new Scandit.TorchSwitchControl();
-
 @Component({
   selector: 'app-scan',
   templateUrl: 'scan.component.html',
   styleUrls: ['scan.component.scss'],
 })
 export class ScanComponent implements AfterViewInit {
+  private torchSwitchControl = new Scandit.TorchSwitchControl();
+  private zoomSwitchControl = new Scandit.ZoomSwitchControl();
 
   public barcodeCapture;
   private context;
+  private view;
   @ViewChild('captureView') captureView: ElementRef<HTMLDivElement>;
 
   private isPageActive = false;
   private latestScanTimestamp: number;
+
+  private barcodeCaptureSettings = new Scandit.BarcodeCaptureSettings();
 
   public listener = {
     didScan: async (barcodeCapture, session, _) => {
@@ -150,18 +153,16 @@ export class ScanComponent implements AfterViewInit {
   }
 
   public getBarcodeCaptureSettings() {
-    const barcodeCaptureSettings = new Scandit.BarcodeCaptureSettings();
-
     const enabledSymbologiesSettings = Object.entries(this.settingsService.symbologiesForm.value)
       .map(([key, value]) => ({ ...value, key }))
       .filter(settings => settings.enabled);
 
-    barcodeCaptureSettings.locationSelection = this.getLocationSelectionSettings();
-    barcodeCaptureSettings.enableSymbologies(enabledSymbologiesSettings.map(({ key }) => Scandit.Symbology[key]));
+    this.barcodeCaptureSettings.locationSelection = this.getLocationSelectionSettings();
+    this.barcodeCaptureSettings.enableSymbologies(enabledSymbologiesSettings.map(({ key }) => Scandit.Symbology[key]));
 
-    enabledSymbologiesSettings.forEach(settings => this.applySymbologySettings(barcodeCaptureSettings, settings));
+    enabledSymbologiesSettings.forEach(settings => this.applySymbologySettings(this.barcodeCaptureSettings, settings));
 
-    return barcodeCaptureSettings;
+    return this.barcodeCaptureSettings;
   }
 
   public getLocationSelectionSettings() {
@@ -274,21 +275,19 @@ export class ScanComponent implements AfterViewInit {
     const { SCAN_AREA_GUIDES } = this.settingsService.scanAreaForm.value;
 
     this.captureView.nativeElement.style.zIndex = '1';
-    const view = Scandit.DataCaptureView.forContext(this.context);
+    if (!this.view) {
+      this.view = Scandit.DataCaptureView.forContext(this.context);
+    }
 
-    this.applyPointOfInterestSettings(view);
-    this.applyScanAreaSettings(view);
-    this.applyLogoSettings(view);
-    this.applyGesturesSettings(view);
-    this.applyControlsSettings(view);
+    this.applyPointOfInterestSettings(this.view);
+    this.applyScanAreaSettings(this.view);
+    this.applyLogoSettings(this.view);
+    this.applyGesturesSettings(this.view);
+    this.applyControlsSettings(this.view);
 
-    view.connectToElement(this.captureView.nativeElement);
+    this.view.connectToElement(this.captureView.nativeElement);
 
-    const overlay = Scandit.BarcodeCaptureOverlay.withBarcodeCaptureForView(this.barcodeCapture, view);
-    overlay.shouldShowScanAreaGuides = SCAN_AREA_GUIDES;
-
-    this.applyViewfinderSettings(overlay);
-    this.applyBrushSettings(overlay);
+    this.applyOverlayStyleSettings(SCAN_AREA_GUIDES, this.view);
   }
 
   private applySymbologySettings(
@@ -360,12 +359,18 @@ export class ScanComponent implements AfterViewInit {
   }
 
   private applyControlsSettings(view) {
-    const { TORCH_BUTTON } = this.settingsService.controlsForm.value;
+    const { TORCH_BUTTON, ZOOM_BUTTON } = this.settingsService.controlsForm.value;
 
     if (TORCH_BUTTON === true) {
-      view.addControl(control);
+      view.addControl(this.torchSwitchControl);
     } else {
-      view.removeControl(control);
+      view.removeControl(this.torchSwitchControl);
+    }
+
+    if (ZOOM_BUTTON === true) {
+      view.addControl(this.zoomSwitchControl);
+    } else {
+      view.removeControl(this.zoomSwitchControl);
     }
   }
 
@@ -442,14 +447,26 @@ export class ScanComponent implements AfterViewInit {
     }
   }
 
-  private applyBrushSettings(overlay) {
-    const { BRUSH } = this.settingsService.overlayForm.value;
+  private applyOverlayStyleSettings(SCAN_AREA_GUIDES, view) {
+    const { BRUSH, OVERLAY_STYLE } = this.settingsService.overlayForm.value;
+
+    view.overlays.forEach(overlay => view.removeOverlay(overlay))
+
+    const overlay = Scandit.BarcodeCaptureOverlay.withBarcodeCaptureForViewWithStyle(
+        this.barcodeCapture,
+        view,
+        OVERLAY_STYLE,
+    );
+
+    overlay.shouldShowScanAreaGuides = SCAN_AREA_GUIDES;
 
     overlay.brush = new Scandit.Brush(
       this.getColor(BRUSH),
       this.getColor(BRUSH),
       1
     );
+
+    this.applyViewfinderSettings(overlay);
   }
 
   private getColor(rgbaString: string) {

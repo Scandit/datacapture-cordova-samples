@@ -4,6 +4,11 @@ export enum BrushColor {
   Green = 'rgba(0,255,0,0.2)',
 }
 
+export enum BarcodeCaptureOverlayStyle {
+  Legacy = 'legacy',
+  Frame = 'frame',
+}
+
 export enum ViewfinderColor {
   Black = 'rgba(0,0,0)',
   Red = 'rgba(255,0,0)',
