@@ -39,7 +39,11 @@ document.addEventListener('deviceready', () => {
       window.latestBarcodeTrackingSession = session;
       session.addedTrackedBarcodes.forEach(trackedBarcode => {
         window.barcodeTrackingBasicOverlay.setBrushForTrackedBarcode(
-          new Scandit.Brush(Scandit.Color.fromHex('FFF7'), Scandit.Color.fromHex('FFFA'), 1),
+          new Scandit.Brush(
+              Scandit.Color.fromRGBA(255, 255, 255, 0),
+              Scandit.Color.fromRGBA(255, 255, 255, 1),
+              3
+          ),
           trackedBarcode);
       });
     }

@@ -28,7 +28,8 @@ document.addEventListener('deviceready', () => {
 
   // Create new barcode tracking mode with the settings from above.
   const barcodeTracking = Scandit.BarcodeTracking.forContext(context, settings);
-  const rejectBrush = new Scandit.Brush(Scandit.Color.fromRGBA(255, 57, 57, 0.3), Scandit.Color.fromRGBA(255, 57, 57), 1);
+  const rejectBrush = new Scandit.Brush(Scandit.Color.fromRGBA(255, 255, 255, 0), Scandit.Color.fromHex('#FA4446'), 3);
+  const acceptBrush = new Scandit.Brush(Scandit.Color.fromRGBA(255, 255, 255, 0), Scandit.Color.fromHex('#26D381'), 3);
 
   // Register a listener to get informed whenever a new barcode is tracked.
   barcodeTracking.addListener({
@@ -38,6 +39,7 @@ document.addEventListener('deviceready', () => {
           if (trackedBarcode.barcode.data.startsWith('7')) {
             window.overlay.setBrushForTrackedBarcode(rejectBrush, trackedBarcode);
           } else {
+            window.overlay.setBrushForTrackedBarcode(acceptBrush, trackedBarcode);
             window.results[trackedBarcode.barcode.data] = trackedBarcode;
           }
       });
