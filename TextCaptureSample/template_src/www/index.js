@@ -63,16 +63,23 @@ document.addEventListener('deviceready', () => {
 
 window.setupMode = mode => {
   // Settings for GS1 mode.
-  const gs1Viewfinder = (() => {
+  window.gs1Viewfinder = window.gs1Viewfinder || (() => {
     const viewfinder = new Scandit.RectangularViewfinder(
       Scandit.RectangularViewfinderStyle.Square,
       Scandit.RectangularViewfinderLineStyle.Light,
     );
     viewfinder.dimming = 0.2;
     viewfinder.setWidthAndAspectRatio(new Scandit.NumberWithUnit(0.9, Scandit.MeasureUnit.Fraction), 0.2);
+
+    viewfinder.defaultDisabledDimming = viewfinder.disabledDimming;
+    viewfinder.defaultDisabledColor = viewfinder.disabledColor;
+
+    viewfinder.disabledDimming = viewfinder.dimming;
+    viewfinder.disabledColor = viewfinder.color;
+
     return viewfinder;
   })()
-  const gs1Settings = (() => {
+  window.gs1Settings = window.gs1Settings || (() => {
     const settings = Scandit.TextCaptureSettings.fromJSON({ regex: "((\\\(\\\d+\\\)[\\\dA-Z]+)+)" })
     settings.locationSelection = Scandit.RectangularLocationSelection
       .withWidthAndAspectRatio(new Scandit.NumberWithUnit(0.9, Scandit.MeasureUnit.Fraction), 0.2);
@@ -80,16 +87,17 @@ window.setupMode = mode => {
   })()
 
   // Settings for LOT mode.
-  const lotViewfinder = (() => {
+  window.lotViewfinder = window.lotViewfinder|| (() => {
     const viewfinder = new Scandit.RectangularViewfinder(
       Scandit.RectangularViewfinderStyle.Square,
       Scandit.RectangularViewfinderLineStyle.Light,
     );
     viewfinder.dimming = 0.2;
     viewfinder.setWidthAndAspectRatio(new Scandit.NumberWithUnit(0.6, Scandit.MeasureUnit.Fraction), 0.2);
+
     return viewfinder;
   })()
-  const lotSettings = (() => {
+  window.lotSettings = window.lotSettings|| (() => {
     const settings = Scandit.TextCaptureSettings.fromJSON({ regex: "([A-Z0-9]{6,8})" });
     settings.locationSelection = Scandit.RectangularLocationSelection
       .withWidthAndAspectRatio(new Scandit.NumberWithUnit(0.6, Scandit.MeasureUnit.Fraction), 0.2);
@@ -97,8 +105,8 @@ window.setupMode = mode => {
   })()
 
   // Apply settings for the given mode.
-  window.textCapture.applySettings(mode === Mode.LOT ? lotSettings : gs1Settings);
-  window.overlay.viewfinder = mode === Mode.LOT ? lotViewfinder : gs1Viewfinder;
+  window.textCapture.applySettings(mode === Mode.LOT ? window.lotSettings : window.gs1Settings);
+  window.overlay.viewfinder = mode === Mode.LOT ? window.lotViewfinder : window.gs1Viewfinder;
 }
 
 window.setupPosition = position => {
@@ -111,6 +119,10 @@ window.setupPosition = position => {
 }
 
 window.showResult = result => {
+  window.gs1Viewfinder.disabledDimming = window.gs1Viewfinder.defaultDisabledDimming;
+  window.gs1Viewfinder.disabledColor = window.gs1Viewfinder.defaultDisabledColor;
+  window.textCapture.isEnabled = false;
+
   const resultElement = document.createElement('div');
   resultElement.id = "result";
   resultElement.classList = "result";
@@ -120,6 +132,8 @@ window.showResult = result => {
 
 window.continueScanning = () => {
   document.querySelector('#result').parentElement.removeChild(document.querySelector('#result'))
+  window.gs1Viewfinder.disabledDimming = window.gs1Viewfinder.dimming;
+  window.gs1Viewfinder.disabledColor = window.gs1Viewfinder.color;
   window.textCapture.isEnabled = true;
 }
 

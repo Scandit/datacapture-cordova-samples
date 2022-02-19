@@ -14,6 +14,7 @@ export enum ViewfinderColor {
   Red = 'rgba(255,0,0)',
   White = 'rgba(255,255,255)',
   Blue = 'rgba(0,0,255)',
+  Transparent = 'rgba(0,0,0,0)',
 }
 
 export enum ViewfinderStyle {

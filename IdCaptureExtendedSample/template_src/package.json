@@ -1,8 +1,8 @@
 {
-    "name": "idcapturesimplesample",
-    "displayName": "IdCaptureSimpleSample",
+    "name": "idcaptureextendedsample",
+    "displayName": "IdCaptureExtendedSample",
     "version": "1.0.0",
-    "description": "IdCaptureSimpleSample for the Scandit Cordova plugin",
+    "description": "IdCaptureExtendedSample for the Scandit Cordova plugin",
     "main": "index.js",
     "keywords": [
         "ecosystem:cordova"
@@ -19,10 +19,9 @@
         ]
     },
     "dependencies": {
+        "scandit-cordova-datacapture-core": "6.11.0",
         "scandit-cordova-datacapture-text": "6.11.0",
-        "cordova-plugin-add-swift-support": "^2.0.2",
-        "scandit-cordova-datacapture-id": "6.11.0",
-        "scandit-cordova-datacapture-core": "6.11.0"
+        "scandit-cordova-datacapture-id": "6.11.0"
     },
     "devDependencies": {
         "cordova-plugin-whitelist": "1"

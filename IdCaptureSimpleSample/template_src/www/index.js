@@ -19,6 +19,10 @@ document.addEventListener('deviceready', () => {
     Scandit.IdDocumentType.IdCardVIZ,
     Scandit.IdDocumentType.AAMVABarcode,
     Scandit.IdDocumentType.DLVIZ,
+    Scandit.IdDocumentType.ArgentinaIdBarcode,
+    Scandit.IdDocumentType.ColombiaIdBarcode,
+    Scandit.IdDocumentType.SouthAfricaDlBarcode,
+    Scandit.IdDocumentType.SouthAfricaIdBarcode,
   ]
 
   // To visualize the on-going id capturing process on screen, setup a data capture view that renders the
@@ -52,6 +56,8 @@ document.addEventListener('deviceready', () => {
         window.showResult(window.descriptionForUsDriverLicenseBarcodeResult(session.newlyCapturedId));
       } else if (session.newlyCapturedId.usUniformedServicesBarcodeResult != null) {
         window.showResult(window.descriptionForUsUniformedServicesBarcodeResult(session.newlyCapturedId));
+      } else {
+        window.showResult(window.descriptionForCapturedId(session.newlyCapturedId));
       }
     },
     didFailWithError: (_, error, session) => {

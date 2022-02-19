@@ -7,6 +7,10 @@ document.addEventListener('deviceready', () => {
   const camera = Scandit.Camera.default;
   context.setFrameSource(camera);
 
+  // Use the recommended camera settings for the BarcodeSelection mode as default settings.
+  const cameraSettings = Scandit.BarcodeSelection.recommendedCameraSettings;
+  camera.applySettings(cameraSettings).catch(console.warn);
+
   // The barcode selection process is configured through barcode selection settings
   // and are then applied to the barcode selection instance that manages barcode recognition.
   window.barcodeSelectionSettings = new Scandit.BarcodeSelectionSettings();

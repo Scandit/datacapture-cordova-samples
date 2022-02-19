@@ -58,6 +58,7 @@ export const fieldsStructure = Scandit => ({
       SettingsFieldName.VIEWFINDER_ANIMATED,
       SettingsFieldName.VIEWFINDER_LOOPING,
       SettingsFieldName.VIEWFINDER_COLOR,
+      SettingsFieldName.VIEWFINDER_RECTANGULAR_DISABLED_COLOR,
       SettingsFieldName.VIEWFINDER_ENABLED_COLOR,
       SettingsFieldName.VIEWFINDER_DISABLED_COLOR,
       SettingsFieldName.VIEWFINDER_AIMER_FRAME_COLOR,

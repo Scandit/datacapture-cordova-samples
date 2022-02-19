@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+        <title>IdCaptureExtendedSample</title>
+
+        <style>
+            body {
+                font-family: Helvetica, Arial, sans-serif;
+                overflow: hidden;
+            }
+
+            #data-capture-view {
+                width: 100vw;
+                height: calc(100vh - env(safe-area-inset-bottom, 0px) - 32px - (2*12px));
+                z-index: -1;
+            }
+
+            div.alert {
+                position: absolute;
+                bottom: 50%;
+                left: 50%;
+                transform: translate(-50%, 50%);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                width: 70%;
+                background: #FFFE;
+                border-radius: 8px;
+            }
+
+            .alert p {
+                text-align: center;
+                font-family: Helvetica;
+                padding: 12px;
+            }
+
+            .alert div {
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .alert button {
+                color: #2EC1CE;
+                background: transparent;
+                border: none;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            #header {
+                width: 100vw;
+                height: 60px;
+                position: fixed;
+                z-index: 1;
+                background-color: #FFFD;
+                padding-top: env(safe-area-inset-top);
+            }
+
+            #header .back {
+                font-size: 16px;
+                position: absolute;
+                left: 20px;
+                top: 50%;
+                display: none;
+            }
+
+            #header .title {
+                font-size: 20px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, 0%);
+            }
+
+            #header button {
+                color: #2EC1CE;
+                background: transparent;
+                border: none;
+                font-size: 20px;
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                margin: 0;
+                padding: 0;
+            }
+
+            #modes {
+                width: 100vw;
+                height: calc(env(safe-area-inset-bottom, 0px) + 32px);
+                padding: 12px 0;
+                background-color: black;
+
+                position: fixed;
+                bottom: 0;
+                left: 0;
+
+                display: flex;
+                justify-content: space-around;
+                align-items: flex-start;
+            }
+
+            #modes button {
+                border: none;
+                color: white;
+                font-size: 16px;
+                height: 32px;
+                border-radius: 16px;
+                border: 1px solid white;
+                background-color: transparent;
+            }
+
+            #modes button.selected {
+                background-color: white;
+                color: black;
+            }
+
+            #result {
+                width: calc(100vw - 2*20px);
+                height: calc(100vh - env(safe-area-inset-top) - 60px);
+                background: white;
+                position: fixed;
+                display: none;
+                top: env(safe-area-inset-top);
+                margin-top: 60px;
+                margin-bottom: 20px;
+                padding: 0 20px;
+                overflow: scroll;
+                overflow-wrap: break-word;
+                white-space: pre-wrap;
+                line-break: anywhere;
+            }
+
+            #result .label {
+                font-size: 14px;
+                font-weight: bold;
+                color: darkgray;
+                margin-bottom: 0;
+            }
+
+            #result p:not(.label) {
+                margin: 0;
+            }
+
+            #result p:last-child {
+                margin-bottom: inherit;
+            }
+
+            #result div {
+                padding-left: 20px;
+                border-left: 1px solid grey;
+            }
+        </style>
+    </head>
+    <body style="margin: 0; padding: 0; height: 100vh;">
+        <div id="header">
+            <span class="back" onclick="showResult()">Back</span>
+            <span class="title">ID Extended</span>
+        </div>
+        <div id="data-capture-view"></div>
+        <div id="modes">
+            <button onclick="window.selectMode(this)" sdc-mode="barcode" class="selected">Barcode</button>
+            <button onclick="window.selectMode(this)" sdc-mode="mrz">MRZ</button>
+            <button onclick="window.selectMode(this)" sdc-mode="viz">VIZ</button>
+        </div>
+
+        <div id="result">
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>

@@ -366,6 +366,17 @@ export const settingsFields = (Scandit): SettingsFields => ({
       { label: 'Black', value: ViewfinderColor.Black },
     ],
   } as SettingsField<ViewfinderColor>,
+  [SettingsFieldName.VIEWFINDER_RECTANGULAR_DISABLED_COLOR]: {
+    label: 'Disabled Color',
+    type: SettingsFieldType.SELECT,
+    key: SettingsFieldName.VIEWFINDER_RECTANGULAR_DISABLED_COLOR,
+    defaultValue: ViewfinderColor.Transparent,
+    options: [
+      { label: 'Default', value: ViewfinderColor.Transparent },
+      { label: 'White', value: ViewfinderColor.White },
+      { label: 'Black', value: ViewfinderColor.Black },
+    ],
+  } as SettingsField<ViewfinderColor>,
   [SettingsFieldName.VIEWFINDER_ENABLED_COLOR]: {
     label: 'Enabled Color',
     type: SettingsFieldType.SELECT,

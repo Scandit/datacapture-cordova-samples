@@ -382,6 +382,7 @@ export class ScanComponent implements AfterViewInit {
       VIEWFINDER_ANIMATED,
       VIEWFINDER_LOOPING,
       VIEWFINDER_COLOR,
+      VIEWFINDER_RECTANGULAR_DISABLED_COLOR,
       VIEWFINDER_ENABLED_COLOR,
       VIEWFINDER_DISABLED_COLOR,
       VIEWFINDER_SIZE_SPECIFICATION,
@@ -443,6 +444,7 @@ export class ScanComponent implements AfterViewInit {
       }
 
       viewfinder.color = this.getColor(VIEWFINDER_COLOR);
+      viewfinder.disabledColor = this.getColor(VIEWFINDER_RECTANGULAR_DISABLED_COLOR);
       overlay.viewfinder = viewfinder;
     }
   }
