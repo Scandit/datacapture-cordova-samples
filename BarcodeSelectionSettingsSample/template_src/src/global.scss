@@ -1,0 +1,164 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+$mdBackground: #f9fafa;
+$iosBackground: #efedf3;
+$headerBackground: #f5f5f5;
+$labelColor: #949494;
+
+ion-content {
+  --background: #{$mdBackground};
+  --padding-top: 12px;
+}
+
+.ios {
+  ion-content {
+    --background: 'transparent';
+    --padding-top: 0px;
+  }
+}
+
+.app-transparent-content {
+  --background: transparent;
+  --padding-top: 0px;
+}
+
+ion-header {
+  ion-toolbar {
+    --background: #{$headerBackground};
+  }
+}
+
+
+ion-footer {
+  &.footer-md::before {
+    height: 0px;
+  }
+
+  ion-toolbar {
+    --background: #{$mdBackground};
+  }
+}
+
+.ios {
+  ion-footer {
+    ion-toolbar {
+      --background: #{$iosBackground};
+      &:first-of-type {
+        --border-width: 0px;
+      }
+    }
+  }
+}
+
+ion-card {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 16px;
+}
+
+.ios {
+  ion-card {
+    margin-top: 0px;
+    border-radius: 0;
+    box-shadow: initial;
+    background-color: transparent;
+  }
+}
+
+.app-card-header {
+  padding: 12px;
+  padding-bottom: 0px;
+  font-size: 14px;
+  font-weight: bold;
+  color: $labelColor;
+}
+
+.ios {
+  .app-card-header {
+    padding: 6px 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: $labelColor;
+  }
+}
+
+
+.app-number-input {
+  .native-input.sc-ion-input-ios {
+    text-align: end;
+  }
+
+  &.sc-ion-input-md-h {
+    max-width: 100px;
+    border-bottom: 1px solid;
+  }
+
+  .native-input.sc-ion-input-md {
+    text-align: end;
+    padding-right: 8px;
+  }
+}
+
+.app-slider-grid {
+  padding: 0px;
+  padding-top: 10px;
+}
+
+.md {
+  .app-slider-value {
+    margin-right: 10px;
+  }
+}
+
+.ios {
+  .app-slider-value {
+    margin-right: 20px;
+  }
+}
+
+// Below is a workaround to use checkmarks on android devices instead of radio buttons
+
+.sc-ion-select-popover-md.sc-ion-label-md-h.sc-ion-label-md-s {
+  width: 100%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.md.radio-checked {
+  background: url(assets/icon/checkmark.svg) no-repeat;
+  background-position: right;
+  background-size: contain;
+}
+
+.md {
+  ion-radio {
+    --color-checked: transparent;
+    --color: transparent;
+  }
+}

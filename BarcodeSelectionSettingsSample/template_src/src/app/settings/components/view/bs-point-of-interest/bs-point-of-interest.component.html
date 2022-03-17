@@ -1,0 +1,23 @@
+<form [formGroup]="form">
+
+  <ion-card>
+    <ion-list>
+      <app-toggle [formControlName]="fieldName.BS_POINT_OF_INTEREST_ENABLED"></app-toggle>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <app-unit-number-item
+        [currentValue]="form.value[fieldName.BS_POINT_OF_INTEREST_X]"
+        [field]="fields[fieldName.BS_POINT_OF_INTEREST_X]"
+      ></app-unit-number-item>
+
+      <app-unit-number-item
+        [currentValue]="form.value[fieldName.BS_POINT_OF_INTEREST_Y]"
+        [field]="fields[fieldName.BS_POINT_OF_INTEREST_Y]"
+      ></app-unit-number-item>
+    </ion-list>
+  </ion-card>
+
+</form>

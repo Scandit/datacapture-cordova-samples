@@ -1,0 +1,31 @@
+export enum NavigationRoute {
+  SETTINGS = 'settings',
+
+  BARCODE_SELECTION = 'barcode-selection',
+  SYMBOLOGIES = 'symbologies',
+  BS_POINT_OF_INTEREST = 'bs-point-of-interest',
+  BS_POINT_OF_INTEREST_ENABLED = 'bs-point-of-interest-enabled',
+  BS_POINT_OF_INTEREST_X = 'bs-point-of-interest-x',
+  BS_POINT_OF_INTEREST_Y = 'bs-point-of-interest-y',
+  SELECTION_TYPE = 'selection-type',
+  FREEZE_BEHAVIOUR = 'freeze-behaviour',
+  TAP_BEHAVIOUR = 'tap-behaviour',
+  SELECTION_STRATEGY = 'selection-strategy',
+  FEEDBACK = 'feedback',
+  CODE_DUPLICATE_FILTER = 'code-duplicate-filter',
+  SINGLE_BARCODE_AUTO_DETECTION = 'single-barcode-auto-detection',
+
+  CAMERA = 'camera',
+
+  VIEW = 'view',
+  SCAN_AREA = 'scan-area',
+  SCAN_AREA_MARGIN_TOP = 'top',
+  SCAN_AREA_MARGIN_RIGHT = 'right',
+  SCAN_AREA_MARGIN_BOTTOM =  'bottom',
+  SCAN_AREA_MARGIN_LEFT = 'left',
+  POINT_OF_INTEREST = 'point-of-interest',
+  POINT_OF_INTEREST_X = 'x',
+  POINT_OF_INTEREST_Y = 'y',
+  OVERLAY = 'overlay',
+  VIEWFINDER = 'viewfinder',
+}

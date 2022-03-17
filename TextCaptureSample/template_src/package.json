@@ -19,12 +19,10 @@
         ]
     },
     "dependencies": {
-        "cordova-plugin-add-swift-support": "^2.0.2",
-        "scandit-cordova-datacapture-core": "6.11.0",
-        "scandit-cordova-datacapture-text": "6.11.0",
-        "scandit-cordova-datacapture-parser": "6.11.0"
+        "cordova-plugin-add-swift-support": "2.0.2",
+        "scandit-cordova-datacapture-core": "6.12.0",
+        "scandit-cordova-datacapture-text": "6.12.0",
+        "scandit-cordova-datacapture-parser": "6.12.0"
     },
-    "devDependencies": {
-        "cordova-plugin-whitelist": "1"
-    }
+    "devDependencies": {}
 }

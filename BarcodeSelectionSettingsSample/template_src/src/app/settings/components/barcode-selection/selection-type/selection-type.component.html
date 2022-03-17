@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+
+  <ion-card>
+    <div class="app-card-header">{{ selectionType.label }}</div>
+    <app-flat-select [formControlName]="fieldName.SELECTION_TYPE"></app-flat-select>
+  </ion-card>
+
+  <ion-card *ngIf="form.value.SELECTION_TYPE === 'aimerSelection'">
+    <div class="app-card-header">{{ selectionStrategy.label }}</div>
+    <app-flat-select [formControlName]="fieldName.SELECTION_STRATEGY"></app-flat-select>
+  </ion-card>
+
+  <ion-card *ngIf="form.value.SELECTION_TYPE === 'tapSelection'">
+    <div class="app-card-header">{{ freezeBehaviour.label }}</div>
+    <app-flat-select [formControlName]="fieldName.FREEZE_BEHAVIOUR"></app-flat-select>
+
+    <div class="app-card-header">{{ tapBehaviour.label }}</div>
+    <app-flat-select [formControlName]="fieldName.TAP_BEHAVIOUR"></app-flat-select>
+  </ion-card>
+
+</form>

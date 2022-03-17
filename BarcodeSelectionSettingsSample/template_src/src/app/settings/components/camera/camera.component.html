@@ -1,0 +1,23 @@
+<form [formGroup]="form">
+
+  <ion-card>
+    <div class="app-card-header">{{ cameraPosition.label }}</div>
+    <app-flat-select [formControlName]="fieldName.CAMERA_POSITION"></app-flat-select>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <app-toggle [formControlName]="fieldName.DESIRED_TORCH_STATE"></app-toggle>
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <div class="app-card-header">Camera Settings</div>
+    <ion-list>
+      <app-select [formControlName]="fieldName.PREFERRED_RESOLUTION"></app-select>
+      <app-slider [formControlName]="fieldName.ZOOM_FACTOR"></app-slider>
+      <app-select [formControlName]="fieldName.FOCUS_RANGE"></app-select>
+    </ion-list>
+  </ion-card>
+
+</form>

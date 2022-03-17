@@ -1,0 +1,14 @@
+<ion-card>
+  <ion-list>
+
+    <ion-item
+      *ngFor="let item of items$ | async"
+      [routerLink]="item.route"
+      [lines]="lines"
+      [detail]="isIos"
+    >
+      <ion-label>{{ item.label }}</ion-label>
+    </ion-item>
+
+  </ion-list>
+</ion-card>

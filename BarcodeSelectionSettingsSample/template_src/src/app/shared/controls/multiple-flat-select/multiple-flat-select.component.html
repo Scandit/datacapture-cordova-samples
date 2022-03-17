@@ -1,0 +1,8 @@
+<ion-list>
+  <ion-item>
+    <ion-label>Select one or more items</ion-label>
+    <ion-select placeholder="None" multiple="true" [ngModel]="value" (ngModelChange)="onValueChange($event)">
+      <ion-select-option *ngFor="let option of field.options" [value]="option.value">{{option.label}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>

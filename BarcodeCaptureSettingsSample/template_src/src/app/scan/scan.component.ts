@@ -139,7 +139,7 @@ export class ScanComponent implements AfterViewInit {
   }
 
   public ngAfterViewInit() {
-    this.context = Scandit.DataCaptureContext.forLicenseKey(environment.scanditLicenceKey);
+    this.context = Scandit.DataCaptureContext.forLicenseKey(environment.scanditLicenseKey);
     this.barcodeCapture = Scandit.BarcodeCapture.forContext(this.context);
     this.barcodeCapture.addListener(this.listener);
   }

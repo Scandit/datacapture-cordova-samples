@@ -1,0 +1,38 @@
+<form [formGroup]="form">
+
+  <ion-card>
+    <div class="app-card-header">Margins</div>
+    <ion-list>
+
+      <app-unit-number-item
+        [currentValue]="form.value[fieldName.SCAN_AREA_MARGIN_TOP]"
+        [field]="fields[fieldName.SCAN_AREA_MARGIN_TOP]"
+      ></app-unit-number-item>
+
+      <app-unit-number-item
+        [currentValue]="form.value[fieldName.SCAN_AREA_MARGIN_RIGHT]"
+        [field]="fields[fieldName.SCAN_AREA_MARGIN_RIGHT]"
+      ></app-unit-number-item>
+
+      <app-unit-number-item
+        [currentValue]="form.value[fieldName.SCAN_AREA_MARGIN_BOTTOM]"
+        [field]="fields[fieldName.SCAN_AREA_MARGIN_BOTTOM]"
+      ></app-unit-number-item>
+
+      <app-unit-number-item
+        [currentValue]="form.value[fieldName.SCAN_AREA_MARGIN_LEFT]"
+        [field]="fields[fieldName.SCAN_AREA_MARGIN_LEFT]"
+      ></app-unit-number-item>
+
+
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+
+      <app-toggle [formControlName]="fieldName.SCAN_AREA_GUIDES"></app-toggle>
+
+    </ion-list>
+  </ion-card>
+</form>

@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <ion-card>
+    <div class="app-card-header">{{ style.label }}</div>
+    <app-flat-select [formControlName]="fieldName.OVERLAY_STYLE"></app-flat-select>
+  </ion-card>
+
+  <ion-card>
+    <app-select [formControlName]="fieldName.TRACKED_BRUSH"></app-select>
+    <app-select [formControlName]="fieldName.AIMED_BRUSH"></app-select>
+    <app-select [formControlName]="fieldName.SELECTING_BRUSH"></app-select>
+    <app-select [formControlName]="fieldName.SELECTED_BRUSH"></app-select>
+  </ion-card>
+
+  <ion-card>
+    <app-toggle [formControlName]="fieldName.SHOULD_SHOW_HINTS"></app-toggle>
+  </ion-card>
+</form>

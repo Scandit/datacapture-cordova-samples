@@ -1,0 +1,18 @@
+.reset {
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  &__button {
+    flex-grow: 1;
+  }
+}
+
+.footer__text {
+  text-align: center;
+  display: block;
+  font-size: 12px;
+  opacity: 0.5;
+}

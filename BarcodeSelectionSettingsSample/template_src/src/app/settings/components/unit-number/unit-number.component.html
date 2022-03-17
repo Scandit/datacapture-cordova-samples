@@ -1,0 +1,33 @@
+<form [formGroup]="form">
+  <ion-card>
+    <ion-list>
+
+      <ion-item [lines]="lines">
+        <ion-label>Value</ion-label>
+        <ion-input
+          class="app-number-input"
+          slot="end"
+          [min]="field.min"
+          [max]="field.max"
+          type="number"
+          [required]="true"
+          inputmode="decimal"
+          formControlName="value"
+        ></ion-input>
+      </ion-item>
+
+    </ion-list>
+  </ion-card>
+
+  <ion-card>
+    <ion-list>
+      <ion-radio-group formControlName="unit">
+        <ion-item [lines]="lines" *ngFor="let unit of units">
+          <ion-label>{{ unit.label }}</ion-label>
+          <ion-radio slot="end" [value]="unit.value"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+
+  </ion-card>
+</form>

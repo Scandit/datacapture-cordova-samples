@@ -1,0 +1,12 @@
+.symbologies {
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  &__button {
+    flex-grow: 1;
+  }
+
+}

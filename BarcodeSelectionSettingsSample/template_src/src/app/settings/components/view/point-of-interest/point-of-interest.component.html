@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+
+  <ion-card>
+    <ion-list>
+
+      <app-unit-number-item
+        [currentValue]="form.value[fieldName.POINT_OF_INTEREST_X]"
+        [field]="fields[fieldName.POINT_OF_INTEREST_X]"
+      ></app-unit-number-item>
+
+      <app-unit-number-item
+        [currentValue]="form.value[fieldName.POINT_OF_INTEREST_Y]"
+        [field]="fields[fieldName.POINT_OF_INTEREST_Y]"
+      ></app-unit-number-item>
+
+    </ion-list>
+  </ion-card>
+
+</form>
