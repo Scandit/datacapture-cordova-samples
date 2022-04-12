@@ -19,9 +19,9 @@
         ]
     },
     "dependencies": {
-        "scandit-cordova-datacapture-core": "6.12.0",
-        "scandit-cordova-datacapture-text": "6.12.0",
-        "scandit-cordova-datacapture-id": "6.12.0"
+        "scandit-cordova-datacapture-core": "6.12.1",
+        "scandit-cordova-datacapture-text": "6.12.1",
+        "scandit-cordova-datacapture-id": "6.12.1"
     },
     "devDependencies": {}
 }
