@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Barcode Capture Views
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item button routerDirection="forward" routerLink="full-screen">
+      <ion-label>Full Screen</ion-label>
+    </ion-item>
+    <ion-item button routerDirection="forward" routerLink="split-screen">
+      <ion-label>Split Screen</ion-label>
+    </ion-item>
+    <ion-item button (click)="presentModal()">
+      <ion-label>Modal</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-footer>
+      <ion-text>Barcode Capture View Sample</ion-text>
+      <ion-text>SDK {{ version }}</ion-text>
+  </ion-footer>
+</ion-content>

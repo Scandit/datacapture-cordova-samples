@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Split Screen</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="clearResults()">Clear</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div #captureView (click)="this.resetScanTimeout()" [ngClass]="{'connected': this.isCaptureViewConnected, 'paused': !this.barcodeCapture.isEnabled}">
+    <p *ngIf="!this.barcodeCapture.isEnabled">Tap to continue</p>
+  </div>
+  <ion-list slot="fixed">
+    <ion-item *ngFor="let result of results">
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <h2>{{ result.data }}</h2>
+        </ion-text>
+        <ion-text>
+          <p>{{ result.symbology }}</p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

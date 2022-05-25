@@ -1,0 +1,7 @@
+{
+  "name": "BarcodeCaptureViewsSample",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
