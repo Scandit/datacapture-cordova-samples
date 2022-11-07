@@ -88,7 +88,7 @@ window.confirmScanningBackside = () => {
   resultElement.id = "alert";
   resultElement.classList = "alert";
   resultElement.innerHTML = `
-    <p>This document has additional data in the visual inspection zone on the back of the card.</p>
+    <p>This document has additional data on the back of the card.</p>
     <div><button onclick="skipBackside()">Skip</button><button onclick="continueBackside()">Scan</button></div>
     `;
   document.querySelector('#data-capture-view').appendChild(resultElement)
