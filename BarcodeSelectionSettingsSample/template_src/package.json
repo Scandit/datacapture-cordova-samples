@@ -27,8 +27,8 @@
         "cordova-ios": "6.2.0",
         "nan": "2.14.2",
         "rxjs": "6.5.3",
-        "scandit-cordova-datacapture-barcode": "6.15.1",
-        "scandit-cordova-datacapture-core": "6.15.1",
+        "scandit-cordova-datacapture-barcode": "6.16.0",
+        "scandit-cordova-datacapture-core": "6.16.0",
         "tslib": "1.10.0",
         "zone.js": "0.10.3"
     },
