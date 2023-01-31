@@ -19,7 +19,7 @@ document.addEventListener('deviceready', () => {
 
       window.capturedId = session.newlyCapturedId;
 
-      if ((window.capturedId && window.capturedId.vizResult && window.capturedId.vizResult.isBackSideCaptureSupported) || window.isScanningBackside) {
+      if ((window.capturedId.vizResult && window.capturedId.vizResult.isBackSideCaptureSupported) || window.isScanningBackside) {
         if (window.capturedId.vizResult.capturedSides === Scandit.SupportedSides.FrontAndBack) {
           window.showResult();
           window.isScanningBackside = false;
@@ -108,12 +108,7 @@ window.continueBackside = () => {
 }
 
 window.showResult = () => {
-  if (!window.capturedId) {
-    window.idCapture.isEnabled = true;
-    return;
-  }
-
-  const shouldShowResult = window.capturedId && (document.querySelector('#result').style.display === "none" || document.querySelector('#result').style.display === "");
+  const shouldShowResult = document.querySelector('#result').style.display === "none" || document.querySelector('#result').style.display === "";
   document.querySelector('#result').style.display = shouldShowResult ? "inherit" : "none";
   document.querySelector('#header .title').innerText = shouldShowResult ? "Scan Result" : "ID Extended";
   document.querySelector('#header .back').style.display = shouldShowResult ? "inherit" : "none";
