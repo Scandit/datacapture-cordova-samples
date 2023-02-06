@@ -12,6 +12,7 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <preference name="android-minSdkVersion" value="24" />
         <preference name="GradlePluginKotlinEnabled" value="true" />
         <preference name="GradlePluginKotlinVersion" value="1.5.31" />
         <preference name="GradleVersion" value="7.3.3" />
@@ -20,7 +21,7 @@
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
-        <preference name="deployment-target" value="12.0" />
+        <preference name="deployment-target" value="13.0" />
         <preference name="SwiftVersion" value="5" />
     </platform>
 </widget>
