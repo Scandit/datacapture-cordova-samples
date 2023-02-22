@@ -13,7 +13,7 @@
     <preference name="orientation" value="portrait" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <preference name="android-minSdkVersion" value="24" />
+        <preference name="android-minSdkVersion" value="23" />
         <preference name="GradlePluginKotlinEnabled" value="true" />
         <preference name="GradlePluginKotlinVersion" value="1.5.31" />
         <preference name="GradleVersion" value="7.3.3" />
