@@ -123,11 +123,11 @@ export class ScanComponent implements AfterViewInit {
     await this.barcodeCapture.applySettings(this.getBarcodeCaptureSettings());
     this.barcodeCapture.addListener(this.listener);
 
-    await this.applyFeedbackSettings();
-    await this.applyCodeDuplicateFilterSettings();
-    await this.applyCompositeTypeSettings();
+    this.applyFeedbackSettings();
+    this.applyCodeDuplicateFilterSettings();
+    this.applyCompositeTypeSettings();
     await this.applyCameraSettings();
-    await this.applyViewSettings();
+    this.applyViewSettings();
 
     this.barcodeCapture.isEnabled = true;
   }
@@ -228,7 +228,7 @@ export class ScanComponent implements AfterViewInit {
     const { COMPOSITE_TYPES } = this.settingsService.compositeTypes.value;
 
     const barcodeCaptureSettings = this.getBarcodeCaptureSettings();
-    
+
     // Then enable the selected composite types, which in turn enable the corresponding symbologies.
     barcodeCaptureSettings.enabledCompositeTypes = COMPOSITE_TYPES;
     barcodeCaptureSettings.enableSymbologiesForCompositeTypes(COMPOSITE_TYPES);
@@ -452,7 +452,7 @@ export class ScanComponent implements AfterViewInit {
   private applyOverlayStyleSettings(SCAN_AREA_GUIDES, view) {
     const { BRUSH, OVERLAY_STYLE } = this.settingsService.overlayForm.value;
 
-    view.overlays.forEach(overlay => view.removeOverlay(overlay))
+    view.overlays.forEach(viewOverlay => view.removeOverlay(viewOverlay))
 
     const overlay = Scandit.BarcodeCaptureOverlay.withBarcodeCaptureForViewWithStyle(
         this.barcodeCapture,

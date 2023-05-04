@@ -11,7 +11,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="ScrollEnabled" value="false" />
-    <preference name="android-minSdkVersion" value="21" />
+    <preference name="android-minSdkVersion" value="23" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="300" />
@@ -20,13 +20,16 @@
     <preference name="SplashScreenDelay" value="3000" />
     <preference name="AndroidXEnabled" value="true" />
     <platform name="android">
-        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android">
+        <edit-config file="app/src/main/AndroidManifest.xml" target="/manifest" mode="merge">
+            <manifest xmlns:tools="http://schemas.android.com/tools" />
+        </edit-config>
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
             <application android:networkSecurityConfig="@xml/network_security_config" />
-            <application android:usesCleartextTraffic="true" />
+            <application android:usesCleartextTraffic="true" tools:replace="android:usesCleartextTraffic" />
         </edit-config>
         <preference name="GradlePluginKotlinEnabled" value="true" />
-        <preference name="GradlePluginKotlinVersion" value="1.5.31" />
-        <preference name="GradleVersion" value="7.3.3" />
+        <preference name="GradlePluginKotlinVersion" value="1.6.21" />
+        <preference name="GradleVersion" value="7.4.2" />
         <preference name="AndroidGradlePluginVersion" value="7.2.1" />
         <framework src="com.squareup.okhttp3:okhttp:4.9.0" />
         <framework src="com.squareup.okhttp3:logging-interceptor:4.9.0" />

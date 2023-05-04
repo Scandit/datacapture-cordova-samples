@@ -14,7 +14,7 @@ document.addEventListener('deviceready', () => {
   // and are then applied to the ID capture instance that manages id recognition.
   const settings = new Scandit.IdCaptureSettings();
 
-  // We are interested in the front side of national Id Cards and passports using MRZ.
+  // We are interested in the front side of national Id Cards.
   settings.supportedDocuments = [
     Scandit.IdDocumentType.IdCardVIZ,
     Scandit.IdDocumentType.DLVIZ,

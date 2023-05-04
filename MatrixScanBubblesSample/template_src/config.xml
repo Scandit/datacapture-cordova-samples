@@ -15,8 +15,8 @@
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="23" />
         <preference name="GradlePluginKotlinEnabled" value="true" />
-        <preference name="GradlePluginKotlinVersion" value="1.5.31" />
-        <preference name="GradleVersion" value="7.3.3" />
+        <preference name="GradlePluginKotlinVersion" value="1.6.21" />
+        <preference name="GradleVersion" value="7.4.2" />
         <preference name="AndroidGradlePluginVersion" value="7.2.1" />
     </platform>
     <platform name="ios">

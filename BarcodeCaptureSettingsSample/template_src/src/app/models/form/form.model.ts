@@ -1,4 +1,3 @@
-import { SettingsFieldName } from '../../config';
 import { TypedFormGroup } from '../utils.model';
 
 import { BarcodeCaptureFormValue } from './barcode-capture-form.model';

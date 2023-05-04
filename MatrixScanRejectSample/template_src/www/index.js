@@ -33,7 +33,7 @@ document.addEventListener('deviceready', () => {
 
   // Register a listener to get informed whenever a new barcode is tracked.
   barcodeTracking.addListener({
-    didUpdateSession: (barcodeTracking, session) => {
+    didUpdateSession: (mode, session) => {
       Object.values(session.trackedBarcodes).forEach(trackedBarcode => {
           // If the code scanned starts with '7' we will ignore it and mark with red brush
           if (trackedBarcode.barcode.data.startsWith('7')) {
@@ -74,7 +74,7 @@ function updateResults() {
       return `<div class="result">${dataHTML}${symbologyHTML}</div>`;
     })
     .join('');
-};
+}
 
 function resetResults() {
   window.results = {};
@@ -86,8 +86,8 @@ function done() {
   updateResults();
   document.getElementById('scanning').hidden = true;
   document.getElementById('results').hidden = false;
-};
+}
 
 function scanAgain() {
   resetResults();
-};
+}
