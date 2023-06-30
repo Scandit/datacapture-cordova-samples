@@ -28,7 +28,7 @@
             <application android:usesCleartextTraffic="true"  tools:replace="android:usesCleartextTraffic" />
         </edit-config>
         <preference name="GradlePluginKotlinEnabled" value="true" />
-        <preference name="GradlePluginKotlinVersion" value="1.6.21" />
+        <preference name="GradlePluginKotlinVersion" value="1.7.21" />
         <preference name="GradleVersion" value="7.4.2" />
         <preference name="AndroidGradlePluginVersion" value="7.2.1" />
         <framework src="com.squareup.okhttp3:okhttp:4.9.0" />

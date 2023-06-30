@@ -120,11 +120,19 @@ window.showResult = () => {
   document.querySelector('#data-capture-view').style.display = shouldShowResult ? "none" : "inherit";
   window.idCapture.isEnabled = !shouldShowResult;
 
+  const getDateAsString = (dateObject) => {
+    return `${(dateObject && new Date(Date.UTC(
+        dateObject.year,
+        dateObject.month - 1,
+        dateObject.day
+    )).toLocaleDateString("en-GB", {timeZone: "UTC"})) || "empty"}`
+  }
+
   const f = value => {
     if (!value) {
       return "empty";
     } else if (value instanceof Scandit.DateResult) {
-      return `${value.year}-${value.month}-${value.day}`;
+      return getDateAsString(value);
     } else if (value instanceof Scandit.ProfessionalDrivingPermit) {
       return `<div>
           <p class="label">Codes</p><p>${f(value.codes)}</p>

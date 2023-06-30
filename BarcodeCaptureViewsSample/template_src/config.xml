@@ -34,6 +34,10 @@
         <allow-navigation href="*" />
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="23" />
+        <preference name="GradlePluginKotlinEnabled" value="true" />
+        <preference name="GradlePluginKotlinVersion" value="1.7.21" />
+        <preference name="GradleVersion" value="7.4.2" />
+        <preference name="AndroidGradlePluginVersion" value="7.2.1" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />

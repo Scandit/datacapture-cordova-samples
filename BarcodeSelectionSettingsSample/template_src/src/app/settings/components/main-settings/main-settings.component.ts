@@ -37,8 +37,4 @@ export class MainSettingsComponent extends SettingsBase implements OnInit {
     this.settingsService.reset = false;
     this.version = Scandit.DataCaptureVersion.pluginVersion;
   }
-
-  public resetBarcodeSelection() {
-    this.settingsService.reset = true;
-  }
 }

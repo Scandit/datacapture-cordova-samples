@@ -15,16 +15,6 @@
     </ion-list>
   </ion-card>
 
-  <div class="reset__buttons" *ngIf="!isIos">
-    <ion-button class="reset__button" [strong]="true" expand="block" (click)="resetBarcodeSelection()">Reset Barcode Selection</ion-button>
-  </div>
-
-  <ion-card *ngIf="isIos">
-    <ion-list>
-      <ion-item class="ion-activatable ripple-parent" lines="full" (click)="resetBarcodeSelection()">Reset Barcode Selection</ion-item>
-    </ion-list>
-  </ion-card>
-
   <div>
     <ion-text class="footer__text">Barcode Selection Settings Sample</ion-text>
     <ion-text class="footer__text">SDK {{ version }}</ion-text>
