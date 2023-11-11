@@ -1,11 +1,11 @@
-import { UntypedFormGroup, AbstractControl } from '@angular/forms';
+import { FormGroup, AbstractControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 
 export type EnumDictionary<Enum extends string | symbol | number, Type> = {
   [Key in Enum]: Type;
 };
 
-export interface TypedFormGroup<Value> extends UntypedFormGroup {
+export interface TypedFormGroup<Value> extends FormGroup {
   value: Value;
   getRawValue: () => Value;
   valueChanges: Observable<Value>;

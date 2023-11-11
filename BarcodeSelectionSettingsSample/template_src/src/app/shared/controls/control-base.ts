@@ -1,4 +1,4 @@
-import { OnInit, Directive } from '@angular/core';
+import { OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 
 import {
@@ -13,7 +13,6 @@ type OnChangeFn = (value: any) => void;
 
 declare var Scandit;
 
-@Directive()
 export class ControlBase<Type> implements OnInit, ControlValueAccessor {
 
   public field: SettingsField;

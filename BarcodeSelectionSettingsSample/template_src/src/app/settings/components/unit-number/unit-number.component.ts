@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Platform } from '@ionic/angular';
 import { takeUntil } from 'rxjs/operators';
 
@@ -19,8 +19,8 @@ declare var Scandit;
 })
 export class UnitNumberComponent extends SettingsBase implements OnInit {
 
-  public parentForm: UntypedFormGroup;
-  public form: UntypedFormGroup;
+  public parentForm: FormGroup;
+  public form: FormGroup;
   public field: SettingsField;
 
   public units: SettingsFieldOption<string>[] = [
@@ -34,7 +34,7 @@ export class UnitNumberComponent extends SettingsBase implements OnInit {
     protected platform: Platform,
     protected uiService: UiService,
     private settingsService: SettingsService,
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: FormBuilder,
   ) {
     super(route, platform, uiService);
   }

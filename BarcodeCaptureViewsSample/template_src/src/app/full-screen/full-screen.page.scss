@@ -1,12 +1,10 @@
-ion-content {
-  --ion-background-color: transparent;
-}
-
-ion-content>div {
+ion-content > div {
   width: 100%;
   height: 100%;
+  background-color: black;
 
   &.connected {
     background-color: transparent;
+    z-index: -1;
   }
 }
