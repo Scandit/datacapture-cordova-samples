@@ -12,10 +12,10 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <allow-intent href="market:*" />
-        <preference name="android-minSdkVersion" value="24" />
+        <preference name="android-minSdkVersion" value="23" />
         <preference name="GradlePluginKotlinEnabled" value="true" />
         <preference name="GradlePluginKotlinVersion" value="1.7.21" />
-        <preference name="GradleVersion" value="7.6" />
+        <preference name="GradleVersion" value="7.4.2" />
         <preference name="AndroidGradlePluginVersion" value="7.2.1" />
     </platform>
     <platform name="ios">
