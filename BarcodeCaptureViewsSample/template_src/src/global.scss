@@ -25,6 +25,22 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-body {
-  --ion-background-color: transparent;
+ion-alert .alert-wrapper {
+  --ion-background-color: white;
+}
+
+app-home {
+  background: white;
+}
+
+@media screen and (platform: android) {
+  ion-header {
+    background: white;
+  }
+}
+
+@media screen and (platform: ios) {
+  ion-header div.header-background {
+    background: white;
+  }
 }

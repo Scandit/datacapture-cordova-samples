@@ -1,4 +1,4 @@
-import { OnInit, OnDestroy } from '@angular/core';
+import { OnInit, OnDestroy, Directive } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Platform } from '@ionic/angular';
 import { Observable, Subject } from 'rxjs';
@@ -16,6 +16,7 @@ import {
 
 declare var Scandit;
 
+@Directive()
 export class SettingsBase implements OnInit, OnDestroy {
 
   protected destroyed$ = new Subject<boolean>();

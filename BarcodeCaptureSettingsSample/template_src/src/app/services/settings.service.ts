@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormControl } from '@angular/forms';
 import { SettingsFieldName, settingsFields, fieldsStructure } from '../config';
 import {
   EnumDictionary,
@@ -33,7 +33,7 @@ export class SettingsService {
   public settingsForm: SettingsForm;
   public symbologies;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: UntypedFormBuilder) {
 
     const barcodeCaptureSettings = new Scandit.BarcodeCaptureSettings();
     this.symbologies = fieldsStructure(Scandit).barcodeCapture.symbologies
@@ -131,7 +131,7 @@ export class SettingsService {
         ...value,
         [field]: this.getFieldConfig(field)
       }),
-      {} as EnumDictionary<SettingsFieldName, FormControl>
+      {} as EnumDictionary<SettingsFieldName, UntypedFormControl>
     );
   }
 
