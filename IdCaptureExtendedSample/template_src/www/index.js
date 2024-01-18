@@ -78,6 +78,9 @@ window.setupMode = mode => {
   }
 
   window.context.removeMode(window.idCapture);
+  if (window.overlay) {
+    window.view.removeOverlay(window.overlay);
+  }
   window.idCapture = Scandit.IdCapture.forContext(window.context, settings);
   window.idCapture.addListener(window.listener);
   window.overlay = Scandit.IdCaptureOverlay.withIdCaptureForView(window.idCapture, window.view);
