@@ -31,9 +31,6 @@
         <preference name="GradlePluginKotlinVersion" value="1.7.21" />
         <preference name="GradleVersion" value="7.6" />
         <preference name="AndroidGradlePluginVersion" value="7.2.1" />
-        <framework src="com.squareup.okhttp3:okhttp:4.9.0" />
-        <framework src="com.squareup.okhttp3:logging-interceptor:4.9.0" />
-        <framework src="com.squareup.okhttp3:okhttp-urlconnection:4.9.0" />
         <resource-file src="resources/android/xml/network_security_config.xml" target="app/src/main/res/xml/network_security_config.xml" />
         <allow-navigation href="*" />
         <allow-intent href="market:*" />

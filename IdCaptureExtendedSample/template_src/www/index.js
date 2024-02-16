@@ -15,21 +15,13 @@ document.addEventListener('deviceready', () => {
 
   window.listener = {
     didCaptureId: (_, session) => {
-      window.idCapture.isEnabled = false;
-
       window.capturedId = session.newlyCapturedId;
+      if (!window.capturedId) return;
 
-      if ((window.capturedId && window.capturedId.vizResult && window.capturedId.vizResult.isBackSideCaptureSupported) || window.isScanningBackside) {
-        if (window.capturedId.vizResult.capturedSides === Scandit.SupportedSides.FrontAndBack) {
-          window.showResult();
-          window.isScanningBackside = false;
-        } else if (window.isScanningBackside == false) {
-          window.confirmScanningBackside();
-          window.isScanningBackside = true;
-        } else {
-          window.idCapture.isEnabled = true;
-        }
-      } else {
+      if (!window.capturedId.capturedResultTypes.includes(Scandit.CapturedResultType.VIZResult) ||
+       window.capturedId.vizResult.capturedSides != Scandit.SupportedSides.FrontOnly ||
+       window.capturedId.vizResult.isBackSideCaptureSupported == false) {
+        window.idCapture.isEnabled = false;
         window.showResult();
       }
     }
@@ -46,8 +38,6 @@ document.addEventListener('deviceready', () => {
 }, false);
 
 window.setupMode = mode => {
-  window.isScanningBackside = false;
-
   const supportedDocuments = {};
   supportedDocuments[Mode.Barcode] = [
     Scandit.IdDocumentType.AAMVABarcode,
@@ -84,30 +74,6 @@ window.setupMode = mode => {
   window.idCapture = Scandit.IdCapture.forContext(window.context, settings);
   window.idCapture.addListener(window.listener);
   window.overlay = Scandit.IdCaptureOverlay.withIdCaptureForView(window.idCapture, window.view);
-}
-
-window.confirmScanningBackside = () => {
-  const resultElement = document.createElement('div');
-  resultElement.id = "alert";
-  resultElement.classList = "alert";
-  resultElement.innerHTML = `
-    <p>This document has additional data on the back of the card.</p>
-    <div><button onclick="skipBackside()">Skip</button><button onclick="continueBackside()">Scan</button></div>
-    `;
-  document.querySelector('#data-capture-view').appendChild(resultElement)
-}
-
-window.skipBackside = () => {
-  document.querySelector('#alert').parentElement.removeChild(document.querySelector('#alert'))
-  window.idCapture.reset().then(() => {
-    window.isScanningBackside = false;
-  });
-  window.showResult();
-}
-
-window.continueBackside = () => {
-  document.querySelector('#alert').parentElement.removeChild(document.querySelector('#alert'))
-  window.idCapture.isEnabled = true;
 }
 
 window.showResult = () => {

@@ -211,7 +211,10 @@ export class ScanComponent implements AfterViewInit {
     const vibration = FEEDBACK_VIBRATION ? Scandit.Vibration.defaultVibration : null;
     const sound = FEEDBACK_SOUND ? Scandit.Sound.defaultSound : null;
 
-    this.barcodeCapture.feedback.success = new Scandit.Feedback(vibration, sound);
+    const feedback = new Scandit.BarcodeCaptureFeedback().success 
+    feedback.success = new Scandit.Feedback(vibration, sound);
+
+    this.barcodeCapture.feedback = feedback;
   }
 
   public applyCodeDuplicateFilterSettings() {
