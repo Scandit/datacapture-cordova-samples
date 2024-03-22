@@ -4,11 +4,9 @@ document.addEventListener('deviceready', () => {
 
   // Use the world-facing (back) camera and set it as the frame source of the context. The camera is off by
   // default and must be turned on to start streaming frames to the data capture context for recognition.
-  const camera = Scandit.Camera.default;
-  context.setFrameSource(camera);
-
   // Use the recommended camera settings for the IdCapture mode.
-  camera.applySettings(Scandit.IdCapture.recommendedCameraSettings);
+  const camera = Scandit.Camera.withSettings(Scandit.IdCapture.recommendedCameraSettings);
+  context.setFrameSource(camera);
 
   // The ID capturing process is configured through ID capture settings
   // and are then applied to the ID capture instance that manages id recognition.

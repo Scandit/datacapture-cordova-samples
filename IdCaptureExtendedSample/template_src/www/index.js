@@ -9,8 +9,7 @@ window.currentMode = () => document.querySelector('#modes .selected').attributes
 document.addEventListener('deviceready', () => {
   window.context = Scandit.DataCaptureContext.forLicenseKey('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
 
-  const camera = Scandit.Camera.default;
-  camera.applySettings(Scandit.IdCapture.recommendedCameraSettings);
+  const camera = Scandit.Camera.withSettings(Scandit.IdCapture.recommendedCameraSettings);
   window.context.setFrameSource(camera);
 
   window.listener = {
