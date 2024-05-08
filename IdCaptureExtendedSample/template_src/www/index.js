@@ -55,6 +55,7 @@ window.setupMode = mode => {
   supportedDocuments[Mode.VIZ] = [
     Scandit.IdDocumentType.DLVIZ,
     Scandit.IdDocumentType.IdCardVIZ,
+    Scandit.IdDocumentType.PassportVIZ
   ];
 
   const settings = new Scandit.IdCaptureSettings();
@@ -123,6 +124,7 @@ window.showResult = () => {
 
   result += `<p class="label">First Name</p><p>${f(window.capturedId.firstName)}</p>`;
   result += `<p class="label">Last Name</p><p>${f(window.capturedId.lastName)}</p>`;
+  result += `<p class="label">Secondary Last Name</p><p>${f(window.capturedId.secondaryLastName)}</p>`;
   result += `<p class="label">Full Name</p><p>${f(window.capturedId.fullName)}</p>`;
   result += `<p class="label">Sex</p><p>${f(window.capturedId.sex)}</p>`;
   result += `<p class="label">Date of Birth</p><p>${f(window.capturedId.dateOfBirth)}</p>`;
