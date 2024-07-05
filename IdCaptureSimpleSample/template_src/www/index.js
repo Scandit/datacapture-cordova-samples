@@ -89,7 +89,11 @@ window.descriptionForVizResult = (result) => {
   Document Additional Number: ${result.vizResult.documentAdditionalNumber || "empty"}<br>
   Issuing Jurisdiction: ${result.vizResult.issuingJurisdiction || "empty"}<br>
   Issuing Authority: ${result.vizResult.issuingAuthority || "empty"}<br>
-  `
+  Blood Type: ${result.vizResult.bloodType}<br>
+  Sponsor: ${result.vizResult.sponsor}<br>
+  Mother\'s Name: ${result.vizResult.mothersName}<br>
+  Father\'s Name: ${result.vizResult.fathersName}<br>
+  `;
 }
 
 window.descriptionForCapturedId = (result) => {
