@@ -37,8 +37,9 @@ export class ScanComponent implements AfterViewInit {
         return;
       }
 
+      const barcode = session.newlyRecognizedBarcode;
+      if (barcode == null) return;
       this.latestScanTimestamp = new Date().getTime();
-      const barcode = session.newlyRecognizedBarcodes[0];
       const symbology = new Scandit.SymbologyDescription(barcode.symbology);
 
       if (!this.settingsService.resultForm.value.CONTINUOUS_SCANNING) {

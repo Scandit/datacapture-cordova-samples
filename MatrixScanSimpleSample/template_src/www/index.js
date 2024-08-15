@@ -7,8 +7,9 @@ document.addEventListener('deviceready', () => {
 
   // Use the world-facing (back) camera and set it as the frame source of the context. The camera is off by
   // default and must be turned on to start streaming frames to the data capture context for recognition.
-  const camera = Scandit.Camera.default;
-  camera.preferredResolution = Scandit.VideoResolution.FullHD;
+  const cameraSettings = Scandit.BarcodeTracking.recommendedCameraSettings;
+  cameraSettings.preferredResolution = Scandit.VideoResolution.FullHD;
+  const camera = Scandit.Camera.withSettings(cameraSettings);
   context.setFrameSource(camera);
 
   // The barcode tracking process is configured through barcode tracking settings

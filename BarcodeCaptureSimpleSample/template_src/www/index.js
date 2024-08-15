@@ -40,7 +40,9 @@ document.addEventListener('deviceready', () => {
   // Register a listener to get informed whenever a new barcode got recognized.
   barcodeCapture.addListener({
     didScan: (barcodeCapture, session, _) => {
-      const barcode = session.newlyRecognizedBarcodes[0];
+      const barcode = session.newlyRecognizedBarcode;
+      if (barcode == null) return;
+      
       const symbology = new Scandit.SymbologyDescription(barcode.symbology);
 
       // The `alert` call blocks execution until it's dismissed by the user. As no further frames would be processed

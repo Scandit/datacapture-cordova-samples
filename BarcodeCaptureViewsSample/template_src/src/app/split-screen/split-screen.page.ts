@@ -36,7 +36,7 @@ export class SplitScreenPage implements AfterViewInit, ViewDidEnter, ViewWillLea
   ) { }
 
   ngAfterViewInit() {
-    this.overlay.viewfinder = new Scandit.LaserlineViewfinder(Scandit.LaserlineViewfinderStyle.Animated);
+    this.overlay.viewfinder = new Scandit.AimerViewfinder();
 
     this.settings.enableSymbologies([
       Scandit.Symbology.EAN13UPCA,
@@ -56,7 +56,9 @@ export class SplitScreenPage implements AfterViewInit, ViewDidEnter, ViewWillLea
 
     this.barcodeCapture.addListener({
       didScan: async (barcodeCapture, session) => {
-        const barcode = session.newlyRecognizedBarcodes[0];
+        const barcode = session.newlyRecognizedBarcode;
+        if (barcode == null) return;
+        
         const symbology = new Scandit.SymbologyDescription(barcode.symbology);
 
         this.results.push({ data: barcode.data, symbology: symbology.readableName });

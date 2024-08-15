@@ -28,7 +28,9 @@ document.addEventListener('deviceready', () => {
   // Register a listener to get informed whenever a new barcode got recognized.
   barcodeCapture.addListener({
     didScan: (barcodeCapture, session, _) => {
-      const barcode = session.newlyRecognizedBarcodes[0];
+      const barcode = session.newlyRecognizedBarcode;
+      if (barcode == null) return;
+
       const symbology = new Scandit.SymbologyDescription(barcode.symbology);
 
       // If the code scanned doesn't start with '09:', we will just ignore it and continue

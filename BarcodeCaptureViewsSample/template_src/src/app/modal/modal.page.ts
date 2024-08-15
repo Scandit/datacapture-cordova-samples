@@ -41,7 +41,9 @@ export class ModalPage implements AfterViewInit, ViewDidEnter, ViewWillLeave, On
 
     this.barcodeCapture.addListener({
       didScan: async (barcodeCapture, session) => {
-        const barcode = session.newlyRecognizedBarcodes[0];
+        const barcode = session.newlyRecognizedBarcode;
+        if (barcode == null) return;
+        
         const symbology = new Scandit.SymbologyDescription(barcode.symbology);
 
         this.captureViewElement.nativeElement.style.zIndex = '-1';
