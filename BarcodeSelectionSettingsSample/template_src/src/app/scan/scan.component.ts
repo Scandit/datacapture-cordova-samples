@@ -64,6 +64,13 @@ export class ScanComponent implements AfterViewInit {
     private toastController: ToastController,
   ) { }
 
+  public async ionViewWillEnter() {
+    if (!this.view) {
+      this.view = Scandit.DataCaptureView.forContext(this.context);
+    }
+    this.view.connectToElement(this.captureView.nativeElement);
+  }
+
   public async ionViewDidEnter() {
     this.isPageActive = true;
     this.barcodeSelection.isEnabled = false;
@@ -199,14 +206,9 @@ export class ScanComponent implements AfterViewInit {
     const { SCAN_AREA_GUIDES } = this.settingsService.scanAreaForm.value;
 
     this.captureView.nativeElement.style.zIndex = '1';
-    if (!this.view) {
-      this.view = Scandit.DataCaptureView.forContext(this.context);
-    }
 
     this.applyPointOfInterestSettings(this.view);
     this.applyScanAreaSettings(this.view);
-
-    this.view.connectToElement(this.captureView.nativeElement);
 
     this.view.zoomGesture = null;
 

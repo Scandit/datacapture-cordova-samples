@@ -10,8 +10,6 @@ This repository contains both simple and advanced samples that show you how use 
 
 **Barcode Capture Settings Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/BarcodeCaptureSettingsSample))
 
-**Barcode Capture Views Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/BarcodeCaptureViewsSample))
-
 ### Batch Scanning (MatrixScan AR)
 
 **MatrixScan Simple Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/MatrixScanSimpleSample))

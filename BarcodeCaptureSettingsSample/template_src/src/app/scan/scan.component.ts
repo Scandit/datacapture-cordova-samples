@@ -117,6 +117,13 @@ export class ScanComponent implements AfterViewInit {
     private alertController: AlertController,
   ) {}
 
+  public async ionViewWillEnter() {
+    if (!this.view) {
+      this.view = Scandit.DataCaptureView.forContext(this.context);
+    }
+    this.view.connectToElement(this.captureView.nativeElement);
+  }
+
   public async ionViewDidEnter() {
     this.isPageActive = true;
     this.barcodeCapture.isEnabled = false;
@@ -212,7 +219,7 @@ export class ScanComponent implements AfterViewInit {
     const vibration = FEEDBACK_VIBRATION ? Scandit.Vibration.defaultVibration : null;
     const sound = FEEDBACK_SOUND ? Scandit.Sound.defaultSound : null;
 
-    const feedback = new Scandit.BarcodeCaptureFeedback().success 
+    const feedback = new Scandit.BarcodeCaptureFeedback().success;
     feedback.success = new Scandit.Feedback(vibration, sound);
 
     this.barcodeCapture.feedback = feedback;
@@ -244,7 +251,6 @@ export class ScanComponent implements AfterViewInit {
     const {
       DESIRED_TORCH_STATE,
       CAMERA_POSITION,
-      MAX_FRAME_RATE,
       PREFERRED_RESOLUTION,
       ZOOM_FACTOR,
       ZOOM_GESTURE_ZOOM_FACTOR,
@@ -254,7 +260,6 @@ export class ScanComponent implements AfterViewInit {
 
     const cameraSettings = new Scandit.CameraSettings({
       preferredResolution: PREFERRED_RESOLUTION,
-      maxFrameRate: MAX_FRAME_RATE,
       zoomFactor: ZOOM_FACTOR,
       focusRange: FOCUS_RANGE,
       focusGestureStrategy: FOCUS_GESTURE_STRATEGY,
@@ -279,17 +284,12 @@ export class ScanComponent implements AfterViewInit {
     const { SCAN_AREA_GUIDES } = this.settingsService.scanAreaForm.value;
 
     this.captureView.nativeElement.style.zIndex = '1';
-    if (!this.view) {
-      this.view = Scandit.DataCaptureView.forContext(this.context);
-    }
 
     this.applyPointOfInterestSettings(this.view);
     this.applyScanAreaSettings(this.view);
     this.applyLogoSettings(this.view);
     this.applyGesturesSettings(this.view);
     this.applyControlsSettings(this.view);
-
-    this.view.connectToElement(this.captureView.nativeElement);
 
     this.applyOverlayStyleSettings(SCAN_AREA_GUIDES, this.view);
   }
@@ -387,8 +387,6 @@ export class ScanComponent implements AfterViewInit {
       VIEWFINDER_LOOPING,
       VIEWFINDER_COLOR,
       VIEWFINDER_RECTANGULAR_DISABLED_COLOR,
-      VIEWFINDER_ENABLED_COLOR,
-      VIEWFINDER_DISABLED_COLOR,
       VIEWFINDER_SIZE_SPECIFICATION,
       VIEWFINDER_HEIGHT,
       VIEWFINDER_HEIGHT_ASPECT,
@@ -397,8 +395,6 @@ export class ScanComponent implements AfterViewInit {
       VIEWFINDER_WIDTH_ASPECT,
       VIEWFINDER_SHORTER_DIM,
       VIEWFINDER_ASPECT_RATIO,
-      VIEWFINDER_LASERLINE_WIDTH,
-      VIEWFINDER_LASERLINE_STYLE,
       VIEWFINDER_AIMER_DOT_COLOR,
       VIEWFINDER_AIMER_FRAME_COLOR,
     } = this.settingsService.viewfinderForm.value;
@@ -407,15 +403,6 @@ export class ScanComponent implements AfterViewInit {
       const viewfinder = new Scandit.AimerViewfinder();
       viewfinder.frameColor = this.getColor(VIEWFINDER_AIMER_FRAME_COLOR);
       viewfinder.dotColor = this.getColor(VIEWFINDER_AIMER_DOT_COLOR);
-
-      overlay.viewfinder = viewfinder;
-    }
-
-    if (VIEWFINDER_TYPE === ViewfinderType.Laserline) {
-      const viewfinder = new Scandit.LaserlineViewfinder(VIEWFINDER_LASERLINE_STYLE);
-      viewfinder.width = this.getNumberWithUnit(VIEWFINDER_LASERLINE_WIDTH);
-      viewfinder.enabledColor = this.getColor(VIEWFINDER_ENABLED_COLOR);
-      viewfinder.disabledColor = this.getColor(VIEWFINDER_DISABLED_COLOR);
 
       overlay.viewfinder = viewfinder;
     }

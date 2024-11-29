@@ -313,15 +313,6 @@ const routes: Routes = [
                   fieldName: SettingsFieldName.VIEWFINDER_HEIGHT,
                 },
               },
-              {
-                path: NavigationRoute.VIEWFINDER_LASERLINE_WIDTH,
-                component: UnitNumberComponent,
-                data: {
-                  form: 'viewfinderForm',
-                  label: NavigationLabel.VIEWFINDER_LASERLINE_WIDTH,
-                  fieldName: SettingsFieldName.VIEWFINDER_LASERLINE_WIDTH,
-                },
-              },
             ]
           }
         ],

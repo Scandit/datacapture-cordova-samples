@@ -1,8 +1,8 @@
 {
-    "name": "barcodeselectionsimplesample",
-    "displayName": "BarcodeSelectionSimpleSample",
+    "name": "matrixscanbubblessample",
+    "displayName": "MSBubbles",
     "version": "1.0.0",
-    "description": "BarcodeSelectionSimpleSample for the Scandit Cordova plugin",
+    "description": "MatrixScanBubblesSample for the Scandit Cordova plugin",
     "main": "index.js",
     "keywords": [
         "ecosystem:cordova"
@@ -20,7 +20,8 @@
     "dependencies": {
         "cordova-plugin-add-swift-support": "2.0.2",
         "scandit-cordova-datacapture-barcode": "7.0.0",
-        "scandit-cordova-datacapture-core": "7.0.0"
+        "scandit-cordova-datacapture-core": "7.0.0",
+        "cordova-plugin-statusbar": "2.4.3"
     },
     "devDependencies": {}
 }

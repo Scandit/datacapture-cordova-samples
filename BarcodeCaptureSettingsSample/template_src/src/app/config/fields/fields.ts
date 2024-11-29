@@ -8,7 +8,6 @@ import {
   ViewfinderColor,
   ViewfinderStyle,
   ViewfinderLineStyle,
-  LaserlineViewfinderStyle,
   SizeSpecification,
   LocationSelectionType,
 } from 'src/app/models/sdk.model';
@@ -151,12 +150,6 @@ export const settingsFields = (Scandit): SettingsFields => ({
     key: SettingsFieldName.DESIRED_TORCH_STATE,
     defaultValue: false,
   } as SettingsField<boolean>,
-  [SettingsFieldName.MAX_FRAME_RATE]: {
-    label: 'Max Frame Rate',
-    type: SettingsFieldType.NUMBER,
-    key: SettingsFieldName.MAX_FRAME_RATE,
-    defaultValue: 30,
-  } as SettingsField<number>,
   [SettingsFieldName.PREFERRED_RESOLUTION]: {
     label: 'Preferred Resolution',
     type: SettingsFieldType.SELECT,
@@ -274,7 +267,6 @@ export const settingsFields = (Scandit): SettingsFields => ({
     defaultValue: BarcodeCaptureOverlayStyle.Frame,
     options: [
       { label: 'Frame', value: BarcodeCaptureOverlayStyle.Frame },
-      { label: 'Legacy', value: BarcodeCaptureOverlayStyle.Legacy },
     ],
   } as SettingsField<string>,
 
@@ -299,7 +291,6 @@ export const settingsFields = (Scandit): SettingsFields => ({
     options: [
       { label: 'None', value: ViewfinderType.None },
       { label: 'Rectangular', value: ViewfinderType.Rectangular },
-      { label: 'Laserline', value: ViewfinderType.Laserline },
       { label: 'Aimer', value: ViewfinderType.Aimer },
     ],
   } as SettingsField<ViewfinderType>,
@@ -320,9 +311,8 @@ export const settingsFields = (Scandit): SettingsFields => ({
     label: 'Style',
     type: SettingsFieldType.SELECT,
     key: SettingsFieldName.VIEWFINDER_STYLE,
-    defaultValue: ViewfinderStyle.Legacy,
+    defaultValue: ViewfinderStyle.Rounded,
     options: [
-      { label: 'Legacy', value: ViewfinderStyle.Legacy },
       { label: 'Square', value: ViewfinderStyle.Square },
       { label: 'Rounded', value: ViewfinderStyle.Rounded },
     ],
@@ -459,23 +449,6 @@ export const settingsFields = (Scandit): SettingsFields => ({
     defaultValue: { unit: Scandit.MeasureUnit.Fraction, value: 0.32 },
     path: NavigationRoute.VIEWFINDER_HEIGHT,
   } as SettingsField<UnitNumber>,
-  [SettingsFieldName.VIEWFINDER_LASERLINE_WIDTH]: {
-    label: 'Width',
-    type: SettingsFieldType.UNIT_NUMBER,
-    key: SettingsFieldName.VIEWFINDER_LASERLINE_WIDTH,
-    defaultValue: { unit: Scandit.MeasureUnit.Fraction, value: 0.75 },
-    path: NavigationRoute.VIEWFINDER_LASERLINE_WIDTH,
-  } as SettingsField<UnitNumber>,
-  [SettingsFieldName.VIEWFINDER_LASERLINE_STYLE]: {
-    label: 'Style',
-    type: SettingsFieldType.SELECT,
-    key: SettingsFieldName.VIEWFINDER_LASERLINE_STYLE,
-    defaultValue: LaserlineViewfinderStyle.Legacy,
-    options: [
-      { label: 'Legacy', value: LaserlineViewfinderStyle.Legacy },
-      { label: 'Animated', value: LaserlineViewfinderStyle.Animated },
-    ],
-  } as SettingsField<string>,
 
   // view - logo
   [SettingsFieldName.LOGO_ANCHOR]: {

@@ -10,7 +10,6 @@
     "cordova": {
         "plugins": {
             "scandit-cordova-datacapture-core": {},
-            "scandit-cordova-datacapture-text": {},
             "scandit-cordova-datacapture-id": {}
         },
         "platforms": [
@@ -19,9 +18,8 @@
         ]
     },
     "dependencies": {
-        "scandit-cordova-datacapture-core": "6.28.1",
-        "scandit-cordova-datacapture-text": "6.28.1",
-        "scandit-cordova-datacapture-id": "6.28.1"
+        "scandit-cordova-datacapture-core": "7.0.0",
+        "scandit-cordova-datacapture-id": "7.0.0"
     },
     "devDependencies": {}
 }

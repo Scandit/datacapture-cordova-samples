@@ -26,8 +26,6 @@ export enum NavigationRoute {
   VIEWFINDER = 'viewfinder',
   VIEWFINDER_WIDTH = 'width',
   VIEWFINDER_HEIGHT = 'height',
-  VIEWFINDER_LASERLINE_WIDTH = 'laserline-width',
-  VIEWFINDER_LASERLINE_STYLE = 'laserline-style',
   LOGO = 'logo',
   LOGO_X = 'x',
   LOGO_Y = 'y',

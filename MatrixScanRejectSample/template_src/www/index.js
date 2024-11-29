@@ -11,9 +11,9 @@ document.addEventListener('deviceready', () => {
   camera.preferredResolution = Scandit.VideoResolution.FullHD;
   context.setFrameSource(camera);
 
-  // The barcode tracking process is configured through barcode tracking settings
-  // which are then applied to the barcode tracking instance that manages barcode tracking.
-  const settings = new Scandit.BarcodeTrackingSettings();
+  // The barcode batch process is configured through barcode batch settings
+  // which are then applied to the barcode batch instance that manages barcode batch.
+  const settings = new Scandit.BarcodeBatchSettings();
 
   // The settings instance initially has all types of barcodes (symbologies) disabled. For the purpose of this
   // sample we enable a very generous set of symbologies. In your own app ensure that you only enable the
@@ -27,13 +27,13 @@ document.addEventListener('deviceready', () => {
     Scandit.Symbology.QR,
   ]);
 
-  // Create new barcode tracking mode with the settings from above.
-  const barcodeTracking = Scandit.BarcodeTracking.forContext(context, settings);
+  // Create new barcode batch mode with the settings from above.
+  const barcodeBatch = Scandit.BarcodeBatch.forContext(context, settings);
   const rejectBrush = new Scandit.Brush(Scandit.Color.fromRGBA(255, 255, 255, 0), Scandit.Color.fromHex('#FA4446'), 3);
   const acceptBrush = new Scandit.Brush(Scandit.Color.fromRGBA(255, 255, 255, 0), Scandit.Color.fromHex('#26D381'), 3);
 
   // Register a listener to get informed whenever a new barcode is tracked.
-  barcodeTracking.addListener({
+  barcodeBatch.addListener({
     didUpdateSession: (mode, session) => {
       Object.values(session.trackedBarcodes).forEach(trackedBarcode => {
         // If the code scanned starts with '7' we will ignore it and mark with red brush
@@ -47,22 +47,22 @@ document.addEventListener('deviceready', () => {
     }
   });
 
-  // To visualize the on-going barcode tracking process on screen, setup a data capture view that renders the
+  // To visualize the on-going barcode batch process on screen, setup a data capture view that renders the
   // camera preview. The view must be connected to the data capture context.
   const view = Scandit.DataCaptureView.forContext(context);
 
   // Connect the data capture view to the HTML element, so it can fill up its size and follow its position.
   view.connectToElement(document.getElementById('data-capture-view'));
 
-  // Add a barcode tracking overlay to the data capture view to render the location of captured barcodes on top of
+  // Add a barcode batch overlay to the data capture view to render the location of captured barcodes on top of
   // the video preview. This is optional, but recommended for better visual feedback.
-  window.overlay = Scandit.BarcodeTrackingBasicOverlay
-    .withBarcodeTrackingForViewWithStyle(barcodeTracking, view, Scandit.BarcodeTrackingBasicOverlayStyle.Frame);
+  window.overlay = Scandit.BarcodeBatchBasicOverlay
+    .withBarcodeBatchForViewWithStyle(barcodeBatch, view, Scandit.BarcodeBatchBasicOverlayStyle.Frame);
 
-  // Switch camera on to start streaming frames and enable the barcode tracking mode.
+  // Switch camera on to start streaming frames and enable the barcode batch mode.
   // The camera is started asynchronously and will take some time to completely turn on.
   camera.switchToDesiredState(Scandit.FrameSourceState.On);
-  barcodeTracking.isEnabled = true;
+  barcodeBatch.isEnabled = true;
 }, false);
 
 function updateResults() {

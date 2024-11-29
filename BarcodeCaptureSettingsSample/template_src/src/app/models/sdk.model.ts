@@ -5,7 +5,6 @@ export enum BrushColor {
 }
 
 export enum BarcodeCaptureOverlayStyle {
-  Legacy = 'legacy',
   Frame = 'frame',
 }
 
@@ -18,14 +17,8 @@ export enum ViewfinderColor {
 }
 
 export enum ViewfinderStyle {
-  Legacy = 'legacy',
   Square = 'square',
   Rounded = 'rounded',
-}
-
-export enum LaserlineViewfinderStyle {
-  Legacy = 'legacy',
-  Animated = 'animated',
 }
 
 export enum ViewfinderLineStyle {
@@ -42,7 +35,6 @@ export enum SizeSpecification {
 
 export enum ViewfinderType {
   None = 'none',
-  Laserline = 'laserline',
   Rectangular = 'rectangular',
   Aimer = 'aimer',
 }

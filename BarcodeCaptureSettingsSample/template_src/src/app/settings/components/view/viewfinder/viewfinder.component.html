@@ -5,7 +5,6 @@
     <app-flat-select [formControlName]="fieldName.VIEWFINDER_TYPE"></app-flat-select>
   </ion-card>
 
-  <div *ngIf="type === 'laserline'" class="app-card-header">Laserline</div>
   <div *ngIf="type === 'rectangular'" class="app-card-header">Rectangular</div>
   <div *ngIf="type === 'aimer'" class="app-card-header">Aimer</div>
 
@@ -15,19 +14,6 @@
       <app-select [formControlName]="fieldName.VIEWFINDER_AIMER_DOT_COLOR"></app-select>
     </ion-list>
   </ion-card>
-
-  <ion-card *ngIf="type === 'laserline'">
-    <ion-list>
-      <app-select [formControlName]="fieldName.VIEWFINDER_LASERLINE_STYLE"></app-select>
-      <app-unit-number-item
-        [currentValue]="form.value[fieldName.VIEWFINDER_LASERLINE_WIDTH]"
-        [field]="fields[fieldName.VIEWFINDER_LASERLINE_WIDTH]"
-      ></app-unit-number-item>
-      <app-select [formControlName]="fieldName.VIEWFINDER_ENABLED_COLOR"></app-select>
-      <app-select [formControlName]="fieldName.VIEWFINDER_DISABLED_COLOR"></app-select>
-    </ion-list>
-  </ion-card>
-
   <div *ngIf="type === 'rectangular'">
     <ion-card>
       <ion-list>

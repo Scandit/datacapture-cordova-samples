@@ -50,8 +50,6 @@ export const fieldsStructure = Scandit => ({
       SettingsFieldName.VIEWFINDER_ASPECT_RATIO,
       SettingsFieldName.VIEWFINDER_HEIGHT,
       SettingsFieldName.VIEWFINDER_HEIGHT_ASPECT,
-      SettingsFieldName.VIEWFINDER_LASERLINE_WIDTH,
-      SettingsFieldName.VIEWFINDER_LASERLINE_STYLE,
       SettingsFieldName.VIEWFINDER_STYLE,
       SettingsFieldName.VIEWFINDER_LINE_STYLE,
       SettingsFieldName.VIEWFINDER_DIMMING,
@@ -81,7 +79,6 @@ export const fieldsStructure = Scandit => ({
   camera: [
     SettingsFieldName.CAMERA_POSITION,
     SettingsFieldName.DESIRED_TORCH_STATE,
-    SettingsFieldName.MAX_FRAME_RATE,
     SettingsFieldName.PREFERRED_RESOLUTION,
     SettingsFieldName.ZOOM_FACTOR,
     SettingsFieldName.ZOOM_GESTURE_ZOOM_FACTOR,

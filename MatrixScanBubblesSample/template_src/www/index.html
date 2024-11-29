@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src 'self' 'unsafe-inline' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+    <title>MatrixScanBubblesSample</title>
+
+    <style>
+        body {
+            font-family: 'Helvetica', 'Arial';
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        #data-capture-view {
+            width: 100vw;
+            height: calc(100vh - 74px - (2 * 20px));
+        }
+
+        #freeze-button {
+            width: 100vw;
+            height: calc(74px + (2 * 20px));
+
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        #freeze-button.freeze {
+            background-image: url(Freeze.svg);
+        }
+
+        #freeze-button.unfreeze {
+            background-image: url(Unfreeze.svg)
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 0;">
+    <div id="scanning">
+        <div id="data-capture-view"></div>
+    </div>
+    <div id="freeze-button" class="freeze" onclick="toggleFreeze()"></div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+
+</html>

@@ -19,7 +19,6 @@ export class CameraComponent extends SettingsBase implements OnInit {
   public fields: SettingsFields;
 
   public cameraPosition: SettingsField;
-  public maxFrameRate: SettingsField;
 
   public zoomFactor: SettingsField;
   public zoomGestureZoomFactor: SettingsField;

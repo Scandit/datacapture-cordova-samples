@@ -29,8 +29,6 @@ export enum NavigationLabel {
   VIEWFINDER = 'Viewfinder',
   VIEWFINDER_WIDTH = 'Width',
   VIEWFINDER_HEIGHT = 'Height',
-  VIEWFINDER_LASERLINE_WIDTH = 'Width',
-  VIEWFINDER_LASERLINE_STYLE = 'Style',
 
   LOGO = 'Logo',
   LOGO_X = 'X',
