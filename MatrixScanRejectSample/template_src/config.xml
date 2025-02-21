@@ -16,9 +16,9 @@
         <preference name="android-targetSdkVersion" value="33" />
         <preference name="android-compileSdkVersion" value="33" />
         <preference name="GradlePluginKotlinEnabled" value="true" />
-        <preference name="GradlePluginKotlinVersion" value="1.7.21" />
-        <preference name="GradleVersion" value="7.4.2" />
-        <preference name="AndroidGradlePluginVersion" value="7.2.1" />
+        <preference name="GradlePluginKotlinVersion" value="1.8.20" />
+         <preference name="GradleVersion" value="8.8" />
+        <preference name="AndroidGradlePluginVersion" value="8.5.1" />
     </platform>
     <platform name="ios">
         <preference name="StatusBarOverlaysWebView" value="true" />

@@ -1,8 +1,0 @@
-<ion-list>
-  <ion-radio-group [ngModel]="value" (ngModelChange)="onValueChange($event)">
-    <ion-item [lines]="lines" *ngFor="let option of field.options">
-      <ion-label>{{ option.label }}</ion-label>
-      <ion-radio slot="end" [value]="option.value"></ion-radio>
-    </ion-item>
-  </ion-radio-group>
-</ion-list>

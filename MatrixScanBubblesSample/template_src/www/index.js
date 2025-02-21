@@ -168,7 +168,7 @@ const setView = (trackedBarcode) => {
 
 const createBubbleWithContent = (content, barcode) => {
 
-  const bubbleWidth = 234;
+  const bubbleWidth = 200;
   const bubbleHeight = 60;
 
   const container = document.createElement("div");
@@ -181,13 +181,6 @@ const createBubbleWithContent = (content, barcode) => {
   container.style.display = "flex";
   container.style.fontFamily = "Helvetica Neue";
   container.style.fontSize = `${14 * window.devicePixelRatio}px`;
-
-  const icon = document.createElement("div");
-  icon.style.width = `${bubbleHeight * window.devicePixelRatio}px`;
-  icon.style.height = `${bubbleHeight * window.devicePixelRatio}px`;
-  icon.style.borderRadius = `${(bubbleHeight / 2) * window.devicePixelRatio}px`;
-  icon.style.backgroundColor = "#5AD5C8CC";
-  container.appendChild(icon);
 
   const textContainer = document.createElement("div");
   textContainer.style.width = `${(bubbleWidth - bubbleHeight) * window.devicePixelRatio}px`;

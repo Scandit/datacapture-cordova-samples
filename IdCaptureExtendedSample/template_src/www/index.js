@@ -18,7 +18,15 @@ document.addEventListener('deviceready', () => {
       window.showResult(window.getCapturedIdResult(capturedId));
     },
     didRejectId: (_, rejectedId, reason) => {
-      window.showResult(window.getRejectionReasonMessage(reason));
+      // The `alert` call blocks execution until it's dismissed by the user. As no further frames would be processed
+      // until the alert dialog is dismissed, we're showing the alert through a timeout and disabling the barcode
+      // capture mode until the dialog is dismissed, as you should not block the BarcodeCaptureListener callbacks for
+      // longer periods of time. See the documentation to learn more about this.
+      setTimeout(() => {
+        alert(window.getRejectionReasonMessage(reason));
+        window.idCapture.isEnabled = true;
+      }, 100);
+      window.idCapture.isEnabled = false;
     }
   };
 
@@ -112,12 +120,12 @@ window.getCapturedIdResult = (capturedId) => {
 
 window.getRejectionReasonMessage = (reason) => {
   switch (reason) {
-      case Scandit.RejectionReason.NotAcceptedDocumentType:
-          return 'Document not supported. Try scanning another document.';
-      case Scandit.RejectionReason.Timeout:
-          return 'Document capture failed. Make sure the document is well lit and free of glare. Alternatively, try scanning another document';
-      default:
-          return `Document capture was rejected. Reason=${reason}`;
+    case Scandit.RejectionReason.NotAcceptedDocumentType:
+      return 'Document not supported. Try scanning another document.';
+    case Scandit.RejectionReason.Timeout:
+      return 'Document capture failed. Make sure the document is well lit and free of glare. Alternatively, try scanning another document';
+    default:
+      return `Document capture was rejected. Reason=${reason}`;
   }
 }
 
