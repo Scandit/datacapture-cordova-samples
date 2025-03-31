@@ -4,19 +4,19 @@ This repository contains both simple and advanced samples that show you how use 
 
 ### Single Scanning (Barcode Capture)
 
-**Barcode Capture Simple Sample (**[Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/BarcodeCaptureSimpleSample))
+**Barcode Capture Simple Sample (**[Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/01_Single_Scanning_Samples/02_Barcode_Scanning_with_Low_Level_API/BarcodeCaptureSimpleSample))
 
-**Barcode Capture Reject Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/BarcodeCaptureRejectSample))
+**Barcode Capture Reject Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/01_Single_Scanning_Samples/02_Barcode_Scanning_with_Low_Level_API/BarcodeCaptureRejectSample))
 
-**Barcode Capture Settings Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/BarcodeCaptureSettingsSample))
+**Barcode Capture Settings Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/01_Single_Scanning_Samples/02_Barcode_Scanning_with_Low_Level_API/BarcodeCaptureSettingsSample))
 
 ### Batch Scanning (MatrixScan AR)
 
-**MatrixScan Simple Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/MatrixScanSimpleSample))
+**MatrixScan Simple Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/03_Advanced_Batch_Scanning_Samples/01_Batch_Scanning_and_AR_Info_Lookup/MatrixScanSimpleSample))
 
-**MatrixScan Bubbles Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/MatrixScanBubblesSample))
+**MatrixScan Bubbles Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/03_Advanced_Batch_Scanning_Samples/01_Batch_Scanning_and_AR_Info_Lookup/MatrixScanBubblesSample))
 
-**MatrixScan Reject Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/MatrixScanRejectSample))
+**MatrixScan Reject Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/03_Advanced_Batch_Scanning_Samples/01_Batch_Scanning_and_AR_Info_Lookup/MatrixScanRejectSample))
 
 ### Barcode Selection Samples
 
@@ -28,15 +28,13 @@ Consider Barcode Selection when **accuracy** is more important than **speed**.
 
   ![AimToSelect.png](https://github.com/Scandit/.github/blob/main/images/AimToSelect.png)
 
-
 - **Tap to select** is quicker when you need to select several barcodes, as demonstrated by the **Catalog Reordering Sample** (yep, those are teeth).
 
   ![TapToSelect.png](https://github.com/Scandit/.github/blob/main/images/TapToSelect.png)
 
+**Barcode Selection Simple Sample (**[Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/01_Single_Scanning_Samples/02_Barcode_Scanning_with_Low_Level_API/BarcodeSelectionSimpleSample))
 
-**Barcode Selection Simple Sample (**[Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/BarcodeSelectionSimpleSample))
-
-**Barcode Selection Settings Sample (**[Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/BarcodeSelectionSettingsSample))
+**Barcode Selection Settings Sample (**[Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/01_Single_Scanning_Samples/02_Barcode_Scanning_with_Low_Level_API/BarcodeSelectionSettingsSample))
 
 ### ID Scanning and Verification Samples
 
@@ -44,11 +42,9 @@ ID Scanning Samples demonstrate the features of the ID Capture API and demonstra
 
 ![IDScanning.png](https://github.com/Scandit/.github/blob/main/images/IDScanning.png)
 
-**ID Capture Simple Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/IdCaptureSimpleSample))
+**ID Capture Simple Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/02_ID_Scanning_Samples/IdCaptureSimpleSample))
 
-**Age Verified Delivery Sample** ([Cordova](https://github.com/Scandit/datacapture-android-samples/tree/master/AgeVerifiedDeliverySample))
-
-**ID Capture Extended Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/IdCaptureExtendedSample))
+**ID Capture Extended Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/02_ID_Scanning_Samples/IdCaptureExtendedSample))
 
 ## Samples on Other Frameworks
 
@@ -64,7 +60,7 @@ Once you get the sample up and running, go find some barcodes to scan. Don’t f
 
 ## Trial Signup
 
-To add the Scandit Data Capture SDK to your app, sign up for your Scandit Developer Account  and get instant access to your license key: [https://ssl.scandit.com/dashboard/sign-up?p=test](https://ssl.scandit.com/dashboard/sign-up?p=test)
+To add the Scandit Data Capture SDK to your app, sign up for your Scandit Developer Account and get instant access to your license key: [https://ssl.scandit.com/dashboard/sign-up?p=test](https://ssl.scandit.com/dashboard/sign-up?p=test)
 
 ## Support
 
