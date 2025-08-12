@@ -95,6 +95,14 @@ document.addEventListener('deviceready', () => {
       window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.location)
         .then(location => updateView(trackedBarcode, location, !isViewShowingAlternateContent[trackedBarcode.identifier]));
     },
+     // The offset of our overlay will be calculated from the center anchoring point.
+     anchorForTrackedBarcode: () => Scandit.Anchor.TopCenter,
+     // We set the offset's height to be equal of the 100 percent of our overlay.
+     // The minus sign means that the overlay will be above the barcode.
+     offsetForTrackedBarcode: () => new Scandit.PointWithUnit(
+       new Scandit.NumberWithUnit(0, Scandit.MeasureUnit.Fraction),
+       new Scandit.NumberWithUnit(-1, Scandit.MeasureUnit.Fraction),
+     ),
   }
 
   // Switch camera on to start streaming frames and enable the barcode batch mode.
