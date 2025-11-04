@@ -1,9 +1,9 @@
 resetResults();
 
-document.addEventListener('deviceready', () => {
+document.addEventListener('deviceready', async () => {
   // Enter your Scandit License key here.
   // Your Scandit License key is available via your Scandit SDK web account.
-  const context = Scandit.DataCaptureContext.forLicenseKey('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
+  const context = await Scandit.DataCaptureContext.initialize('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
 
   // Use the world-facing (back) camera and set it as the frame source of the context. The camera is off by
   // default and must be turned on to start streaming frames to the data capture context for recognition.
@@ -28,7 +28,7 @@ document.addEventListener('deviceready', () => {
   ]);
 
   // Create new barcode batch mode with the settings from above.
-  const barcodeBatch = Scandit.BarcodeBatch.forContext(context, settings);
+  const barcodeBatch = new Scandit.BarcodeBatch(settings);
   const rejectBrush = new Scandit.Brush(Scandit.Color.fromRGBA(255, 255, 255, 0), Scandit.Color.fromHex('#FF3939FF'), 3);
 
   // Register a listener to get informed whenever a new barcode is tracked.
@@ -46,6 +46,9 @@ document.addEventListener('deviceready', () => {
     }
   });
 
+  // Add mode to context
+  await context.setMode(barcodeBatch);
+
   // To visualize the on-going barcode batch process on screen, setup a data capture view that renders the
   // camera preview. The view must be connected to the data capture context.
   const view = Scandit.DataCaptureView.forContext(context);
@@ -55,8 +58,8 @@ document.addEventListener('deviceready', () => {
 
   // Add a barcode batch overlay to the data capture view to render the location of captured barcodes on top of
   // the video preview. This is optional, but recommended for better visual feedback.
-  window.overlay = Scandit.BarcodeBatchBasicOverlay
-    .withBarcodeBatchForViewWithStyle(barcodeBatch, view, Scandit.BarcodeBatchBasicOverlayStyle.Frame);
+  window.overlay = new Scandit.BarcodeBatchBasicOverlay(barcodeBatch, Scandit.BarcodeBatchBasicOverlayStyle.Frame);
+  view.addOverlay(window.overlay);
 
   // Switch camera on to start streaming frames and enable the barcode batch mode.
   // The camera is started asynchronously and will take some time to completely turn on.

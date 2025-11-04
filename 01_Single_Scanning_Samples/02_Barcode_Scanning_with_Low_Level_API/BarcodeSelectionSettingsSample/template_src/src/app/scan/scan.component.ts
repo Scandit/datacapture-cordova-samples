@@ -99,9 +99,12 @@ export class ScanComponent implements AfterViewInit {
   }
 
   public ngAfterViewInit() {
-    this.context = Scandit.DataCaptureContext.forLicenseKey(environment.scanditLicenseKey);
-    this.barcodeSelection = Scandit.BarcodeSelection.forContext(this.context);
+      this.context = Scandit.DataCaptureContext.initialize(environment.scanditLicenseKey);
+    this.barcodeSelection = new Scandit.BarcodeSelection();
     this.barcodeSelection.addListener(this.listener);
+
+    // Add mode to context
+    this.context.setMode(this.barcodeSelection);
   }
 
   public getBarcodeSelectionSettings() {
@@ -288,11 +291,7 @@ export class ScanComponent implements AfterViewInit {
 
     view.overlays.forEach(overlay => view.removeOverlay(overlay))
 
-    const overlay = Scandit.BarcodeSelectionBasicOverlay.withBarcodeSelectionForViewWithStyle(
-      this.barcodeSelection,
-      view,
-      OVERLAY_STYLE,
-    );
+    const overlay = new Scandit.BarcodeSelectionBasicOverlay(this.barcodeSelection, OVERLAY_STYLE);
 
     overlay.shouldShowScanAreaGuides = SCAN_AREA_GUIDES;
     overlay.shouldShowHints = SHOULD_SHOW_HINTS;
@@ -303,6 +302,9 @@ export class ScanComponent implements AfterViewInit {
     overlay.selectedBrush = SELECTED_BRUSH == Brush.Default ? overlay.selectedBrush: new Scandit.Brush(this.getColor(SELECTED_BRUSH), this.getColor(SELECTED_BRUSH), 1);
 
     this.applyViewfinderSettings(overlay);
+
+    // Add overlay to view
+    view.addOverlay(overlay);
   }
 
   private getColor(rgbaString: string) {

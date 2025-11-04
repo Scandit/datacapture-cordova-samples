@@ -19,8 +19,8 @@
     },
     "dependencies": {
         "cordova-plugin-add-swift-support": "2.0.2",
-        "scandit-cordova-datacapture-id": "7.6.3",
-        "scandit-cordova-datacapture-core": "7.6.3"
+        "scandit-cordova-datacapture-id": "8.0.0",
+        "scandit-cordova-datacapture-core": "8.0.0"
     },
     "devDependencies": {}
 }

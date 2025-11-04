@@ -7,10 +7,11 @@ const Mode = {
 window.currentMode = () => document.querySelector('#modes .selected').attributes['sdc-mode'].value;
 
 document.addEventListener('deviceready', () => {
-  // Create data capture context using your license key.
-  window.context = Scandit.DataCaptureContext.forLicenseKey('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
+  // Enter your Scandit License key here.
+  // Your Scandit License key is available via your Scandit SDK web account.
+  window.context = Scandit.DataCaptureContext.initialize('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
 
-  const camera = Scandit.Camera.withSettings(Scandit.IdCapture.recommendedCameraSettings);
+  const camera = Scandit.Camera.withSettings(Scandit.IdCapture.createRecommendedCameraSettings());
   window.context.setFrameSource(camera);
 
   window.listener = {
@@ -49,15 +50,15 @@ window.setupMode = mode => {
   );
 
   if (mode == Mode.MRZ) {
-    settings.scannerType = new Scandit.SingleSideScanner(false, true, false);
+    settings.scanner = new Scandit.IdCaptureScanner(new Scandit.SingleSideScanner(false, true, false));
   }
 
   if (mode == Mode.Barcode) {
-    settings.scannerType = new Scandit.SingleSideScanner(true, false, false);
+    settings.scanner = new Scandit.IdCaptureScanner(new Scandit.SingleSideScanner(true, false, false));
   }
 
   if (mode == Mode.VIZ) {
-    settings.scannerType = new Scandit.SingleSideScanner(false, false, true);
+    settings.scanner = new Scandit.IdCaptureScanner(new Scandit.SingleSideScanner(false, false, true));
     settings.setShouldPassImageTypeToResult(Scandit.IdImageType.Face, true);
   }
 
@@ -65,9 +66,15 @@ window.setupMode = mode => {
   if (window.overlay) {
     window.view.removeOverlay(window.overlay);
   }
-  window.idCapture = Scandit.IdCapture.forContext(window.context, settings);
+  window.idCapture = new Scandit.IdCapture(settings);
   window.idCapture.addListener(window.listener);
-  window.overlay = Scandit.IdCaptureOverlay.withIdCaptureForView(window.idCapture, window.view);
+
+  // Set the mode to the context
+  window.context.setMode(window.idCapture);
+
+  window.overlay = new Scandit.IdCaptureOverlay(window.idCapture);
+  // Add the overlay to the view
+  window.view.addOverlay(window.overlay);
 }
 
 window.showResult = (result) => {

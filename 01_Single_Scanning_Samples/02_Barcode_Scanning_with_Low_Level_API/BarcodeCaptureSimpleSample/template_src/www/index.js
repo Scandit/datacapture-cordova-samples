@@ -1,7 +1,7 @@
 document.addEventListener('deviceready', () => {
   // Enter your Scandit License key here.
   // Your Scandit License key is available via your Scandit SDK web account.
-  const context = Scandit.DataCaptureContext.forLicenseKey('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
+  const context = Scandit.DataCaptureContext.initialize('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
 
   // Use the world-facing (back) camera and set it as the frame source of the context. The camera is off by
   // default and must be turned on to start streaming frames to the data capture context for recognition.
@@ -35,7 +35,7 @@ document.addEventListener('deviceready', () => {
   symbologySettings.activeSymbolCounts = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
   // Create new barcode capture mode with the settings from above.
-  window.barcodeCapture = Scandit.BarcodeCapture.forContext(context, settings);
+  window.barcodeCapture = new Scandit.BarcodeCapture(settings);
 
   // By default, every time a barcode is scanned, a sound (if not in silent mode) and a vibration are played.
   // Uncomment the following lines to set a success feedback without sound and vibration.
@@ -81,6 +81,9 @@ document.addEventListener('deviceready', () => {
     }
   });
 
+  // Add mode to context
+  context.setMode(window.barcodeCapture);
+
   // To visualize the on-going barcode capturing process on screen, setup a data capture view that renders the
   // camera preview. The view must be connected to the data capture context.
   const view = Scandit.DataCaptureView.forContext(context);
@@ -90,12 +93,14 @@ document.addEventListener('deviceready', () => {
 
   // Add a barcode capture overlay to the data capture view to render the location of captured barcodes on top of
   // the video preview. This is optional, but recommended for better visual feedback.
-  window.overlay = Scandit.BarcodeCaptureOverlay
-    .withBarcodeCaptureForViewWithStyle(barcodeCapture, view, Scandit.BarcodeCaptureOverlayStyle.Frame);
+  window.overlay = new Scandit.BarcodeCaptureOverlay(window.barcodeCapture);
   window.overlay.viewfinder = new Scandit.RectangularViewfinder(
     Scandit.RectangularViewfinderStyle.Square,
     Scandit.RectangularViewfinderLineStyle.Light,
   );
+
+  // Add overlay to view
+  view.addOverlay(window.overlay);
 
   // Switch camera on to start streaming frames and enable the barcode capture mode.
   // The camera is started asynchronously and will take some time to completely turn on.

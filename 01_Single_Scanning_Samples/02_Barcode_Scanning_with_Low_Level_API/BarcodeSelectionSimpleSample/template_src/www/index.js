@@ -1,12 +1,12 @@
 document.addEventListener('deviceready', () => {
   // Enter your Scandit License key here.
   // Your Scandit License key is available via your Scandit SDK web account.
-  const context = Scandit.DataCaptureContext.forLicenseKey('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
+  const context = Scandit.DataCaptureContext.initialize('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
 
   // Use the world-facing (back) camera and set it as the frame source of the context. The camera is off by
   // default and must be turned on to start streaming frames to the data capture context for recognition.
   // Use the recommended camera settings for the BarcodeSelection mode as default settings.
-  const camera = Scandit.Camera.withSettings(Scandit.BarcodeSelection.recommendedCameraSettings);
+  const camera = Scandit.Camera.withSettings(Scandit.BarcodeSelection.createRecommendedCameraSettings());
   context.setFrameSource(camera);
 
   // The barcode selection process is configured through barcode selection settings
@@ -27,7 +27,7 @@ document.addEventListener('deviceready', () => {
   ]);
 
   // Create new barcode selection mode with the settings from above.
-  window.barcodeSelection = Scandit.BarcodeSelection.forContext(context, window.barcodeSelectionSettings);
+  window.barcodeSelection = new Scandit.BarcodeSelection(window.barcodeSelectionSettings);
 
   // Register a listener to get informed whenever a new barcode got recognized.
   window.barcodeSelection.addListener({
@@ -44,6 +44,9 @@ document.addEventListener('deviceready', () => {
     }
   });
 
+  // Add mode to context
+  context.setMode(window.barcodeSelection);
+
   // To visualize the on-going barcode selection process on screen, setup a data capture view that renders the
   // camera preview. The view must be connected to the data capture context.
   const view = Scandit.DataCaptureView.forContext(context);
@@ -53,7 +56,10 @@ document.addEventListener('deviceready', () => {
 
   // Add a barcode selection overlay to the data capture view to render the location of captured barcodes on top of
   // the video preview. This is optional, but recommended for better visual feedback.
-  const overlay = Scandit.BarcodeSelectionBasicOverlay.withBarcodeSelectionForView(window.barcodeSelection, view);
+  const overlay = new Scandit.BarcodeSelectionBasicOverlay(window.barcodeSelection);
+
+  // Add overlay to view
+  view.addOverlay(overlay);
 
   window.toggleBarcodeSelectionType(true);
   // Switch camera on to start streaming frames and enable the barcode selection mode.

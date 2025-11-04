@@ -1,11 +1,12 @@
 document.addEventListener('deviceready', () => {
-  // Create data capture context using your license key.
-  const context = Scandit.DataCaptureContext.forLicenseKey('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
+  // Enter your Scandit License key here.
+  // Your Scandit License key is available via your Scandit SDK web account.
+  const context = Scandit.DataCaptureContext.initialize('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
 
   // Use the world-facing (back) camera and set it as the frame source of the context. The camera is off by
   // default and must be turned on to start streaming frames to the data capture context for recognition.
   // Use the recommended camera settings for the IdCapture mode.
-  const camera = Scandit.Camera.withSettings(Scandit.IdCapture.recommendedCameraSettings);
+  const camera = Scandit.Camera.withSettings(Scandit.IdCapture.createRecommendedCameraSettings());
   context.setFrameSource(camera);
 
   // The ID capturing process is configured through ID capture settings
@@ -18,7 +19,7 @@ document.addEventListener('deviceready', () => {
     new Scandit.DriverLicense(Scandit.IdCaptureRegion.Any),
     new Scandit.Passport(Scandit.IdCaptureRegion.Any),
   );
-  settings.scannerType = new Scandit.FullDocumentScanner();
+  settings.scanner = new Scandit.IdCaptureScanner(new Scandit.FullDocumentScanner());
 
   // To visualize the on-going id capturing process on screen, setup a data capture view that renders the
   // camera preview. The view must be connected to the data capture context.
@@ -32,7 +33,7 @@ document.addEventListener('deviceready', () => {
   camera.switchToDesiredState(Scandit.FrameSourceState.On);
 
   // Create new id capture mode with the settings from above.
-  window.idCapture = Scandit.IdCapture.forContext(context, settings);
+  window.idCapture = new Scandit.IdCapture(settings);
 
   // Register a listener to get informed whenever a new id got recognized.
   window.idCapture.addListener({
@@ -43,13 +44,19 @@ document.addEventListener('deviceready', () => {
     },
     didRejectId: (_, rejectedId, reason) => {
       window.idCapture.isEnabled = false;
-      
+
       window.showResult(window.getRejectionReasonMessage(reason));
     }
   });
 
-  window.idCaptureOverlay = Scandit.IdCaptureOverlay.withIdCaptureForView(window.idCapture, view);
+  // Set the mode to the context
+  context.setMode(window.idCapture);
+
+  window.idCaptureOverlay = new Scandit.IdCaptureOverlay(window.idCapture);
   window.idCaptureOverlay.idLayoutStyle = Scandit.IdLayoutStyle.Square;
+
+  // Add the overlay to the view
+  view.addOverlay(window.idCaptureOverlay);
 
   window.idCapture.isEnabled = true;
 }, false);

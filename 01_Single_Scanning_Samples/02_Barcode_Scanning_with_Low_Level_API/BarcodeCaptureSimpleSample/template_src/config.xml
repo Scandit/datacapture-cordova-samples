@@ -13,17 +13,17 @@
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="android-minSdkVersion" value="24" />
-        <preference name="android-targetSdkVersion" value="33" />
-        <preference name="android-compileSdkVersion" value="33" />
+        <preference name="android-targetSdkVersion" value="35" />
+        <preference name="android-compileSdkVersion" value="35" />
         <preference name="GradlePluginKotlinEnabled" value="true" />
-        <preference name="GradlePluginKotlinVersion" value="1.8.20" />
-         <preference name="GradleVersion" value="8.8" />
-        <preference name="AndroidGradlePluginVersion" value="8.5.1" />
+        <preference name="GradlePluginKotlinVersion" value="1.9.25" />
+         <preference name="GradleVersion" value="8.14.3" />
+        <preference name="AndroidGradlePluginVersion" value="8.5.2" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
         <preference name="SwiftVersion" value="5" />
-        <preference name="deployment-target" value="14.0"/>
+        <preference name="deployment-target" value="15.0"/>
     </platform>
 </widget>

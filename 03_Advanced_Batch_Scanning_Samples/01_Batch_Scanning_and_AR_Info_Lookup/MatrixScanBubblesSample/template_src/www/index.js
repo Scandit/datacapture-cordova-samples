@@ -13,13 +13,13 @@ document.addEventListener('deviceready', () => {
   }
 
 	// Enter your Scandit License key here.
-    // Your Scandit License key is available via your Scandit SDK web account.
-  const context = Scandit.DataCaptureContext.forLicenseKey('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
+  // Your Scandit License key is available via your Scandit SDK web account.
+  const context = Scandit.DataCaptureContext.initialize('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
 
   // Use the recommended camera settings for the BarcodeBatch mode as default settings.
   // The preferred resolution is automatically chosen, which currently defaults to HD on all devices.
   // Setting the preferred resolution to 4K helps to get a better decode range.
-  const cameraSettings = Scandit.BarcodeBatch.recommendedCameraSettings;
+  const cameraSettings = Scandit.BarcodeBatch.createRecommendedCameraSettings();
   cameraSettings.preferredResolution = Scandit.VideoResolution.UHD4K;
 
   // Use the default camera and set it as the frame source of the context. The camera is off by
@@ -29,7 +29,7 @@ document.addEventListener('deviceready', () => {
 
   // The barcode batch process is configured through barcode batch settings
   // and are then applied to the barcode batch instance that manages barcode batch.
-  const settings = Scandit.BarcodeBatchSettings.forScenario(Scandit.BarcodeBatchScenario.A);
+  const settings = new Scandit.BarcodeBatchSettings();
 
   // The settings instance initially has all types of barcodes (symbologies) disabled. For the purpose of this
   // sample we enable a very generous set of symbologies. In your own app ensure that you only enable the
@@ -43,8 +43,7 @@ document.addEventListener('deviceready', () => {
   ]);
 
   // Create new barcode batch mode with the settings from above.
-  window.barcodeBatch = Scandit.BarcodeBatch.forContext(context, settings);
-
+  window.barcodeBatch = new Scandit.BarcodeBatch(settings);
   // Register a listener to get informed of tracked barcodes.
   window.barcodeBatch.addListener({
     // This function is called whenever objects are updated and it's the right place to react to the batch results.
@@ -74,6 +73,10 @@ document.addEventListener('deviceready', () => {
     }
   });
 
+
+  // Add mode to context
+  context.setMode(window.barcodeBatch);
+
   // To visualize the on-going barcode batch process on screen, setup a data capture view that renders the
   // camera preview. The view must be connected to the data capture context.
   window.view = Scandit.DataCaptureView.forContext(context);
@@ -84,12 +87,12 @@ document.addEventListener('deviceready', () => {
   // Add a barcode batch overlay to the data capture view to render the tracked barcodes on top of the video
   // preview. This is optional, but recommended for better visual feedback. The overlay is automatically added
   // to the view.
-  const basicOverlay = Scandit.BarcodeBatchBasicOverlay
-    .withBarcodeBatchForViewWithStyle(barcodeBatch, window.view, Scandit.BarcodeBatchBasicOverlayStyle.Dot);
+  const basicOverlay = new Scandit.BarcodeBatchBasicOverlay(window.barcodeBatch, Scandit.BarcodeBatchBasicOverlayStyle.Dot);
+  window.view.addOverlay(basicOverlay);
 
   // Add an advanced barcode batch overlay to the data capture view to render AR visualization on top of
   // the camera preview.
-  window.advancedOverlay = Scandit.BarcodeBatchAdvancedOverlay.withBarcodeBatchForView(barcodeBatch, window.view);
+  window.advancedOverlay = new Scandit.BarcodeBatchAdvancedOverlay(window.barcodeBatch);
   window.advancedOverlay.listener = {
     didTapViewForTrackedBarcode: (overlay, trackedBarcode) => {
       window.view.viewQuadrilateralForFrameQuadrilateral(trackedBarcode.location)
@@ -104,6 +107,8 @@ document.addEventListener('deviceready', () => {
        new Scandit.NumberWithUnit(-1, Scandit.MeasureUnit.Fraction),
      ),
   }
+
+  window.view.addOverlay(window.advancedOverlay);
 
   // Switch camera on to start streaming frames and enable the barcode batch mode.
   // The camera is started asynchronously and will take some time to completely turn on.
