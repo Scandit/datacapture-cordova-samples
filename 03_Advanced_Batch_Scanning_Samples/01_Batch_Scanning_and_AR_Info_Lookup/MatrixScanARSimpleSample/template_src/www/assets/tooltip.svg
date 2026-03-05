@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible" style="display: block;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="tooltip_2">
+<mask id="mask0_7184_486" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="24" height="24">
+<rect id="Bounding box" width="24" height="24" fill="var(--fill-0, #D9D9D9)"/>
+</mask>
+<g mask="url(#mask0_7184_486)">
+<path id="tooltip_2_2" d="M6 15H14V13H6V15ZM6 12H18V10H6V12ZM6 9H18V7H6V9ZM4 19C3.45 19 2.97917 18.8042 2.5875 18.4125C2.19583 18.0208 2 17.55 2 17V5C2 4.45 2.19583 3.97917 2.5875 3.5875C2.97917 3.19583 3.45 3 4 3H20C20.55 3 21.0208 3.19583 21.4125 3.5875C21.8042 3.97917 22 4.45 22 5V17C22 17.55 21.8042 18.0208 21.4125 18.4125C21.0208 18.8042 20.55 19 20 19H14.675L12.825 21.75C12.725 21.9 12.6042 22.0125 12.4625 22.0875C12.3208 22.1625 12.1667 22.2 12 22.2C11.8333 22.2 11.6792 22.1625 11.5375 22.0875C11.3958 22.0125 11.275 21.9 11.175 21.75L9.325 19H4ZM12 19.4L13.6 17H20V5H4V17H10.4L12 19.4Z" fill="var(--fill-0, #16191C)"/>
+</g>
+</g>
+</svg>
