@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.scandit.listbuildingsample" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>ListBuildingSample</name>
+    <description>ListBuildingSample for the Scandit Cordova plugin</description>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <preference name="android-minSdkVersion" value="24" />
+        <preference name="android-targetSdkVersion" value="35" />
+        <preference name="android-compileSdkVersion" value="35" />
+        <preference name="GradlePluginKotlinEnabled" value="true" />
+        <preference name="GradlePluginKotlinVersion" value="1.9.25" />
+         <preference name="GradleVersion" value="8.14.3" />
+        <preference name="AndroidGradlePluginVersion" value="8.5.2" />
+    </platform>
+    <platform name="ios">
+        <preference name="StatusBarOverlaysWebView" value="true" />
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <preference name="SwiftVersion" value="5" />
+        <preference name="deployment-target" value="15.0"/>
+    </platform>
+</widget>

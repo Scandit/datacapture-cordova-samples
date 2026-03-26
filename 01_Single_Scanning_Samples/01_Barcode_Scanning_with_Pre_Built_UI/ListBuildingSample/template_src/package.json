@@ -1,8 +1,8 @@
 {
-    "name": "matrixscanbubblessample",
-    "displayName": "MSBubbles",
+    "name": "listbuildingsample",
+    "displayName": "ListBuildingSample",
     "version": "1.0.0",
-    "description": "MatrixScanBubblesSample for the Scandit Cordova plugin",
+    "description": "ListBuildingSample for the Scandit Cordova plugin",
     "main": "index.js",
     "keywords": [
         "ecosystem:cordova"

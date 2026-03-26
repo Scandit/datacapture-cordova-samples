@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' 'unsafe-inline' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, viewport-fit=cover" />
+    <title>List Building Sample</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+
+  <body>
+    <!-- Home Page -->
+    <div id="home-page">
+      <div class="content-container">
+        <div class="logo">SCANDIT</div>
+        <h1 class="title">ListBuilding</h1>
+        <p class="subtitle">Test the most advanced barcode scanning software</p>
+      </div>
+      <button class="start-button" id="start-scan-button">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <path d="M2 2H8V4H4V8H2V2ZM18 2V8H16V4H12V2H18ZM18 18H12V16H16V12H18V18ZM2 18V12H4V16H8V18H2Z" fill="white" />
+        </svg>
+        <span>Start new scan</span>
+      </button>
+    </div>
+
+    <!-- Scan Page -->
+    <div id="scan-page">
+      <div class="scan-overlay">
+        <div class="scan-header">
+          <button class="back-button" id="back-button">Back</button>
+          <span class="header-title">Scan</span>
+          <span class="header-spacer"></span>
+        </div>
+        <div class="list-container">
+          <div class="scan-count" id="scan-count">0 items</div>
+          <div class="results-list" id="results-list"></div>
+          <button class="clear-button" id="clear-button">CLEAR LIST</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+  </body>
+</html>

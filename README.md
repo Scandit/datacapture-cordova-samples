@@ -2,6 +2,10 @@
 
 This repository contains both simple and advanced samples that show you how use various features of the Scandit Data Capture SDK. The simple samples allow you to get going quickly, while the advanced samples show you how to use additional settings and setup the scanner for the best performance and user experience.
 
+### Single Scanning (Barcode Capture with Pre-built UI)
+
+**List Building Sample (**[Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/01_Single_Scanning_Samples/01_Barcode_Scanning_with_Pre_Built_UI/ListBuildingSample))
+
 ### Single Scanning (Barcode Capture)
 
 **Barcode Capture Simple Sample (**[Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/01_Single_Scanning_Samples/02_Barcode_Scanning_with_Low_Level_API/BarcodeCaptureSimpleSample))
