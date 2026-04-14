@@ -18,8 +18,8 @@
         ]
     },
     "dependencies": {
-        "scandit-cordova-datacapture-core": "8.3.0",
-        "scandit-cordova-datacapture-id": "8.3.0"
+        "scandit-cordova-datacapture-core": "8.3.1",
+        "scandit-cordova-datacapture-id": "8.3.1"
     },
     "devDependencies": {}
 }
