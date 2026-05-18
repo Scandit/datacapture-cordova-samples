@@ -1,8 +1,8 @@
 {
-    "name": "matrixscanbubblessample",
-    "displayName": "MSBubbles",
+    "name": "labelcapturesimplesample",
+    "displayName": "LabelCaptureSimpleSample",
     "version": "1.0.0",
-    "description": "MatrixScanBubblesSample for the Scandit Cordova plugin",
+    "description": "LabelCaptureSimpleSample for the Scandit Cordova plugin",
     "main": "index.js",
     "keywords": [
         "ecosystem:cordova"
@@ -10,7 +10,9 @@
     "cordova": {
         "plugins": {
             "scandit-cordova-datacapture-core": {},
-            "scandit-cordova-datacapture-barcode": {}
+            "scandit-cordova-datacapture-barcode": {},
+            "scandit-cordova-datacapture-label": {},
+            "scandit-cordova-datacapture-label-text": {}
         },
         "platforms": [
             "ios",
@@ -19,9 +21,11 @@
     },
     "dependencies": {
         "cordova-plugin-add-swift-support": "2.0.2",
+        "cordova-plugin-statusbar": "2.4.3",
         "scandit-cordova-datacapture-barcode": "8.4.0",
         "scandit-cordova-datacapture-core": "8.4.0",
-        "cordova-plugin-statusbar": "2.4.3"
+        "scandit-cordova-datacapture-label": "8.4.0",
+        "scandit-cordova-datacapture-label-text": "8.4.0"
     },
     "devDependencies": {}
 }

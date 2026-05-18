@@ -54,8 +54,9 @@ document.addEventListener('deviceready', () => {
   // Connect the data capture view to the HTML element, so it can fill up its size and follow its position.
   view.connectToElement(document.getElementById('data-capture-view'));
 
-  // Add a barcode selection overlay to the data capture view to render the location of captured barcodes on top of
-  // the video preview. This is optional, but recommended for better visual feedback.
+  // Add a Barcode Selection overlay to the data capture view to render the location of
+  // captured barcodes on top of the video preview.
+  // This is optional, but recommended for better visual feedback.
   const overlay = new Scandit.BarcodeSelectionBasicOverlay(window.barcodeSelection);
 
   // Add overlay to view
