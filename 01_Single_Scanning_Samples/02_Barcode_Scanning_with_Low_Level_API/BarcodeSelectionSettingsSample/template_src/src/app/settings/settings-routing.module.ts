@@ -43,7 +43,7 @@ const routes: Routes = [
         data: {
           items: mainNavigationItems,
           label: NavigationLabel.SETTINGS,
-        }
+        },
       },
       {
         path: NavigationRoute.BARCODE_SELECTION,
@@ -54,7 +54,7 @@ const routes: Routes = [
             data: {
               items: barcodeSelectionNavigationItems,
               label: NavigationLabel.BARCODE_SELECTION,
-            }
+            },
           },
           {
             path: NavigationRoute.SYMBOLOGIES,
@@ -64,7 +64,7 @@ const routes: Routes = [
                 component: SymbologiesComponent,
                 data: {
                   label: NavigationLabel.SYMBOLOGIES,
-                }
+                },
               },
               {
                 path: ':symbology',
@@ -81,7 +81,7 @@ const routes: Routes = [
                 data: {
                   form: 'barcodeSelectionPointOfInterestForm',
                   label: NavigationLabel.BS_POINT_OF_INTEREST,
-                }
+                },
               },
               {
                 path: NavigationRoute.BS_POINT_OF_INTEREST_X,
@@ -101,7 +101,7 @@ const routes: Routes = [
                   fieldName: SettingsFieldName.BS_POINT_OF_INTEREST_Y,
                 },
               },
-            ]
+            ],
           },
           {
             path: NavigationRoute.SELECTION_TYPE,
@@ -111,7 +111,7 @@ const routes: Routes = [
                 component: SelectionTypeComponent,
                 data: {
                   label: NavigationLabel.SELECTION_TYPE,
-                }
+                },
               },
               {
                 path: NavigationRoute.SELECTION_TYPE,
@@ -156,30 +156,30 @@ const routes: Routes = [
             component: FeedbackComponent,
             data: {
               label: NavigationLabel.FEEDBACK,
-            }
+            },
           },
           {
             path: NavigationRoute.CODE_DUPLICATE_FILTER,
             component: CodeDuplicateFilterComponent,
             data: {
               label: NavigationLabel.CODE_DUPLICATE_FILTER,
-            }
+            },
           },
           {
             path: NavigationRoute.SINGLE_BARCODE_AUTO_DETECTION,
             component: SingleBarcodeAutoDetectionComponent,
             data: {
               label: NavigationLabel.SINGLE_BARCODE_AUTO_DETECTION,
-            }
+            },
           },
-        ]
+        ],
       },
       {
         path: NavigationRoute.CAMERA,
         component: CameraComponent,
         data: {
           label: NavigationLabel.CAMERA,
-        }
+        },
       },
       {
         path: NavigationRoute.VIEW,
@@ -197,7 +197,7 @@ const routes: Routes = [
             component: OverlayComponent,
             data: {
               label: NavigationLabel.OVERLAY,
-            }
+            },
           },
           {
             path: NavigationRoute.POINT_OF_INTEREST,
@@ -208,7 +208,7 @@ const routes: Routes = [
                 data: {
                   form: 'pointOfInterestForm',
                   label: NavigationLabel.POINT_OF_INTEREST,
-                }
+                },
               },
               {
                 path: NavigationRoute.POINT_OF_INTEREST_X,
@@ -228,7 +228,7 @@ const routes: Routes = [
                   fieldName: SettingsFieldName.POINT_OF_INTEREST_Y,
                 },
               },
-            ]
+            ],
           },
           {
             path: NavigationRoute.SCAN_AREA,
@@ -238,7 +238,7 @@ const routes: Routes = [
                 component: ScanAreaComponent,
                 data: {
                   label: NavigationLabel.SCAN_AREA,
-                }
+                },
               },
               {
                 path: NavigationRoute.SCAN_AREA_MARGIN_TOP,
@@ -275,9 +275,8 @@ const routes: Routes = [
                   label: NavigationLabel.SCAN_AREA_MARGIN_LEFT,
                   fieldName: SettingsFieldName.SCAN_AREA_MARGIN_LEFT,
                 },
-              }
-            ]
-
+              },
+            ],
           },
           {
             path: NavigationRoute.VIEWFINDER,
@@ -287,13 +286,13 @@ const routes: Routes = [
                 component: ViewfinderComponent,
                 data: {
                   label: NavigationLabel.VIEWFINDER,
-                }
+                },
               },
-            ]
-          }
+            ],
+          },
         ],
       },
-    ]
+    ],
   },
 ];
 

@@ -10,7 +10,6 @@ import { UiService } from 'src/app/services/ui.service';
   styleUrls: ['settings-header.component.scss'],
 })
 export class SettingsHeaderComponent implements AfterViewInit, OnInit {
-
   public label$: Observable<string>;
   private lastClickTimestamp = 0;
 
@@ -21,8 +20,8 @@ export class SettingsHeaderComponent implements AfterViewInit, OnInit {
     private navCtrl: NavController,
     private uiService: UiService,
     private gestureCtrl: GestureController,
-    private router: Router,
-  ) { }
+    private router: Router
+  ) {}
 
   public ngOnInit() {
     this.label$ = this.uiService.settingsLabel$;
@@ -37,7 +36,7 @@ export class SettingsHeaderComponent implements AfterViewInit, OnInit {
       gestureName: 'DB_CLICK',
       onStart: () => {
         this.onDoubleClickStart();
-      }
+      },
     });
 
     gesture.enable();
@@ -59,5 +58,4 @@ export class SettingsHeaderComponent implements AfterViewInit, OnInit {
       this.lastClickTimestamp = now;
     }
   }
-
 }

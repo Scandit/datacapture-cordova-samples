@@ -14,7 +14,6 @@ import { SettingsBase } from '../settings-base';
   styleUrls: ['./symbology.component.scss'],
 })
 export class SymbologyComponent extends SettingsBase implements OnInit {
-
   public form: BarcodeSelectionSymbologyForm;
   public field: SettingsField;
   public symbology: string;
@@ -25,14 +24,14 @@ export class SymbologyComponent extends SettingsBase implements OnInit {
   public maxOptions = [];
 
   public get supportedExtensions(): string[] | null {
-    return this.description.supportedExtensions?.filter((extension: string) => !extension.includes("add_on"));
+    return this.description.supportedExtensions?.filter((extension: string) => !extension.includes('add_on'));
   }
 
   constructor(
     protected route: ActivatedRoute,
     protected platform: Platform,
     protected uiService: UiService,
-    private settingsService: SettingsService,
+    private settingsService: SettingsService
   ) {
     super(route, platform, uiService);
   }
@@ -60,9 +59,9 @@ export class SymbologyComponent extends SettingsBase implements OnInit {
   public onExtensionsToggle(extension: string) {
     const currentExtensions = this.form.value.extensions;
     const isSelected = currentExtensions.includes(extension);
-    const extensions: string[] = isSelected ?
-      currentExtensions.filter((item: string) => item !== extension) :
-      [...currentExtensions, extension];
+    const extensions: string[] = isSelected
+      ? currentExtensions.filter((item: string) => item !== extension)
+      : [...currentExtensions, extension];
 
     this.form.patchValue({ extensions });
   }
@@ -95,6 +94,4 @@ export class SymbologyComponent extends SettingsBase implements OnInit {
 
     this.maxOptions = new Array(max + 1 - min).fill(0).map((_, index) => min + index);
   }
-
-
 }

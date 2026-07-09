@@ -7,12 +7,7 @@ import { ScanComponent } from './scan.component';
 import { ScanPageRoutingModule } from './scan-routing.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ScanPageRoutingModule,
-  ],
-  declarations: [ScanComponent]
+  imports: [CommonModule, FormsModule, IonicModule, ScanPageRoutingModule],
+  declarations: [ScanComponent],
 })
 export class ScanPageModule {}

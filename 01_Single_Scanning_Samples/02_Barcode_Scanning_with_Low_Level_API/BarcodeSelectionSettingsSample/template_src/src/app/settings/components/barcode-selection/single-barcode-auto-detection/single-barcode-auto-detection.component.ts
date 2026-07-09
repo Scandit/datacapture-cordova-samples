@@ -12,14 +12,13 @@ import { SettingsBase } from '../../settings-base';
   styleUrls: ['./single-barcode-auto-detection.component.scss'],
 })
 export class SingleBarcodeAutoDetectionComponent extends SettingsBase implements OnInit {
-
   public form: BarcodeSelectionSingleBarcodeAutoDetectionForm;
 
   constructor(
     protected route: ActivatedRoute,
     protected platform: Platform,
     protected uiService: UiService,
-    protected settingsService: SettingsService,
+    protected settingsService: SettingsService
   ) {
     super(route, platform, uiService);
   }
@@ -29,5 +28,4 @@ export class SingleBarcodeAutoDetectionComponent extends SettingsBase implements
 
     this.form = this.settingsService.singleBarcodeAutoDetectionForm;
   }
-
 }

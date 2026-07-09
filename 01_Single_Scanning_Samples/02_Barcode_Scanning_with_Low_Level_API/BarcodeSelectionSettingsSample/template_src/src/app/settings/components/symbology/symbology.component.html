@@ -1,5 +1,4 @@
 <div>
-
   <ion-card>
     <ion-list>
       <ion-item [lines]="lines" (click)="onEnabledClick($event)">
@@ -21,10 +20,7 @@
       <ion-item [lines]="lines">
         <ion-label>Minimum</ion-label>
         <ion-select [ngModel]="form.value.minimum" (ngModelChange)="onMinimumValueChange($event)" interface="popover">
-          <ion-select-option
-            *ngFor="let option of minOptions"
-            [value]="option"
-          >
+          <ion-select-option *ngFor="let option of minOptions" [value]="option">
             {{ option }}
           </ion-select-option>
         </ion-select>
@@ -33,18 +29,13 @@
       <ion-item [lines]="lines">
         <ion-label>Maximum</ion-label>
         <ion-select [ngModel]="form.value.maximum" (ngModelChange)="onMaximumValueChange($event)" interface="popover">
-          <ion-select-option
-            *ngFor="let option of maxOptions"
-            [value]="option"
-          >
+          <ion-select-option *ngFor="let option of maxOptions" [value]="option">
             {{ option }}
           </ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
-
   </ion-card>
-
 
   <ion-card *ngIf="supportedExtensions?.length">
     <div class="app-card-header">Extensions</div>
@@ -54,15 +45,12 @@
         *ngFor="let extension of supportedExtensions"
         [ngModel]="enabledExtensions[extension]"
         (ngModelChange)="onExtensionsToggle(extension)"
-        [allowEmptySelection]="true"
-      >
+        [allowEmptySelection]="true">
         <ion-item [lines]="lines">
           <ion-label>{{ extension }}</ion-label>
           <ion-radio slot="end" [value]="extension"></ion-radio>
         </ion-item>
       </ion-radio-group>
     </ion-list>
-
   </ion-card>
-
 </div>

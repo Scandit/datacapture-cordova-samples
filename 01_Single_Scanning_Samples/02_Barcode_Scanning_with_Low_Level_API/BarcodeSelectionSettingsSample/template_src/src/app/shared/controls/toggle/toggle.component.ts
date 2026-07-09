@@ -9,14 +9,15 @@ import { ControlBase } from '../control-base';
   selector: 'app-toggle',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.scss'],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => ToggleComponent),
-    multi: true,
-  }]
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => ToggleComponent),
+      multi: true,
+    },
+  ],
 })
 export class ToggleComponent extends ControlBase<boolean> {
-
   @Input() formControlName: SettingsFieldName;
 
   constructor(protected platform: Platform) {
@@ -29,5 +30,4 @@ export class ToggleComponent extends ControlBase<boolean> {
 
     this.onValueChange(!this.value);
   }
-
 }

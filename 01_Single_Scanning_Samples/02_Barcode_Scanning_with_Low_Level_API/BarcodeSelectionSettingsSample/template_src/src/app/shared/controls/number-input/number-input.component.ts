@@ -9,18 +9,18 @@ import { ControlBase } from '../control-base';
   selector: 'app-number-input',
   templateUrl: './number-input.component.html',
   styleUrls: ['./number-input.component.scss'],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => NumberInputComponent),
-    multi: true,
-  }]
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => NumberInputComponent),
+      multi: true,
+    },
+  ],
 })
 export class NumberInputComponent extends ControlBase<number> {
-
   @Input() formControlName: SettingsFieldName;
 
   constructor(protected platform: Platform) {
     super(platform);
   }
-
 }

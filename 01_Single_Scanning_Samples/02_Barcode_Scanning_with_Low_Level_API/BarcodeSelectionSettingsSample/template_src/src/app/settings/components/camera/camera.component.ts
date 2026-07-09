@@ -7,14 +7,12 @@ import { SettingsService, UiService } from 'src/app/services';
 import { SettingsField, SettingsFieldName, SettingsFields } from '../../../config';
 import { SettingsBase } from '../settings-base';
 
-
 @Component({
   selector: 'app-camera',
   templateUrl: './camera.component.html',
   styleUrls: ['./camera.component.scss'],
 })
 export class CameraComponent extends SettingsBase implements OnInit {
-
   public fields: SettingsFields;
 
   public cameraPosition: SettingsField;
@@ -27,7 +25,7 @@ export class CameraComponent extends SettingsBase implements OnInit {
     protected route: ActivatedRoute,
     protected platform: Platform,
     protected uiService: UiService,
-    protected settingsService: SettingsService,
+    protected settingsService: SettingsService
   ) {
     super(route, platform, uiService);
   }
@@ -39,6 +37,4 @@ export class CameraComponent extends SettingsBase implements OnInit {
 
     this.form = this.settingsService.cameraForm;
   }
-
-
 }

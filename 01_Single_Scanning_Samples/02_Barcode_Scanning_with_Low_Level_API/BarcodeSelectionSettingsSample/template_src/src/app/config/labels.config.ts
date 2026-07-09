@@ -21,7 +21,7 @@ export enum NavigationLabel {
   SCAN_AREA = 'Scan Area',
   SCAN_AREA_MARGIN_TOP = 'Top',
   SCAN_AREA_MARGIN_RIGHT = 'Right',
-  SCAN_AREA_MARGIN_BOTTOM =  'Bottom',
+  SCAN_AREA_MARGIN_BOTTOM = 'Bottom',
   SCAN_AREA_MARGIN_LEFT = 'Left',
 
   POINT_OF_INTEREST = 'Point of Interest',

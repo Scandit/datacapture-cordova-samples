@@ -18,7 +18,6 @@ declare var Scandit;
   styleUrls: ['./unit-number.component.scss'],
 })
 export class UnitNumberComponent extends SettingsBase implements OnInit {
-
   public parentForm: UntypedFormGroup;
   public form: UntypedFormGroup;
   public field: SettingsField;
@@ -34,7 +33,7 @@ export class UnitNumberComponent extends SettingsBase implements OnInit {
     protected platform: Platform,
     protected uiService: UiService,
     private settingsService: SettingsService,
-    private formBuilder: UntypedFormBuilder,
+    private formBuilder: UntypedFormBuilder
   ) {
     super(route, platform, uiService);
   }
@@ -48,10 +47,7 @@ export class UnitNumberComponent extends SettingsBase implements OnInit {
     this.form = this.formBuilder.group({
       value: [
         this.parentForm.value[this.field.key]?.value || this.field.defaultValue.value,
-        Validators.compose([
-          Validators.max(this.field.max),
-          Validators.min(this.field.min)
-        ])
+        Validators.compose([Validators.max(this.field.max), Validators.min(this.field.min)]),
       ],
       unit: [this.parentForm.value[this.field.key]?.unit || this.field.defaultValue.unit],
     });
@@ -60,5 +56,4 @@ export class UnitNumberComponent extends SettingsBase implements OnInit {
       .pipe(takeUntil(this.destroyed$))
       .subscribe(value => this.parentForm.controls[this.field.key].patchValue(value));
   }
-
 }

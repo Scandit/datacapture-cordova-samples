@@ -3,10 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-	production: false,
-	// Enter your Scandit License key here.
-    // Your Scandit License key is available via your Scandit SDK web account.
-	scanditLicenseKey: '-- ENTER YOUR SCANDIT LICENSE KEY HERE --',
+  production: false,
+  // Enter your Scandit License key here.
+  // Your Scandit License key is available via your Scandit SDK web account.
+  scanditLicenseKey: '-- ENTER YOUR SCANDIT LICENSE KEY HERE --',
 };
 
 /*

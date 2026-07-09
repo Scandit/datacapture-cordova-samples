@@ -6,8 +6,8 @@ import { ScanComponent } from './scan.component';
 const routes: Routes = [
   {
     path: '',
-    component: ScanComponent
-  }
+    component: ScanComponent,
+  },
 ];
 
 @NgModule({

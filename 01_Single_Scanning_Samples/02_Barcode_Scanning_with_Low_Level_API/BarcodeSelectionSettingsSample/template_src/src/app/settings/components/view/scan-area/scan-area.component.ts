@@ -13,14 +13,13 @@ import { SettingsBase } from '../../settings-base';
   styleUrls: ['./scan-area.component.scss'],
 })
 export class ScanAreaComponent extends SettingsBase implements OnInit {
-
   public form: ViewScanAreaForm;
 
   constructor(
     protected route: ActivatedRoute,
     protected platform: Platform,
     protected uiService: UiService,
-    protected settingsService: SettingsService,
+    protected settingsService: SettingsService
   ) {
     super(route, platform, uiService);
   }
@@ -30,5 +29,4 @@ export class ScanAreaComponent extends SettingsBase implements OnInit {
 
     this.form = this.settingsService.scanAreaForm;
   }
-
 }

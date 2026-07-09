@@ -8,7 +8,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-
   let statusBarSpy, splashScreenSpy, platformReadySpy, platformSpy;
 
   beforeEach(waitForAsync(() => {
@@ -18,15 +17,15 @@ describe('AppComponent', () => {
     platformSpy = jasmine.createSpyObj('Platform', { ready: platformReadySpy });
 
     TestBed.configureTestingModule({
-    declarations: [AppComponent],
-    schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    providers: [
+      declarations: [AppComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
+      providers: [
         { provide: StatusBar, useValue: statusBarSpy },
         { provide: SplashScreen, useValue: splashScreenSpy },
         { provide: Platform, useValue: platformSpy },
-    ],
-    teardown: { destroyAfterEach: false }
-}).compileComponents();
+      ],
+      teardown: { destroyAfterEach: false },
+    }).compileComponents();
   }));
 
   it('should create the app', () => {
@@ -44,5 +43,4 @@ describe('AppComponent', () => {
   });
 
   // TODO: add more tests!
-
 });

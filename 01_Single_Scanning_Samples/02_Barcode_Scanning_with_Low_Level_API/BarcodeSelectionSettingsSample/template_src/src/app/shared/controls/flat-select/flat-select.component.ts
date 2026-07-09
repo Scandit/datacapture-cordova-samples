@@ -9,18 +9,18 @@ import { ControlBase } from '../control-base';
   selector: 'app-flat-select',
   templateUrl: './flat-select.component.html',
   styleUrls: ['./flat-select.component.scss'],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => FlatSelectComponent),
-    multi: true,
-  }]
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => FlatSelectComponent),
+      multi: true,
+    },
+  ],
 })
 export class FlatSelectComponent extends ControlBase<string> {
-
   @Input() formControlName: SettingsFieldName;
 
   constructor(protected platform: Platform) {
     super(platform);
   }
-
 }

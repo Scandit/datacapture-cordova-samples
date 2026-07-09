@@ -12,14 +12,13 @@ import { SettingsBase } from '../../settings-base';
   styleUrls: ['./point-of-interest.component.scss'],
 })
 export class PointOfInterestComponent extends SettingsBase implements OnInit {
-
   public form: ViewPointOfInterestForm;
 
   constructor(
     protected route: ActivatedRoute,
     protected platform: Platform,
     protected uiService: UiService,
-    protected settingsService: SettingsService,
+    protected settingsService: SettingsService
   ) {
     super(route, platform, uiService);
   }
@@ -30,5 +29,4 @@ export class PointOfInterestComponent extends SettingsBase implements OnInit {
     const { form: formName } = this.route?.snapshot?.data;
     this.form = this.settingsService[formName];
   }
-
 }

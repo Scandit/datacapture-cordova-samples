@@ -50,14 +50,7 @@ const components = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    IonicModule,
-    SharedModule,
-    SettingsPageRoutingModule,
-  ],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, IonicModule, SharedModule, SettingsPageRoutingModule],
   declarations: [...components],
   exports: [...components],
 })

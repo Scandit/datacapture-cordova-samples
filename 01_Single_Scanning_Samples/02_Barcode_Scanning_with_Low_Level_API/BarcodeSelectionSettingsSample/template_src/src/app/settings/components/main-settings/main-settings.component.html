@@ -1,17 +1,9 @@
 <div>
-
   <ion-card>
     <ion-list>
-
-      <ion-item
-        *ngFor="let item of items$ | async"
-        [routerLink]="item.route"
-        [lines]="lines"
-        [detail]="isIos"
-      >
+      <ion-item *ngFor="let item of items$ | async" [routerLink]="item.route" [lines]="lines" [detail]="isIos">
         <ion-label>{{ item.label }}</ion-label>
       </ion-item>
-
     </ion-list>
   </ion-card>
 
@@ -19,5 +11,4 @@
     <ion-text class="footer__text">Barcode Selection Settings Sample</ion-text>
     <ion-text class="footer__text">SDK {{ version }}</ion-text>
   </div>
-
 </div>

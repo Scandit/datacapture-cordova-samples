@@ -9,7 +9,6 @@ import { SettingsField } from 'src/app/config';
   styleUrls: ['./unit-number-item.component.scss'],
 })
 export class UnitNumberItemComponent {
-
   @Input() field: SettingsField;
   @Input() currentValue: UnitNumber;
 
@@ -22,5 +21,4 @@ export class UnitNumberItemComponent {
   public get lines() {
     return this.isIos ? 'full' : 'none';
   }
-
 }

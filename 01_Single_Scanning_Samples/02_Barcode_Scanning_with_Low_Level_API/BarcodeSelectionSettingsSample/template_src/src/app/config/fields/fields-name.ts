@@ -1,6 +1,4 @@
-
 export enum SettingsFieldName {
-
   // barcode selection
 
   // barcode selection - selection type

@@ -6,47 +6,51 @@ const Mode = {
 
 window.currentMode = () => document.querySelector('#modes .selected').attributes['sdc-mode'].value;
 
-document.addEventListener('deviceready', () => {
-  // Enter your Scandit License key here.
-  // Your Scandit License key is available via your Scandit SDK web account.
-  window.context = Scandit.DataCaptureContext.initialize('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
+document.addEventListener(
+  'deviceready',
+  () => {
+    // Enter your Scandit License key here.
+    // Your Scandit License key is available via your Scandit SDK web account.
+    window.context = Scandit.DataCaptureContext.initialize('-- ENTER YOUR SCANDIT LICENSE KEY HERE --');
 
-  const camera = Scandit.Camera.withSettings(Scandit.IdCapture.createRecommendedCameraSettings());
-  window.context.setFrameSource(camera);
+    const camera = Scandit.Camera.withSettings(Scandit.IdCapture.createRecommendedCameraSettings());
+    window.context.setFrameSource(camera);
 
-  window.listener = {
-    didCaptureId: (_, capturedId) => {
-      window.showResult(window.getCapturedIdResult(capturedId));
-    },
-    didRejectId: (_, rejectedId, reason) => {
-      // The `alert` call blocks execution until it's dismissed by the user. As no further frames would be processed
-      // until the alert dialog is dismissed, we're showing the alert through a timeout and disabling the barcode
-      // capture mode until the dialog is dismissed, as you should not block the BarcodeCaptureListener callbacks for
-      // longer periods of time. See the documentation to learn more about this.
-      setTimeout(() => {
-        alert(window.getRejectionReasonMessage(reason));
-        window.idCapture.isEnabled = true;
-      }, 100);
-      window.idCapture.isEnabled = false;
-    }
-  };
+    window.listener = {
+      didCaptureId: (_, capturedId) => {
+        window.showResult(window.getCapturedIdResult(capturedId));
+      },
+      didRejectId: (_, rejectedId, reason) => {
+        // The `alert` call blocks execution until it's dismissed by the user. As no further frames would be processed
+        // until the alert dialog is dismissed, we're showing the alert through a timeout and disabling the barcode
+        // capture mode until the dialog is dismissed, as you should not block the BarcodeCaptureListener callbacks for
+        // longer periods of time. See the documentation to learn more about this.
+        setTimeout(() => {
+          alert(window.getRejectionReasonMessage(reason));
+          window.idCapture.isEnabled = true;
+        }, 100);
+        window.idCapture.isEnabled = false;
+      },
+    };
 
-  window.view = Scandit.DataCaptureView.forContext(window.context);
+    window.view = Scandit.DataCaptureView.forContext(window.context);
 
-  window.view.connectToElement(document.getElementById('data-capture-view'));
+    window.view.connectToElement(document.getElementById('data-capture-view'));
 
-  window.selectMode(document.querySelector('#modes .selected'));
+    window.selectMode(document.querySelector('#modes .selected'));
 
-  camera.switchToDesiredState(Scandit.FrameSourceState.On);
-  window.idCapture.isEnabled = true;
-}, false);
+    camera.switchToDesiredState(Scandit.FrameSourceState.On);
+    window.idCapture.isEnabled = true;
+  },
+  false
+);
 
 window.setupMode = mode => {
   const settings = new Scandit.IdCaptureSettings();
   settings.acceptedDocuments.push(
     new Scandit.IdCard(Scandit.IdCaptureRegion.Any),
     new Scandit.DriverLicense(Scandit.IdCaptureRegion.Any),
-    new Scandit.Passport(Scandit.IdCaptureRegion.Any),
+    new Scandit.Passport(Scandit.IdCaptureRegion.Any)
   );
 
   if (mode == Mode.MRZ) {
@@ -75,40 +79,44 @@ window.setupMode = mode => {
   window.overlay = new Scandit.IdCaptureOverlay(window.idCapture);
   // Add the overlay to the view
   window.view.addOverlay(window.overlay);
-}
+};
 
-window.showResult = (result) => {
-  const shouldShowResult = result && (document.querySelector('#result').style.display === "none" || document.querySelector('#result').style.display === "");
-  document.querySelector('#result').style.display = shouldShowResult ? "inherit" : "none";
-  document.querySelector('#header .title').innerText = shouldShowResult ? "Scan Result" : "ID Extended";
-  document.querySelector('#header .back').style.display = shouldShowResult ? "inherit" : "none";
-  document.querySelector('#data-capture-view').style.display = shouldShowResult ? "none" : "inherit";
+window.showResult = result => {
+  const shouldShowResult =
+    result &&
+    (document.querySelector('#result').style.display === 'none' ||
+      document.querySelector('#result').style.display === '');
+  document.querySelector('#result').style.display = shouldShowResult ? 'inherit' : 'none';
+  document.querySelector('#header .title').innerText = shouldShowResult ? 'Scan Result' : 'ID Extended';
+  document.querySelector('#header .back').style.display = shouldShowResult ? 'inherit' : 'none';
+  document.querySelector('#data-capture-view').style.display = shouldShowResult ? 'none' : 'inherit';
   window.idCapture.isEnabled = !shouldShowResult;
 
-
   document.querySelector('#result').innerHTML = result;
-}
+};
 
-window.getCapturedIdResult = (capturedId) => {
-  const getDateAsString = (dateObject) => {
-    return `${(dateObject && new Date(Date.UTC(
-      dateObject.year,
-      dateObject.month - 1,
-      dateObject.day
-    )).toLocaleDateString("en-GB", { timeZone: "UTC" })) || "empty"}`
-  }
+window.getCapturedIdResult = capturedId => {
+  const getDateAsString = dateObject => {
+    return `${
+      (dateObject &&
+        new Date(Date.UTC(dateObject.year, dateObject.month - 1, dateObject.day)).toLocaleDateString('en-GB', {
+          timeZone: 'UTC',
+        })) ||
+      'empty'
+    }`;
+  };
 
   const f = value => {
     if (!value) {
-      return "empty";
+      return 'empty';
     } else if (value instanceof Scandit.DateResult) {
       return getDateAsString(value);
     } else if (value instanceof Array) {
       return value.map(f).join('<br>');
     } else {
-      return value
+      return value;
     }
-  }
+  };
 
   let result = '';
 
@@ -123,9 +131,9 @@ window.getCapturedIdResult = (capturedId) => {
     result += `<img src="data:image/png;base64,${capturedId.images.face}" />`;
   }
   return result;
-}
+};
 
-window.getRejectionReasonMessage = (reason) => {
+window.getRejectionReasonMessage = reason => {
   switch (reason) {
     case Scandit.RejectionReason.NotAcceptedDocumentType:
       return 'Document not supported. Try scanning another document.';
@@ -134,10 +142,10 @@ window.getRejectionReasonMessage = (reason) => {
     default:
       return `Document capture was rejected. Reason=${reason}`;
   }
-}
+};
 
-window.selectMode = (sourceNode) => {
+window.selectMode = sourceNode => {
   const mode = sourceNode.attributes['sdc-mode'].value;
   this.setupMode(mode);
-  document.querySelectorAll('#modes > button').forEach(node => node.className = node == sourceNode ? 'selected' : '');
-}
+  document.querySelectorAll('#modes > button').forEach(node => (node.className = node == sourceNode ? 'selected' : ''));
+};

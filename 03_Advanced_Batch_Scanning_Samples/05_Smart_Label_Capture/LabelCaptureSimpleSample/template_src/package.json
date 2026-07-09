@@ -22,10 +22,10 @@
     "dependencies": {
         "cordova-plugin-add-swift-support": "2.0.2",
         "cordova-plugin-statusbar": "2.4.3",
-        "scandit-cordova-datacapture-barcode": "8.4.1",
-        "scandit-cordova-datacapture-core": "8.4.1",
-        "scandit-cordova-datacapture-label": "8.4.1",
-        "scandit-cordova-datacapture-label-text": "8.4.1"
+        "scandit-cordova-datacapture-barcode": "8.5.0",
+        "scandit-cordova-datacapture-core": "8.5.0",
+        "scandit-cordova-datacapture-label": "8.5.0",
+        "scandit-cordova-datacapture-label-text": "8.5.0"
     },
     "devDependencies": {}
 }

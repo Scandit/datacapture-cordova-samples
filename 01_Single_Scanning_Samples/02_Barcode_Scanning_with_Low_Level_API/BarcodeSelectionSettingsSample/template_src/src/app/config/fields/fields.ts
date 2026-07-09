@@ -18,7 +18,6 @@ import { NavigationRoute } from '../routes.config';
 import { SettingsFieldName } from './fields-name';
 import { SettingsFieldType } from './fields-type';
 
-
 export interface SettingsFieldOption<T = string> {
   label: string;
   value: T;
@@ -38,7 +37,6 @@ export interface SettingsField<V = any> {
 export type SettingsFields = EnumDictionary<SettingsFieldName, SettingsField>;
 
 export const settingsFields = (Scandit): SettingsFields => ({
-
   // barcode selection
   // barcode selection - selection type
   [SettingsFieldName.SELECTION_TYPE]: {

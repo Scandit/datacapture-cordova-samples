@@ -9,18 +9,18 @@ import { ControlBase } from '../control-base';
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss'],
-  providers: [{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => SliderComponent),
-    multi: true,
-  }]
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => SliderComponent),
+      multi: true,
+    },
+  ],
 })
 export class SliderComponent extends ControlBase<number> {
-
   @Input() formControlName: SettingsFieldName;
 
   constructor(protected platform: Platform) {
     super(platform);
   }
-
 }

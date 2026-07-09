@@ -13,7 +13,6 @@ import { SettingsBase } from '../../settings-base';
   styleUrls: ['./selection-type.component.scss'],
 })
 export class SelectionTypeComponent extends SettingsBase implements OnInit {
-
   public form: BarcodeSelectionSelectionTypeForm;
   public selectionType: SettingsField;
   public freezeBehaviour: SettingsField;
@@ -24,7 +23,7 @@ export class SelectionTypeComponent extends SettingsBase implements OnInit {
     protected route: ActivatedRoute,
     protected platform: Platform,
     protected uiService: UiService,
-    protected settingsService: SettingsService,
+    protected settingsService: SettingsService
   ) {
     super(route, platform, uiService);
   }
@@ -39,5 +38,4 @@ export class SelectionTypeComponent extends SettingsBase implements OnInit {
     this.tapBehaviour = this.getField(SettingsFieldName.TAP_BEHAVIOUR);
     this.selectionStrategy = this.getField(SettingsFieldName.SELECTION_STRATEGY);
   }
-
 }

@@ -1,7 +1,6 @@
 <form [formGroup]="form">
   <ion-card>
     <ion-list>
-
       <ion-item [lines]="lines">
         <ion-label>Value</ion-label>
         <ion-input
@@ -12,10 +11,8 @@
           type="number"
           [required]="true"
           inputmode="decimal"
-          formControlName="value"
-        ></ion-input>
+          formControlName="value"></ion-input>
       </ion-item>
-
     </ion-list>
   </ion-card>
 
@@ -28,6 +25,5 @@
         </ion-item>
       </ion-radio-group>
     </ion-list>
-
   </ion-card>
 </form>

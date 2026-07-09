@@ -8,7 +8,6 @@ import { SettingsService } from 'src/app/services';
   styleUrls: ['./symbology-item.component.scss'],
 })
 export class SymbologyItemComponent implements OnInit {
-
   @Input() symbology: string;
   @Input() enabled: boolean;
 
@@ -16,7 +15,7 @@ export class SymbologyItemComponent implements OnInit {
 
   constructor(
     protected platform: Platform,
-    protected settingsService: SettingsService,
+    protected settingsService: SettingsService
   ) {}
 
   public ngOnInit() {
@@ -30,5 +29,4 @@ export class SymbologyItemComponent implements OnInit {
   public get lines() {
     return this.isIos ? 'full' : 'none';
   }
-
 }

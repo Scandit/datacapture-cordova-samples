@@ -13,7 +13,6 @@ import { SettingsBase } from '../../settings-base';
   styleUrls: ['./overlay.component.scss'],
 })
 export class OverlayComponent extends SettingsBase implements OnInit {
-
   public form: ViewOverlayForm;
 
   public style: SettingsField;
@@ -22,7 +21,7 @@ export class OverlayComponent extends SettingsBase implements OnInit {
     protected route: ActivatedRoute,
     protected platform: Platform,
     protected uiService: UiService,
-    protected settingsService: SettingsService,
+    protected settingsService: SettingsService
   ) {
     super(route, platform, uiService);
   }
@@ -34,5 +33,4 @@ export class OverlayComponent extends SettingsBase implements OnInit {
 
     this.style = this.getField(SettingsFieldName.OVERLAY_STYLE);
   }
-
 }

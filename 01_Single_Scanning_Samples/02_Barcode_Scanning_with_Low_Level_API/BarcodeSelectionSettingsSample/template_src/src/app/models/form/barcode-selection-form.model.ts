@@ -62,4 +62,5 @@ export type BarcodeSelectionPointOfInterestForm = TypedFormGroup<BarcodeSelectio
 export type BarcodeSelectionSelectionTypeForm = TypedFormGroup<BarcodeSelectionSelectionTypeFormValue>;
 export type BarcodeSelectionFeedbackForm = TypedFormGroup<BarcodeSelectionFeedbackFormValue>;
 export type BarcodeSelectionCodeDuplicateFilterForm = TypedFormGroup<BarcodeSelectionCodeDuplicateFilterFormValue>;
-export type BarcodeSelectionSingleBarcodeAutoDetectionForm = TypedFormGroup<BarcodeSelectionSingleBarcodeAutoDetectionFormValue>;
+export type BarcodeSelectionSingleBarcodeAutoDetectionForm =
+  TypedFormGroup<BarcodeSelectionSingleBarcodeAutoDetectionFormValue>;

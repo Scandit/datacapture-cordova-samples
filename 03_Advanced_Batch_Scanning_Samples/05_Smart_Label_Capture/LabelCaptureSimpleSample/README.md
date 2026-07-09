@@ -13,6 +13,7 @@ Our documentation can be found [here](https://docs.scandit.com/data-capture-sdk/
 ## Sample Guidance
 
 The sample demonstrates the use of the [Label Capture](https://docs.scandit.com/data-capture-sdk/cordova/label-capture/api.html) API with the ValidationFlow overlay. It captures labels that include:
+
 - A barcode (EAN-13, UPCA, GS1 Databar Expanded, or Code 128)
 - An expiry date
 - Optionally, a total price

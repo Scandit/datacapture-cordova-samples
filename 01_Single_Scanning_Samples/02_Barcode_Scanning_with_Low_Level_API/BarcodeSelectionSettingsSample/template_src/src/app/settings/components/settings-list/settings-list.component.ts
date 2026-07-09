@@ -14,13 +14,12 @@ import { SettingsBase } from '../settings-base';
   styleUrls: ['./settings-list.component.scss'],
 })
 export class SettingsListComponent extends SettingsBase implements OnInit {
-
   public items$: Observable<NavigationItem[]>;
 
   constructor(
     protected route: ActivatedRoute,
     protected platform: Platform,
-    protected uiService: UiService,
+    protected uiService: UiService
   ) {
     super(route, platform, uiService);
   }

@@ -12,14 +12,13 @@ import { SettingsBase } from '../../settings-base';
   styleUrls: ['./feedback.component.scss'],
 })
 export class FeedbackComponent extends SettingsBase implements OnInit {
-
   public form: BarcodeSelectionFeedbackForm;
 
   constructor(
     protected route: ActivatedRoute,
     protected platform: Platform,
     protected uiService: UiService,
-    protected settingsService: SettingsService,
+    protected settingsService: SettingsService
   ) {
     super(route, platform, uiService);
   }
@@ -29,5 +28,4 @@ export class FeedbackComponent extends SettingsBase implements OnInit {
 
     this.form = this.settingsService.feedbackForm;
   }
-
 }

@@ -21,7 +21,7 @@ export enum NavigationRoute {
   SCAN_AREA = 'scan-area',
   SCAN_AREA_MARGIN_TOP = 'top',
   SCAN_AREA_MARGIN_RIGHT = 'right',
-  SCAN_AREA_MARGIN_BOTTOM =  'bottom',
+  SCAN_AREA_MARGIN_BOTTOM = 'bottom',
   SCAN_AREA_MARGIN_LEFT = 'left',
   POINT_OF_INTEREST = 'point-of-interest',
   POINT_OF_INTEREST_X = 'x',
