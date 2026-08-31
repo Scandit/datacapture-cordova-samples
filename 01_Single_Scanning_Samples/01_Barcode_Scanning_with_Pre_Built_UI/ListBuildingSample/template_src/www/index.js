@@ -110,6 +110,13 @@ const setupSparkScan = () => {
   };
 };
 
+// Tear down the capture process when leaving the page — SparkScan owns the
+// camera, so removing the mode and disposing the view is the complete
+// teardown a multi-page app should run before navigating away.
+window.dispose = async () => {
+  teardownSparkScan();
+};
+
 const teardownSparkScan = () => {
   // Remove mode from context
   if (context && sparkScan) {

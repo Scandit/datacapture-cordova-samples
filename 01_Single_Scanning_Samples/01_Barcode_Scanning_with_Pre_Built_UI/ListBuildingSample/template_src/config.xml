@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.scandit.listbuildingsample" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>ListBuildingSample</name>
-    <description>ListBuildingSample for the Scandit Cordova plugin</description>
+    <description>A basic sample that demonstrates how to populate a list of scanned barcodes using the Scandit SparkScan API.</description>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -17,7 +17,7 @@
         <preference name="android-compileSdkVersion" value="36" />
         <preference name="GradlePluginKotlinEnabled" value="true" />
         <preference name="GradlePluginKotlinVersion" value="1.9.25" />
-         <preference name="GradleVersion" value="8.14.3" />
+        <preference name="GradleVersion" value="8.14.3" />
         <preference name="AndroidGradlePluginVersion" value="8.9.1" />
     </platform>
     <platform name="ios">

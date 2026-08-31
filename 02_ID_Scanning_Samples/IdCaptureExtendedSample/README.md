@@ -1,8 +1,6 @@
-# MatrixScan AR Simple Sample
+# Id Capture Extended Sample
 
-This sample demonstrates the pre-built MatrixScan AR component (BarcodeAr API). It demonstrates how to highlight barcodes and display additional information over them using augmented reality.
-
-The MatrixScan AR UI incorporates our best practices for usability and has been rigorously tested with target users in real-world scenarios.
+This sample demonstrates the ID Capture API with support for extended document types including passports, driver's licenses, and national ID cards with VIZ, barcode, and MRZ scanning modes.
 
 ## Installation
 
@@ -11,26 +9,26 @@ The MatrixScan AR UI incorporates our best practices for usability and has been 
 - Replace the license key in the sample where you see `-- ENTER YOUR SCANDIT LICENSE KEY HERE --`.
 - Build and run this sample on your mobile device.
 
+## What is ID Capture?
+
+ID Capture is a capability of Scandit's Data Capture SDK that enables fast and reliable scanning of identity documents.
+
 ## AI Coding Skills
 
-Use the matching Scandit skill to get AI-assisted help for this sample. Install the Scandit skills collection once, then invoke the matrixscan-ar-cordova skill.
+Use the matching Scandit skill to get AI-assisted help for this sample. Install the Scandit skills collection once, then invoke the id-capture-cordova skill.
 
 [![Install via skills.sh](https://img.shields.io/badge/skills.sh-install-green)](https://skills.sh/scandit/skills)
 [![Install in Cursor](https://img.shields.io/badge/Install%20in-Cursor-blue?style=flat-square&logo=cursor)](https://cursor.com/marketplace/scandit)
 
 ## Documentation
 
-Our SDK is supported on most popular frameworks.
+ID Capture is a fully-flexible API of the Scandit Data Capture SDK. Our SDK is supported on most popular frameworks.
 
 [iOS](https://docs.scandit.com/data-capture-sdk/ios/index.html), [Android](https://docs.scandit.com/data-capture-sdk/android/index.html), [Web](https://docs.scandit.com/data-capture-sdk/web/index.html), [Cordova](https://docs.scandit.com/data-capture-sdk/cordova/index.html), .NET ([iOS](https://docs.scandit.com/data-capture-sdk/dotnet.ios/index.html), [Android](https://docs.scandit.com/data-capture-sdk/dotnet.android/index.html)), [React Native](https://docs.scandit.com/data-capture-sdk/react-native/index.html), [Flutter](https://docs.scandit.com/data-capture-sdk/flutter/index.html), [Capacitor](https://docs.scandit.com/data-capture-sdk/capacitor/index.html), [Titanium](https://docs.scandit.com/data-capture-sdk/titanium/index.html)
 
-## Sample Barcodes
-
-Once you get the sample up and running, go find some barcodes to scan. Don't feel like getting up from your desk? Here's a [handy pdf of barcodes](https://github.com/Scandit/.github/blob/main/images/PrintTheseBarcodes.pdf) you can print out.
-
 ## Trial Signup
 
-To add BarcodeAR to your app, sign up for your Scandit Developer Account and get instant access to your license key: [https://ssl.scandit.com/dashboard/sign-up?p=test](https://ssl.scandit.com/dashboard/sign-up?p=test)
+To add ID Capture to your app, sign up for your Scandit Developer Account and get instant access to your license key: [https://ssl.scandit.com/dashboard/sign-up?p=test](https://ssl.scandit.com/dashboard/sign-up?p=test)
 
 ## Support
 

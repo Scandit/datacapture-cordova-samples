@@ -40,6 +40,15 @@ document.addEventListener(
     window.selectMode(document.querySelector('#modes .selected'));
 
     camera.switchToDesiredState(Scandit.FrameSourceState.On);
+
+    // Tear down the capture process when leaving the page — the same steps any
+    // multi-page app should take before navigating away: stop the camera,
+    // detach the modes, and remove the native capture view.
+    window.dispose = async () => {
+      await camera.switchToDesiredState(Scandit.FrameSourceState.Off);
+      await window.context.removeAllModes();
+      await window.view.removeNativeView();
+    };
     window.idCapture.isEnabled = true;
   },
   false

@@ -319,6 +319,10 @@ function updateToPopoverMode() {
               .withIconColor(whiteColor)
               .build();
           }
+
+          // Reset the AR view to clear cached annotations, so the popover is not
+          // shown again for barcodes that have already been accepted or rejected.
+          await barcodeArView.reset();
         },
       };
 
@@ -356,6 +360,9 @@ function updateToStatusIconsMode() {
       if (!barcode.data) return null;
 
       const annotation = new Scandit.BarcodeArStatusIconAnnotation(barcode);
+      if (!barcodeStatus.has(barcode.data)) {
+        barcodeStatus.set(barcode.data, barcodeStatus.size % 2 === 0 ? 'closeToExpiry' : 'expired');
+      }
       const status = barcodeStatus.get(barcode.data);
 
       if (status === 'closeToExpiry') {
@@ -442,6 +449,10 @@ async function initializeSDK() {
   // Don't start the camera yet - wait for user to select a feature
 }
 
+// Tear down the capture process when leaving the page — the same steps any
+// multi-page app should take before navigating away.
+window.dispose = () => uninitializeSDK();
+
 async function uninitializeSDK() {
   // Stop camera
   if (camera) {
@@ -449,7 +460,7 @@ async function uninitializeSDK() {
     camera = null;
   }
 
-  barcodeArView.detachFromElement();
+  await barcodeArView.detachFromElement();
   barcodeArView = null;
 
   // Go back to home

@@ -1,6 +1,6 @@
 {
     "name": "matrixscanarsimplesample",
-    "displayName": "MatrixScanARSimpleSample",
+    "displayName": "MSARSimple",
     "version": "1.0.0",
     "description": "MatrixScanARSimpleSample for the Scandit Cordova plugin",
     "main": "index.js",
@@ -19,8 +19,8 @@
     },
     "dependencies": {
         "cordova-plugin-add-swift-support": "2.0.2",
-        "scandit-cordova-datacapture-barcode": "8.5.3",
-        "scandit-cordova-datacapture-core": "8.5.3",
+        "scandit-cordova-datacapture-core": "8.6.0",
+        "scandit-cordova-datacapture-barcode": "8.6.0",
         "cordova-plugin-statusbar": "2.4.3"
     },
     "devDependencies": {}

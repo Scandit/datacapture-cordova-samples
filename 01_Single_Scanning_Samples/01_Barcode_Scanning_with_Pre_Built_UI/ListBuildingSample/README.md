@@ -1,8 +1,6 @@
-# MatrixScan AR Simple Sample
+# List Building Sample
 
-This sample demonstrates the pre-built MatrixScan AR component (BarcodeAr API). It demonstrates how to highlight barcodes and display additional information over them using augmented reality.
-
-The MatrixScan AR UI incorporates our best practices for usability and has been rigorously tested with target users in real-world scenarios.
+This sample demonstrates the SparkScan API for building a list of scanned items. It shows how to use the pre-built SparkScan UI optimized for high-speed, scan-intensive workflows.
 
 ## Installation
 
@@ -11,16 +9,20 @@ The MatrixScan AR UI incorporates our best practices for usability and has been 
 - Replace the license key in the sample where you see `-- ENTER YOUR SCANDIT LICENSE KEY HERE --`.
 - Build and run this sample on your mobile device.
 
+## What is SparkScan?
+
+SparkScan is a purpose-built API of the Scandit Data Capture SDK designed for high-speed, high-volume scanning workflows. It provides an optimized UI component that enables fast, ergonomic scanning of multiple items in rapid succession.
+
 ## AI Coding Skills
 
-Use the matching Scandit skill to get AI-assisted help for this sample. Install the Scandit skills collection once, then invoke the matrixscan-ar-cordova skill.
+Use the matching Scandit skill to get AI-assisted help for this sample. Install the Scandit skills collection once, then invoke the sparkscan-cordova skill.
 
 [![Install via skills.sh](https://img.shields.io/badge/skills.sh-install-green)](https://skills.sh/scandit/skills)
 [![Install in Cursor](https://img.shields.io/badge/Install%20in-Cursor-blue?style=flat-square&logo=cursor)](https://cursor.com/marketplace/scandit)
 
 ## Documentation
 
-Our SDK is supported on most popular frameworks.
+SparkScan is a purpose-built API of the Scandit Data Capture SDK. Our SDK is supported on most popular frameworks.
 
 [iOS](https://docs.scandit.com/data-capture-sdk/ios/index.html), [Android](https://docs.scandit.com/data-capture-sdk/android/index.html), [Web](https://docs.scandit.com/data-capture-sdk/web/index.html), [Cordova](https://docs.scandit.com/data-capture-sdk/cordova/index.html), .NET ([iOS](https://docs.scandit.com/data-capture-sdk/dotnet.ios/index.html), [Android](https://docs.scandit.com/data-capture-sdk/dotnet.android/index.html)), [React Native](https://docs.scandit.com/data-capture-sdk/react-native/index.html), [Flutter](https://docs.scandit.com/data-capture-sdk/flutter/index.html), [Capacitor](https://docs.scandit.com/data-capture-sdk/capacitor/index.html), [Titanium](https://docs.scandit.com/data-capture-sdk/titanium/index.html)
 
@@ -30,7 +32,7 @@ Once you get the sample up and running, go find some barcodes to scan. Don't fee
 
 ## Trial Signup
 
-To add BarcodeAR to your app, sign up for your Scandit Developer Account and get instant access to your license key: [https://ssl.scandit.com/dashboard/sign-up?p=test](https://ssl.scandit.com/dashboard/sign-up?p=test)
+To add SparkScan to your app, sign up for your Scandit Developer Account and get instant access to your license key: [https://ssl.scandit.com/dashboard/sign-up?p=test](https://ssl.scandit.com/dashboard/sign-up?p=test)
 
 ## Support
 

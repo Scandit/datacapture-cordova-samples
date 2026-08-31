@@ -109,6 +109,15 @@ document.addEventListener(
     // Switch camera on to start streaming frames and enable the barcode capture mode.
     // The camera is started asynchronously and will take some time to completely turn on.
     camera.switchToDesiredState(Scandit.FrameSourceState.On);
+
+    // Tear down the capture process when leaving the page — the same steps any
+    // multi-page app should take before navigating away: stop the camera,
+    // detach the modes, and remove the native capture view.
+    window.dispose = async () => {
+      await camera.switchToDesiredState(Scandit.FrameSourceState.Off);
+      await context.removeAllModes();
+      await view.removeNativeView();
+    };
     barcodeCapture.isEnabled = true;
   },
   false

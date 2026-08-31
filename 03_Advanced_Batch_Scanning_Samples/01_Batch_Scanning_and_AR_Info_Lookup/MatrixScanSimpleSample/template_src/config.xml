@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.scandit.matrixscansimplesample" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>MSSimple</name>
-    <description>MatrixScanSimpleSample for the Scandit Cordova plugin</description>
+    <description>Very simple sample which shows how you can highlight barcodes on screen with the Scandit Data Capture SDK.</description>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
@@ -17,7 +17,7 @@
         <preference name="android-compileSdkVersion" value="36" />
         <preference name="GradlePluginKotlinEnabled" value="true" />
         <preference name="GradlePluginKotlinVersion" value="1.9.25" />
-         <preference name="GradleVersion" value="8.14.3" />
+        <preference name="GradleVersion" value="8.14.3" />
         <preference name="AndroidGradlePluginVersion" value="8.9.1" />
     </platform>
     <platform name="ios">

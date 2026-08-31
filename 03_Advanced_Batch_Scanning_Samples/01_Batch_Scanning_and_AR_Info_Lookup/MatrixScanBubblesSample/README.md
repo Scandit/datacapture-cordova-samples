@@ -1,4 +1,6 @@
-# MatrixScan Simple Sample
+# Matrix Scan Bubbles Sample
+
+This sample demonstrates the MatrixScan Batch (BarcodeBatch) API. It shows how to scan multiple barcodes simultaneously and display AR bubble overlays on each detected barcode.
 
 MatrixScan is a multi-code scanning capability available via the fully-customizable Barcode Batch API of the Scandit Data Capture SDK.
 
@@ -33,7 +35,7 @@ Our SDK is supported on most popular frameworks.
 
 ## Sample Barcodes
 
-Once you get the sample up and running, go find some barcodes to scan. Don’t feel like getting up from your desk? Here’s a [handy pdf of barcodes](https://github.com/Scandit/.github/blob/main/images/PrintTheseBarcodes.pdf) you can print out.
+Once you get the sample up and running, go find some barcodes to scan. Don't feel like getting up from your desk? Here's a [handy pdf of barcodes](https://github.com/Scandit/.github/blob/main/images/PrintTheseBarcodes.pdf) you can print out.
 
 ## Trial Signup
 

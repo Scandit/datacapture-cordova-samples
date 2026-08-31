@@ -6,6 +6,13 @@ This sample shows how to use Label Capture to recognize and capture retail label
 
 This sample app can be found in our [sample apps repository](https://github.com/Scandit/datacapture-cordova-samples) on Github.
 
+## AI Coding Skills
+
+Use the matching Scandit skill to get AI-assisted help for this sample. Install the Scandit skills collection once, then invoke the label-capture-cordova skill.
+
+[![Install via skills.sh](https://img.shields.io/badge/skills.sh-install-green)](https://skills.sh/scandit/skills)
+[![Install in Cursor](https://img.shields.io/badge/Install%20in-Cursor-blue?style=flat-square&logo=cursor)](https://cursor.com/marketplace/scandit)
+
 ## Documentation
 
 Our documentation can be found [here](https://docs.scandit.com/data-capture-sdk/cordova/).
