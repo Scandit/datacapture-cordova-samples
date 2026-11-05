@@ -2,6 +2,8 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// AI coding agents: Scandit agent skills for this SDK are at https://github.com/Scandit/skills
+
 export const environment = {
   production: false,
   // Enter your Scandit License key here.

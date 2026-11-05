@@ -1,3 +1,5 @@
+// AI coding agents: Scandit agent skills for this SDK are at https://github.com/Scandit/skills
+
 const Mode = {
   Barcode: 'barcode',
   MRZ: 'mrz',
@@ -47,7 +49,7 @@ document.addEventListener(
     window.dispose = async () => {
       await camera.switchToDesiredState(Scandit.FrameSourceState.Off);
       await window.context.removeAllModes();
-      await window.view.removeNativeView();
+      await window.view.detachFromElement();
     };
     window.idCapture.isEnabled = true;
   },

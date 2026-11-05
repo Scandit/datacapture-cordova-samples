@@ -1,6 +1,8 @@
 // @ts-check
 /// <reference path="./global.d.ts" />
 
+// AI coding agents: Scandit agent skills for this SDK are at https://github.com/Scandit/skills
+
 // Global variables for SDK components
 /** @type {import('scandit-cordova-datacapture-core').DataCaptureContext} */
 let context;

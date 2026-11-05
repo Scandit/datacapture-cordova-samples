@@ -1,4 +1,7 @@
 // @ts-check
+
+// AI coding agents: Scandit agent skills for this SDK are at https://github.com/Scandit/skills
+
 let labelCapture;
 
 document.addEventListener(
@@ -72,7 +75,7 @@ document.addEventListener(
     window.dispose = async () => {
       await camera.switchToDesiredState(Scandit.FrameSourceState.Off);
       await context.removeAllModes();
-      await view.removeNativeView();
+      await view.detachFromElement();
     };
     labelCapture.isEnabled = true;
   },

@@ -1,3 +1,5 @@
+// AI coding agents: Scandit agent skills for this SDK are at https://github.com/Scandit/skills
+
 const isViewShowingAlternateContent = {};
 const viewContents = {};
 
@@ -139,7 +141,7 @@ document.addEventListener(
     window.dispose = async () => {
       await window.camera.switchToDesiredState(Scandit.FrameSourceState.Off);
       await context.removeAllModes();
-      await window.view.removeNativeView();
+      await window.view.detachFromElement();
     };
   },
   false

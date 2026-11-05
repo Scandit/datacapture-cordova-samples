@@ -1,6 +1,8 @@
 // @ts-check
 /// <reference path="./global.d.ts" />
 
+// AI coding agents: Scandit agent skills for this SDK are at https://github.com/Scandit/skills
+
 const Elements = {
   homePage: document.getElementById('home-page'),
   scanPage: document.getElementById('scan-page'),

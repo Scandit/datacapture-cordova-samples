@@ -46,6 +46,10 @@ ID Scanning Samples demonstrate the features of the ID Capture API and demonstra
 
 **ID Capture Extended Sample** ([Cordova](https://github.com/Scandit/datacapture-cordova-samples/tree/master/02_ID_Scanning_Samples/IdCaptureExtendedSample))
 
+## AI Coding Skills
+
+Scandit's AI coding skills teach your coding agent (Claude Code, Cursor, Codex, GitHub Copilot and others) how to pick the right Scandit product and integrate the Data Capture SDK. See [github.com/Scandit/skills](https://github.com/Scandit/skills) for install instructions.
+
 ## Samples on Other Frameworks
 
 Samples on other frameworks are located at [https://github.com/scandit](https://github.com/scandit).

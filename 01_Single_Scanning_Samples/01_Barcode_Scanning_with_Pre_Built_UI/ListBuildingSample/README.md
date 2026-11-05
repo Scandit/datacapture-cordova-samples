@@ -2,6 +2,10 @@
 
 This sample demonstrates the SparkScan API for building a list of scanned items. It shows how to use the pre-built SparkScan UI optimized for high-speed, scan-intensive workflows.
 
+## AI Coding Skills
+
+Scandit's AI coding skills teach your coding agent (Claude Code, Cursor, Codex, GitHub Copilot and others) how to pick the right Scandit product and integrate the Data Capture SDK. See [github.com/Scandit/skills](https://github.com/Scandit/skills) for install instructions.
+
 ## Installation
 
 - Clone this repo locally.
@@ -12,13 +16,6 @@ This sample demonstrates the SparkScan API for building a list of scanned items.
 ## What is SparkScan?
 
 SparkScan is a purpose-built API of the Scandit Data Capture SDK designed for high-speed, high-volume scanning workflows. It provides an optimized UI component that enables fast, ergonomic scanning of multiple items in rapid succession.
-
-## AI Coding Skills
-
-Use the matching Scandit skill to get AI-assisted help for this sample. Install the Scandit skills collection once, then invoke the sparkscan-cordova skill.
-
-[![Install via skills.sh](https://img.shields.io/badge/skills.sh-install-green)](https://skills.sh/scandit/skills)
-[![Install in Cursor](https://img.shields.io/badge/Install%20in-Cursor-blue?style=flat-square&logo=cursor)](https://cursor.com/marketplace/scandit)
 
 ## Documentation
 
